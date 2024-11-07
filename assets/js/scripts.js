@@ -98,6 +98,7 @@
   if ($('.swiper').length) {
     var swiper = new Swiper('.swiper', {
       loop: true,
+
       speed: 1000,
       autoHeight: false,
       effect: 'fade',
@@ -109,10 +110,7 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      }
+      autoplay: false
     });
   }
 
