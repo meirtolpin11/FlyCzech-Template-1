@@ -13,14 +13,14 @@ Version: 1.0.0
   VARIABLES
 ----------------------------------------*/
 :root {
-  --color-primary: #ffc300;
-  --color-secondary: #41b681;
+  --color-primary: #0099CC;
+  --color-secondary: #003366;
   --color-black: #243a48;
   --color-gray: #233947;
   --color-background: #f8f6f3;
   --color-white: #FFFFFF;
   --color-line: #ececf0;
-  --color-line-menu: #ffd54d;
+  --color-line-menu: #66C2B8;
   --font-heading: "Quicksand", sans-serif;
   --font-body: "Ysabeau", sans-serif;
   --font-size-1: 22px;
@@ -1114,7 +1114,7 @@ p {
   border-radius: 4px;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  background-color: #fed104;
+  background-color: var(--color-line-menu);
   -webkit-animation: animate 6s linear infinite;
   animation: animate 6s linear infinite;
 }
@@ -1439,7 +1439,7 @@ p {
   position: absolute;
   width: 0;
   height: 4px;
-  background-color: #e2bb0d;
+  background-color: var(--color-line-menu);
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -2045,7 +2045,7 @@ p {
   margin: auto;
   overflow: hidden;
   position: relative;
-  border: 6px solid #ffcb08;
+  border: 6px solid var(--color-line-menu);
   border-radius: 100%;
 }
 
