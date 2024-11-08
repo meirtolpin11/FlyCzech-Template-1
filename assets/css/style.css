@@ -1095,6 +1095,10 @@ p {
   /* Centers content horizontally */
 }
 
+.process-min-height {
+  min-height: 1180px;
+}
+
 /* Add any additional styling to ensure content looks good */
 .section-title-wrap {
   padding: 20px;
@@ -3180,4 +3184,43 @@ p {
   font-weight: 500;
   text-transform: uppercase;
   font-size: 1.2rem;
+}
+
+/* 
+Airplane Button
+*/
+
+/* Airplane-shaped button */
+.button-airplane {
+  display: inline-block;
+  padding: 0;
+  /* Remove any padding, as we want the button to be the image size */
+  background-image: url('../images/plane-button.png');
+  background-size: contain;
+  /* Ensure the image fits inside the button */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Prevent the image from repeating */
+  width: 400px;
+  /* Set a specific width for the button (or adjust as needed) */
+  height: 200px;
+  /* Set a specific height for the button (or adjust as needed) */
+  text-decoration: none;
+  /* Remove any default link styling */
+  border: none;
+  /* Remove any default borders */
+  cursor: pointer;
+  /* Change cursor to indicate it's clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  /* Add shadow to the button */
+}
+
+/* Flying animation on hover */
+.button-airplane:hover {
+  transform: translateY(-5px) rotate(-2deg);
+  /* Lift and tilt effect */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  /* Enhanced shadow on hover */
 }
