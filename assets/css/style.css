@@ -1084,10 +1084,27 @@ p {
 /*----------------------------------
   SECTION TITLE 
   -----------------------------------*/
+
+/* Ensures that each section takes up the full viewport height */
+.section-fullscreen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Centers content vertically */
+  justify-content: center;
+  /* Centers content horizontally */
+}
+
+/* Add any additional styling to ensure content looks good */
 .section-title-wrap {
+  padding: 20px;
+  text-align: center;
+}
+
+/* .section-title-wrap {
   position: relative;
   margin-bottom: 40px;
-}
+} */
 
 .section-title-wrap .section-title {
   display: inline-block;
@@ -1781,7 +1798,18 @@ p {
 /* Slide 1 - dimmed background image */
 .swiper .slide-1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/bg/hero-1.jpg);
+  background-size: cover;
+  /* Ensures the image completely covers the container */
+  background-position: center center;
+  /* Centers the image in the container */
+  background-repeat: no-repeat;
+  /* Ensures the image doesn't repeat */
+  height: 100vh;
+  /* Makes sure the container takes up the full height of the viewport */
+  width: 100%;
+  /* Ensures the container stretches to full width */
 }
+
 
 .swiper .slide-2 {
   background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(black)), url(../images/bg/hero-2.jpg);
