@@ -3224,3 +3224,28 @@ Airplane Button
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
   /* Enhanced shadow on hover */
 }
+
+/* Fleet swiper */
+
+/* Default desktop view - show the grid layout */
+.desktop-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Hide swiper on desktop */
+.swiper-container {
+  display: none;
+}
+
+/* For mobile screens, show the swiper and hide the grid layout */
+@media screen and (max-width: 768px) {
+  .swiper-container {
+    display: block;
+  }
+
+  .desktop-row {
+    display: none;
+  }
+}

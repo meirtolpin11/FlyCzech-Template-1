@@ -114,6 +114,20 @@
     });
   }
 
+  // this is for fleet
+  new Swiper('.swiper-container', {
+    slidesPerView: 1,  // Display one item at a time on mobile
+    spaceBetween: 10,   // Space between the slides
+    loop: true,         // Enable looping
+    pagination: {
+      el: '.swiper-pagination',  // Optional pagination (you can hide this if you don't need it)
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',  // Next slide button
+      prevEl: '.swiper-button-prev',  // Previous slide button
+    },
+  });
 
   /* Lottie Player */
   const playerContainers = document.querySelectorAll(".service-box");
