@@ -2489,8 +2489,10 @@ p {
 
 @media only screen and (min-width: 992px) {
   .project-content-wrap .project-content {
-    margin-right: 30px;
-    padding-bottom: 0;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center the content */
   }
 }
 
