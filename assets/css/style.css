@@ -1725,7 +1725,7 @@ p {
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.095em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: var(--color-white);
   padding-bottom: 10px;
   font-size: calc(1.275rem + 0.3vw);
@@ -1743,7 +1743,7 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 1.15;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   /* Layout */
   max-width: 800px;
   margin: 0 auto;
@@ -2090,7 +2090,7 @@ p {
   ------------------------------*/
 .process-wrap {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .process-content {
