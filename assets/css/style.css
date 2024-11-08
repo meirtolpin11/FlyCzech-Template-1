@@ -1087,7 +1087,7 @@ p {
 
 /* Ensures that each section takes up the full viewport height */
 .section-fullscreen {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   /* Centers content vertically */
