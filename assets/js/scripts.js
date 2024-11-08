@@ -114,10 +114,11 @@
     });
   }
 
-  // this is for fleet
+  // this is for fleets
   new Swiper('.swiper-container', {
     slidesPerView: 1,  // Display one item at a time on mobile
     spaceBetween: 10,   // Space between the slides
+    autoplay: true,
     loop: true,         // Enable looping
     pagination: {
       el: '.swiper-pagination',  // Optional pagination (you can hide this if you don't need it)
@@ -129,6 +130,22 @@
     },
   });
 
+  new Swiper('.process-swiper', {
+    slidesPerView: 1,  // Display one item at a time on mobile
+    spaceBetween: 10,   // Space between slides
+    loop: true,         // Enable looping
+    navigation: {
+      nextEl: '.swiper-button-next',  // Next slide button
+      prevEl: '.swiper-button-prev',  // Previous slide button
+    },
+    breakpoints: {
+      // When screen is larger than 768px, show the content in grid
+      768: {
+        slidesPerView: 'auto',  // Multiple items on desktop
+        spaceBetween: 30,       // More space between the items on desktop
+      },
+    },
+  });
   /* Lottie Player */
   const playerContainers = document.querySelectorAll(".service-box");
   playerContainers.forEach(container => {

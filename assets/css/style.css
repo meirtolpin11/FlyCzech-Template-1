@@ -3249,3 +3249,31 @@ Airplane Button
     display: none;
   }
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000;
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Adjust button position for mobile */
+@media screen and (max-width: 768px) {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .swiper-button-prev {
+    left: 10px;
+  }
+
+  .swiper-button-next {
+    right: 10px;
+  }
+}
