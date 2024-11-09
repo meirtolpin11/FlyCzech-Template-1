@@ -147,20 +147,20 @@
     },
   });
   /* Lottie Player */
-  const playerContainers = document.querySelectorAll(".service-box");
-  playerContainers.forEach(container => {
-    container.addEventListener("mouseover", () => {
-      const player = container.querySelector("lottie-player");
-      player.setDirection(1);
-      player.play();
-    });
+  // const playerContainers = document.querySelectorAll(".service-box");
+  // playerContainers.forEach(container => {
+  //   container.addEventListener("mouseover", () => {
+  //     const player = container.querySelector("lottie-player");
+  //     player.setDirection(1);
+  //     player.play();
+  //   });
 
-    container.addEventListener("mouseleave", () => {
-      const player = container.querySelector("lottie-player");
-      player.setDirection(-1);
-      player.play();
-    });
-  });
+  //   container.addEventListener("mouseleave", () => {
+  //     const player = container.querySelector("lottie-player");
+  //     player.setDirection(-1);
+  //     player.play();
+  //   });
+  // });
 
 
 
@@ -264,3 +264,44 @@
   }
 
 })(jQuery);
+
+
+// Jump between sections 
+
+let scrollTimeout;
+const links = document.querySelectorAll('.nav-link');
+const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
+
+window.addEventListener('wheel', function (event) {
+  event.preventDefault();  // Prevent default scrolling behavior
+
+  clearTimeout(scrollTimeout); // Clear any previous timeout
+
+  // Delay the scroll handling to prevent multiple triggers
+  scrollTimeout = setTimeout(function () {
+    let currentScrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
+    let currentSectionIndex = null;
+
+    // Find the current section that is in the viewport
+    for (let i = 0; i < sections.length; i++) {
+      let sectionTop = sections[i].offsetTop;
+      let sectionBottom = sectionTop + sections[i].offsetHeight;
+      if (currentScrollPosition >= sectionTop && currentScrollPosition < sectionBottom) {
+        currentSectionIndex = i;
+        break;
+      }
+    }
+
+    if (event.deltaY > 0) {
+      // Scroll down: Go to the next section
+      if (currentSectionIndex !== null && currentSectionIndex < sections.length - 1) {
+        window.location.hash = links[currentSectionIndex + 1].getAttribute('href');
+      }
+    } else {
+      // Scroll up: Go to the previous section
+      if (currentSectionIndex !== null && currentSectionIndex > 0) {
+        window.location.hash = links[currentSectionIndex - 1].getAttribute('href');
+      }
+    }
+  }, 150);  // Timeout to avoid fast multiple triggers
+});

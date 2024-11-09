@@ -1096,8 +1096,10 @@ p {
 }
 
 .process-min-height {
-  min-height: 1180px;
+  min-height: max(1180px, 100vh);
 }
+
+
 
 /* Add any additional styling to ensure content looks good */
 .section-title-wrap {
