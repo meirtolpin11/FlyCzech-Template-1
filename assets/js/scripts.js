@@ -266,42 +266,61 @@
 })(jQuery);
 
 
-// Jump between sections 
+// Jump between sections
 
-let scrollTimeout;
-const links = document.querySelectorAll('.nav-link');
-const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
+// let isScrolling = false; // Prevent multiple scroll actions while processing
 
-window.addEventListener('wheel', function (event) {
-  event.preventDefault();  // Prevent default scrolling behavior
+// const links = document.querySelectorAll('.nav-link');
+// const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
 
-  clearTimeout(scrollTimeout); // Clear any previous timeout
+// function jumpToSection(targetIndex) {
+//   // Ensure the targetIndex is within bounds
+//   if (targetIndex < 0 || targetIndex >= sections.length) return;
 
-  // Delay the scroll handling to prevent multiple triggers
-  scrollTimeout = setTimeout(function () {
-    let currentScrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
-    let currentSectionIndex = null;
+//   // Change the URL hash to the target section's href
+//   window.location.hash = links[targetIndex].getAttribute('href');
+// }
 
-    // Find the current section that is in the viewport
-    for (let i = 0; i < sections.length; i++) {
-      let sectionTop = sections[i].offsetTop;
-      let sectionBottom = sectionTop + sections[i].offsetHeight;
-      if (currentScrollPosition >= sectionTop && currentScrollPosition < sectionBottom) {
-        currentSectionIndex = i;
-        break;
-      }
-    }
+// window.addEventListener('wheel', function (event) {
+//   event.preventDefault();  // Prevent default scrolling behavior
 
-    if (event.deltaY > 0) {
-      // Scroll down: Go to the next section
-      if (currentSectionIndex !== null && currentSectionIndex < sections.length - 1) {
-        window.location.hash = links[currentSectionIndex + 1].getAttribute('href');
-      }
-    } else {
-      // Scroll up: Go to the previous section
-      if (currentSectionIndex !== null && currentSectionIndex > 0) {
-        window.location.hash = links[currentSectionIndex - 1].getAttribute('href');
-      }
-    }
-  }, 150);  // Timeout to avoid fast multiple triggers
-});
+//   if (isScrolling) return;  // Ignore if already processing a scroll event
+
+//   isScrolling = true; // Set scrolling state to true
+
+//   // Get the current scroll position relative to the viewport
+//   let currentScrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
+//   let currentSectionIndex = null;
+
+//   // Find the current section in view
+//   for (let i = 0; i < sections.length; i++) {
+//     let sectionTop = sections[i].offsetTop;
+//     let sectionBottom = sectionTop + sections[i].offsetHeight;
+//     if (currentScrollPosition >= sectionTop && currentScrollPosition < sectionBottom) {
+//       currentSectionIndex = i;
+//       break;
+//     }
+//   }
+
+//   if (event.deltaY > 0) {
+//     // Scroll down: Go to the next section
+//     if (currentSectionIndex !== null && currentSectionIndex < sections.length - 1) {
+//       jumpToSection(currentSectionIndex + 1);
+//     }
+//   } else {
+//     // Scroll up: Go to the previous section
+//     if (currentSectionIndex !== null && currentSectionIndex > 0) {
+//       jumpToSection(currentSectionIndex - 1);
+//     }
+//   }
+
+//   // Reset scrolling state after a short delay
+//   setTimeout(() => {
+//     isScrolling = false; // Allow the next scroll event
+//   }, 600);  // Adjust timeout to match desired speed between jumps
+// });
+
+// // Optional: Handle touch events (if you want to handle mobile devices as well)
+// window.addEventListener('touchstart', function (event) {
+//   event.preventDefault();  // Prevent touch scrolling
+// });
