@@ -2036,6 +2036,13 @@ p {
   z-index: 1;
 }
 
+#contact .section-title-wrap p {
+  z-index: 2;
+  /* Bring the paragraph to the foreground */
+  position: relative;
+  /* Ensure z-index is applied */
+}
+
 .contact-wrap .section-title-wrap .section-title-text,
 .contact-wrap .section-title-wrap p,
 .contact-wrap h5 {
@@ -3304,4 +3311,50 @@ Airplane Button
 
 .service-box ul li {
   margin: 5px 0;
+}
+
+/* Pictures from cockpit */
+
+.client-logo-wrap {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  /* Ensures cropping of image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Crops image to fill container while maintaining aspect ratio */
+}
+
+/* Contact us buttons */
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* Stack buttons vertically */
+  gap: 30px;
+  /* Increase gap to create more space between buttons */
+  align-items: center;
+  margin-top: 30px;
+  /* Optional: add top margin for extra separation from other elements */
+}
+
+*/ .button-yellow {
+  background-color: #FFC107;
+  /* Yellow color for Call Us */
+}
+
+.button-whatsapp {
+  background-color: #25D366;
+  /* WhatsApp green color */
+}
+
+.button-map {
+  background-color: #4285F4;
+  /* Google Maps blue color */
 }
