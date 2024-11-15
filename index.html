@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/icofont.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/our-team.css">
 
   <!-- Accessibility -->
   <meta name="robots" content="index, follow">
@@ -641,94 +642,47 @@
   <!-- Process area end -->
 
   <!-- Project area start -->
-  <section id="our-team" class="section-fullscreen project-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
-    <div class="container">
-      <div class="section-title-wrap text-center">
-        <h2 class="section-title"><span class="section-title-text">Our Team</span></h2>
-        <p>Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and contribute
-          to the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation,
-          improve safety, and provide high-quality training through close cooperation with airlines and aviation
-          organizations.</p>
+  <div class="our-team-div">
+    <section id="our-team" class="section-fullscreen our-team-background project-wrap pt-120 pb-120"
+      style="background-color: #f8f6f3;"> <!-- Image section -->
 
-        <!-- Project Content Line added here -->
-        <span class="project-content-line"
-          style="display: block; width: 50%; height: 2px; background-color: #000; margin: 20px auto;"></span>
+      <div class="background-overlay"></div>
 
-      </div>
+      <div class="container">
 
-      <!-- Row for the Swiper Slider -->
-      <div class="row project-slide">
-        <!-- Image and Content Slider (Swiper) -->
-        <div class="col-lg-12 d-flex project-content-wrap">
-          <div class="project-content project-content-carousel">
-            <div class="swiper-wrapper" role="list">
-              <!-- Page 1: Team Member 1 -->
-              <div class="swiper-slide" role="listitem" aria-label="Team Member 1">
-                <div class="d-flex flex-column flex-lg-row align-items-center">
-                  <!-- Team Member Image -->
-                  <div class="project-image col-lg-4 order-1 order-lg-1">
-                    <!-- Add fixed width and height to ensure consistent image size -->
-                    <img src="assets/images/projects/team-member-1.jpg" class="img-fluid" alt="Team Member 1"
-                      style="width: 100%; height: 300px; object-fit: cover;">
-                  </div>
+        <h1 class="hoverable header" data-image="assets/images/team/Josef.jpg" data-description="Originally an aircraft mechanic and pilot, in addition to working for Czech Airlines and Travel
+        Service / Smartwings, he also worked in so-called third world countries. He participated in the
+        implementation of ICAO standards in the African Congo. He then got a taste of flying in military
+        conflicts and returned to the Czech Republic after working in Dubai to pass on his experience."
+          data-title="Co-founder & Chief Pilot"> Josef Pavlíček
+        </h1>
+        <h1 class="hoverable header" data-image="assets/images/team/robert.jpg" data-description="He has been flying since 2011, more often than seen he is heard - as an AFIS dispatcher or as an
+        air traffic controller. Throughout his life, he gradually gained experience as an aviation
+        freelancer,
+        ranging from aircraft avionics maintenance and pilot training to the development and maintenance
+        of
+        flight simulators around the world. Together with Josef, Robert is responsible for the complete
+        management of the company, you can meet him at most Fly Czech activities." data-title="Co-founder & CEO">
+          Robert Scribuck
+        </h1>
 
-                  <!-- Team Member Description -->
-                  <div
-                    class="project-content-single col-lg-8 order-2 order-lg-2 d-flex flex-column justify-content-between">
-                    <div>
-                      <h3 class="project-content-title">Robert Scribuck</h3>
-                      <h4 class="project-content-subtitle">Co-founder & CEO</h4> <!-- Job Title -->
-                      <p class="project-content-text">
-                        He has been flying since 2011, more often than seen he is heard - as an AFIS dispatcher or as an
-                        air traffic controller. Throughout his life, he gradually gained experience as an aviation
-                        freelancer,
-                        ranging from aircraft avionics maintenance and pilot training to the development and maintenance
-                        of
-                        flight simulators around the world. Together with Josef, Robert is responsible for the complete
-                        management of the company, you can meet him at most Fly Czech activities.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page 2: Team Member 2 -->
-              <div class="swiper-slide" role="listitem" aria-label="Team Member 2">
-                <div class="d-flex flex-column flex-lg-row align-items-center">
-                  <!-- Team Member Image -->
-                  <div class="project-image col-lg-4 order-1 order-lg-1">
-                    <!-- Add fixed width and height to ensure consistent image size -->
-                    <img src="assets/images/projects/team-member-2.jpg" class="img-fluid" alt="Team Member 2"
-                      style="width: 100%; height: 300px; object-fit: cover;">
-                  </div>
-
-                  <!-- Team Member Description -->
-                  <div
-                    class="project-content-single col-lg-8 order-2 order-lg-2 d-flex flex-column justify-content-between">
-                    <div>
-                      <h3 class="project-content-title">Josef Pavlíček</h3>
-                      <h4 class="project-content-subtitle">Co-founder & Chief Pilot</h4> <!-- Job Title -->
-                      <p class="project-content-text">
-                        Originally an aircraft mechanic and pilot, in addition to working for Czech Airlines and Travel
-                        Service / Smartwings, he also worked in so-called third world countries. He participated in the
-                        implementation of ICAO standards in the African Congo. He then got a taste of flying in military
-                        conflicts and returned to the Czech Republic after working in Dubai to pass on his experience.
-                      </p>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        <div id="description-box"></div>
 
         <!-- Pagination Controls -->
         <div class="swiper-pagination swiper-project-pagination"></div>
       </div>
+    </section>
+
+    <div class="paragraph-section"> <!-- Paragraph section -->
+      <h4 id="team-member-title"> Our Team </h4>
+      <p id="description-text">
+        Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and contribute to
+        the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation, improve
+        safety, and provide high-quality training through close cooperation with airlines and aviation organizations.
+      </p>
     </div>
-  </section>
+  </div>
+
   <!-- Project area end -->
 
 
@@ -989,6 +943,7 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js//lottie-player.js"></script>
   <script src="assets/js/scripts.js?ver=1.0"></script>
+  <script src="assets/js/our-team.js"></script>
 
 </body>
 
