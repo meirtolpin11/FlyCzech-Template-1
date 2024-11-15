@@ -10,14 +10,14 @@
     background-repeat: no-repeat;
     height: 100vh;
     width: 75%;
-    /* Image section takes 75% of the width */
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    transition: background-image 0.3s linear;
+    transition: background-image 0.3s linear, background-size 0s, background-position 0s;
 }
+
 
 .background-overlay {
     position: absolute;

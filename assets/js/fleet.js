@@ -1,8 +1,8 @@
 // Get all the hoverable headers
-const fleetHeaders = document.querySelectorAll('.header');
+const fleetHeaders = document.querySelectorAll('.fleet-header');
 
 // Set the default background image
-let defaultBackgroundImage = 'assets/images/fleet/all.jpg'; // Default image
+let defaultBackgroundImage = 'url(assets/images/fleet/all.jpg)'; // Default image
 let defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
 let defaultTitle = 'Our Fleet';
 let defaultReg = '';
@@ -12,7 +12,7 @@ let defaultNightRated = '';
 let defaultAvionics = '';
 
 // Set the default background image
-document.getElementById('fleet').style.backgroundImage = `url(${defaultBackgroundImage})`; // Set default background image
+document.getElementById('fleet').style.backgroundImage = defaultBackgroundImage; // Set default background image
 
 // Get the description paragraph elements
 const fleetDescriptionText = document.getElementById('fleet-text');
@@ -26,8 +26,15 @@ const nightRatedElement = document.getElementById('night-rated');
 const avionicsTypeElement = document.getElementById('avionics-type');
 const aircraftInfo = document.getElementById('aircraft-info');
 
+// Function to generate a random number between 1 and 3
+function getRandomSuffix() {
+    return Math.floor(Math.random() * 3) + 1;
+}
+
 // Function to change background image and description on hover
 fleetHeaders.forEach(header => {
+    let changeInterval;
+
     header.addEventListener('mouseenter', function () {
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
@@ -38,8 +45,8 @@ fleetHeaders.forEach(header => {
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
-        // Change background image
-        document.getElementById('fleet').style.backgroundImage = `url(${imageUrl})`;
+        // Set initial background image
+        document.getElementById('fleet').style.backgroundImage = `url(${imageUrl}-${getRandomSuffix()}.jpg)`;
 
         // Change description based on hover
         fleetDescriptionText.textContent = description;
@@ -54,16 +61,21 @@ fleetHeaders.forEach(header => {
 
         // Show the aircraft info when hovering
         aircraftInfo.style.display = 'block';
+
+        // Change background image every 3 seconds
+        changeInterval = setInterval(() => {
+            document.getElementById('fleet').style.backgroundImage = `url(${imageUrl}-${getRandomSuffix()}.jpg)`;
+        }, 3000);  // Change every 3 seconds
     });
 
     header.addEventListener('mouseleave', function () {
         // Revert to the selected default background image and other default values
-        document.getElementById('fleet').style.backgroundImage = `url(${defaultBackgroundImage})`;
+        document.getElementById('fleet').style.backgroundImage = defaultBackgroundImage;
 
         // Revert back to the default description
         fleetDescriptionText.textContent = defaultDescription;
         fleetTitle.textContent = defaultTitle;
-        aircraftReg.textContent = defaultReg;  // Clear aircraft registration info
+        aircraftReg.textContent = defaultReg;
 
         // Clear the aircraft details
         priceElement.textContent = defaultPrice;
@@ -75,11 +87,14 @@ fleetHeaders.forEach(header => {
         if (!defaultTitle) {
             aircraftInfo.style.display = 'none';
         }
+
+        // Clear the interval to stop changing background images when hover ends
+        clearInterval(changeInterval);
     });
 
     header.addEventListener('click', function () {
         // Set the default values based on the clicked header
-        defaultBackgroundImage = this.getAttribute('data-image');
+        defaultBackgroundImage = document.getElementById('fleet').style.backgroundImage;
         defaultDescription = this.getAttribute('data-description');
         defaultTitle = this.getAttribute('data-title');
         defaultReg = this.getAttribute('data-aircraft-reg');
@@ -88,17 +103,7 @@ fleetHeaders.forEach(header => {
         defaultNightRated = this.getAttribute('data-night-rated');
         defaultAvionics = this.getAttribute('data-avionics');
 
-        console.log('New Default Values:');
-        console.log('Background:', defaultBackgroundImage);
-        console.log('Description:', defaultDescription);
-        console.log('Title:', defaultTitle);
-        console.log('Price:', defaultPrice);
-        console.log('Range:', defaultRange);
-        console.log('Night Rated:', defaultNightRated);
-        console.log('Avionics:', defaultAvionics);
-
         // Immediately update the UI with the selected defaults (optional)
-        document.getElementById('fleet').style.backgroundImage = `url(${defaultBackgroundImage})`;
         fleetDescriptionText.textContent = defaultDescription;
         fleetTitle.textContent = defaultTitle;
         aircraftReg.textContent = defaultReg;
