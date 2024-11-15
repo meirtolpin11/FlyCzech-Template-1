@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="assets/css/icofont.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/our-team.css">
+  <link rel="stylesheet" href="assets/css/fleet.css">
 
   <!-- Accessibility -->
   <meta name="robots" content="index, follow">
@@ -84,7 +85,7 @@
         <div class="row">
 
           <div class="col-xxl-12">
-            <nav class="navbar navbar-expand-lg  navbar-light header-nav d-flex">
+            <!-- <nav class="navbar navbar-expand-lg  navbar-light header-nav d-flex">
               <div class="logo-wrap">
                 <a class="navbar-brand" href="index.html">
                   <img src="assets/images/logo.png" class="main-logo" alt="Maha Logo">
@@ -132,7 +133,7 @@
 
 
               </div>
-            </nav>
+            </nav> -->
           </div>
         </div>
       </div>
@@ -234,616 +235,273 @@
               In a competitive aviation market, we stand out by offering exceptional customer service and a genuine
               passion for flying.</p>
           </div>
-          <!-- 
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="counter-wrap">
-                <div class="counter-icon"><img src="assets/images/icons/ongoing-project.png" alt="Ongoing projects">
-                </div>
-                <div class="counter">
-                  <h4>200+</h4>
-                </div>
-                <h5>Ongoing projects</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="counter-wrap">
-                <div class="counter-icon"><img src="assets/images/icons/completed-task.png" alt="Completed projects">
-                </div>
-                <div class="counter">
-                  <h4>600+</h4>
-                </div>
-                <h5>completed projects</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="counter-wrap">
-                <div class="counter-icon"><img src="assets/images/icons/happy-clients.png" alt="Happy clients"></div>
-                <div class="counter">
-                  <h4>400+</h4>
-                </div>
-                <h5>Happy Clients</h5>
-              </div>
-            </div>
-
-          </div> -->
-
         </div>
       </section>
       <!-- About area end -->
 
-      <div class="fleet" id="fleet">
-        <!-- Service area start -->
-        <section class="section-fullscreen service-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
+      <div class="fleet-div">
+        <div class="paragraph-section"> <!-- Paragraph section -->
+          <h4 id="fleet-title"> Our Fleet </h4>
+          <h6 id="aircraft-reg"></h6>
+          <p id="fleet-text">
+            Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.
+          </p>
+          <div id="aircraft-info">
+            <p><strong>Price per Hour:</strong> <span id="price"></span></p>
+            <p><strong>Range:</strong> <span id="range"></span></p>
+            <p><strong>Night Rated:</strong> <span id="night-rated"></span></p>
+            <p><strong>Avionics Type:</strong> <span id="avionics-type"></span></p>
+          </div>
+        </div>
+
+        <section id="fleet" class="section-fullscreen fleet-background project-wrap pt-120 pb-120"
+          style="background-color: #f8f6f3;">
+          <div class="background-overlay"></div>
           <div class="container">
-            <div class="section-title-wrap text-center">
-              <h2 class="section-title" style="display: block; margin-bottom: 20px;">
-                <span class="section-title-text">Fleet</span>
-              </h2>
-              <p style="display: block; margin-top: 10px;">
-                Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.
-              </p>
-            </div>
-
-            <!-- Swiper Container for Mobile -->
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                <!-- Service 1: Cessna 150 -->
-                <div class="swiper-slide">
-                  <div class="service-box">
-                    <div class="box spin circle">
-                      <img src="assets/images/aircraft-1.jpg" alt="Cessna 150" class="rounded-circle"
-                        style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <h5><a href="#">Cessna 150</a></h5>
-                    <p>The Cessna 150 is a reliable, easy-to-fly trainer ideal for beginner pilots and flight schools.
-                    </p>
-                    <ul>
-                      <li><strong>Price per Hour:</strong> 3900 CZK</li>
-                      <li><strong>Range:</strong> 430 miles (700 km)</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Service 2: Tecnam P2008JC -->
-                <div class="swiper-slide">
-                  <div class="service-box">
-                    <div class="box spin circle">
-                      <img src="assets/images/aircraft-2.jpg" alt="Tecnam P2008JC" class="rounded-circle"
-                        style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <h5><a href="#">Tecnam P2008JC</a></h5>
-                    <p>The Tecnam P2008JC is a modern, high-performance light aircraft, perfect for cross-country
-                      flights.</p>
-                    <ul>
-                      <li><strong>Price per Hour:</strong> 3490 CZK</li>
-                      <li><strong>Range:</strong> 500 miles (800 km)</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Service 3: Bristel B23 -->
-                <div class="swiper-slide">
-                  <div class="service-box">
-                    <div class="box spin circle">
-                      <img src="assets/images/aircraft-3.jpg" alt="Bristel B23" class="rounded-circle"
-                        style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <h5><a href="#">Bristel B23</a></h5>
-                    <p>The Bristel B23 offers excellent performance and comfort, ideal for both training and leisure
-                      flights.</p>
-                    <ul>
-                      <li><strong>Price per Hour:</strong> 3800 CZK</li>
-                      <li><strong>Range:</strong> 550 miles (885 km)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div> <!-- End of swiper-wrapper -->
-
-              <!-- Navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div> <!-- End of swiper-container -->
-
-            <!-- Row for desktop (hidden on mobile) -->
-            <div class="row justify-content-center text-center desktop-row">
-              <!-- Same content as the swiper slides but as grid items -->
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="service-box">
-                  <div class="box spin circle">
-                    <img src="assets/images/aircraft-1.jpg" alt="Cessna 150" class="rounded-circle"
-                      style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                  </div>
-                  <h5><a href="#">Cessna 150</a></h5>
-                  <p>The Cessna 150 is a reliable, easy-to-fly trainer ideal for beginner pilots and flight schools.</p>
-                  <ul>
-                    <li><strong>Price per Hour:</strong> 3900 CZK</li>
-                    <li><strong>Range:</strong> 430 miles (700 km)</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="service-box">
-                  <div class="box spin circle">
-                    <img src="assets/images/aircraft-2.jpg" alt="Tecnam P2008JC" class="rounded-circle"
-                      style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                  </div>
-                  <h5><a href="#">Tecnam P2008JC</a></h5>
-                  <p>The Tecnam P2008JC is a modern, high-performance light aircraft, perfect for cross-country flights.
-                  </p>
-                  <ul>
-                    <li><strong>Price per Hour:</strong> 3490 CZK</li>
-                    <li><strong>Range:</strong> 500 miles (800 km)</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="service-box">
-                  <div class="box spin circle">
-                    <img src="assets/images/aircraft-3.jpg" alt="Bristel B23" class="rounded-circle"
-                      style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                  </div>
-                  <h5><a href="#">Bristel B23</a></h5>
-                  <p>The Bristel B23 offers excellent performance and comfort, ideal for both training and leisure
-                    flights.</p>
-                  <ul>
-                    <li><strong>Price per Hour:</strong> 3800 CZK</li>
-                    <li><strong>Range:</strong> 550 miles (885 km)</li>
-                  </ul>
-                </div>
-              </div>
-            </div> <!-- End of row -->
-          </div> <!-- End of container -->
+            <h1 class="hoverable header" data-image="assets/images/fleet/OKISR.jpg"
+              data-description="Cessna 150 is a reliable and easy-to-fly trainer ideal for beginner pilots."
+              data-title="Cessna 150" data-aircraft-reg="OK-ISR" data-price="3800 CZK" data-range="250 nm (465 km)"
+              data-night-rated="Yes" data-avionics="Garmin G1000">
+              Cessna 150
+            </h1>
+            <h1 class="hoverable header" data-image="assets/images/fleet/OKBIT.jpg"
+              data-description="Bristel B23 is a versatile aircraft, suitable for both training and leisure flying."
+              data-title="Bristel B23" data-aircraft-reg="OK-BIT" data-price="3900 CZK" data-range="700 nm (1300 km)"
+              data-night-rated="Yes" data-avionics="Garmin G500">
+              Bristel B23
+            </h1>
+            <h1 class="hoverable header" data-image="assets/images/fleet/OKBIK.jpg"
+              data-description="Tecnam P2008JC is a modern, lightweight aircraft perfect for flight training and touring."
+              data-title="Tecnam P2008JC" data-aircraft-reg="OK-BIK" data-price="3490 CZK" data-range="520 nm (960 km)"
+              data-night-rated="No" data-avionics="Avidyne IFD540">
+              Tecnam P2008JC
+            </h1>
+          </div>
         </section>
-        <!-- Service area end -->
       </div>
 
-  </div>
 
-  <!-- Process area start -->
-  <section class="section-fullscreen process-min-height process-wrap pt-120 pb-120" id="process">
-    <div class="container">
-      <ul class="bg-shapes-top">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <ul class="bg-shapes-bottom">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <div class="section-title-wrap text-center">
-        <h2 class="section-title">
-          <span class="section-title-text">How to Obtain Your EASA PPL at Flyczech</span>
-        </h2>
-        <p>At Flyczech, we offer a comprehensive and structured approach to earning your EASA Private Pilot License
-          (PPL). Follow these six essential steps, from theory to flight, to become a certified pilot!</p>
-      </div>
+      <!-- Project area start -->
+      <div class="our-team-div">
+        <section id="our-team" class="section-fullscreen our-team-background project-wrap pt-120 pb-120"
+          style="background-color: #f8f6f3;"> <!-- Image section -->
 
-      <div class="row">
-        <div class="col-xxl-12">
-          <div class="process-content">
-            <div class="container-fluid">
-              <!-- Swiper Container for Mobile/Tablets (visible only on screens < 992px) -->
-              <div class="swiper-container process-swiper d-block d-lg-none">
-                <div class="swiper-wrapper">
-                  <!-- Process Step 1 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>1</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Ground School</h5>
-                          <p class="overflow-visible">Start your journey with ground school, where you’ll learn
-                            essential theoretical knowledge about aviation, flight principles, navigation, meteorology,
-                            air law, and more.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+          <div class="background-overlay"></div>
 
-                  <!-- Process Step 2 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>2</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Flight Training</h5>
-                          <p class="overflow-visible">Begin your practical flight training with our experienced
-                            instructors. You'll build hands-on flying skills, learning everything from take-offs to
-                            landings and maneuvers in various conditions.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+          <div class="container">
 
-                  <!-- Process Step 3 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>3</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Solo Flights</h5>
-                          <p class="overflow-visible">After mastering the basics, you'll take your first solo flight—a
-                            key milestone that demonstrates your ability to fly independently and safely.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Process Step 4 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>4</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Exams & English Proficiency</h5>
-                          <p class="overflow-visible">Pass the required theoretical exams covering topics such as air
-                            law, navigation, and meteorology. Additionally, demonstrate your English proficiency, a
-                            requirement for international flight operations.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Process Step 5 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>5</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Radio Communication Exam</h5>
-                          <p class="overflow-visible">Complete the radio communication exam to ensure you can
-                            effectively communicate with air traffic control during flights.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Process Step 6 -->
-                  <div class="swiper-slide">
-                    <ul class="process-list">
-                      <li class="process">
-                        <div class="process-circle spin circle">
-                          <span>6</span>
-                          <div class="zigzax-line"></div>
-                        </div>
-                        <div class="info">
-                          <h5 class="title">Flight Test & Certification</h5>
-                          <p class="overflow-visible">Once all exams are complete, undergo a flight test with a
-                            qualified examiner. After passing, you’ll receive your EASA Private Pilot License (PPL) and
-                            be ready to take to the skies!</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div> <!-- End of swiper-wrapper -->
-
-                <!-- Navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div> <!-- End of swiper-container -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Row for Desktop (visible only on screens >= 992px) -->
-      <div class="row justify-content-center text-center d-none d-lg-flex desktop-row">
-
-        <div class="col-xxl-12">
-          <div class="process-content">
-            <div class="container-fluid">
-              <ul class="process-list">
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>1</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Ground School</h5>
-                    <p class="overflow-visible">Start your journey with ground school, where you’ll learn
-                      essential
-                      theoretical knowledge about aviation, flight principles, navigation, meteorology, air law,
-                      and
-                      more.</p>
-                  </div>
-                </li>
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>2</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Flight Training</h5>
-                    <p class="overflow-visible">Begin your practical flight training with our experienced
-                      instructors. You'll build hands-on flying skills, learning everything from take-offs to
-                      landings and maneuvers in various conditions.</p>
-                  </div>
-                </li>
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>3</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Solo Flights</h5>
-                    <p class="overflow-visible">After mastering the basics, you'll take your first solo flight—a
-                      key
-                      milestone that demonstrates your ability to fly independently and safely.</p>
-                  </div>
-                </li>
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>4</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Exams & English Proficiency</h5>
-                    <p class="overflow-visible">Pass the required theoretical exams covering topics such as air
-                      law,
-                      navigation, and meteorology. Additionally, demonstrate your English proficiency, a
-                      requirement
-                      for international flight operations.</p>
-                  </div>
-                </li>
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>5</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Radio Communication Exam</h5>
-                    <p class="overflow-visible">Complete the radio communication exam to ensure you can
-                      effectively
-                      communicate with air traffic control during flights.</p>
-                  </div>
-                </li>
-                <li class="process">
-                  <div class="process-circle spin circle">
-                    <span>6</span>
-                    <div class="zigzax-line"></div>
-                  </div>
-                  <div class="info">
-                    <h5 class="title">Flight Test & Certification</h5>
-                    <p class="overflow-visible">Once all exams are complete, undergo a flight test with a
-                      qualified
-                      examiner. After passing, you’ll receive your EASA Private Pilot License (PPL) and be ready
-                      to
-                      take to the skies!</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Process area end -->
-
-  <!-- Project area start -->
-  <div class="our-team-div">
-    <section id="our-team" class="section-fullscreen our-team-background project-wrap pt-120 pb-120"
-      style="background-color: #f8f6f3;"> <!-- Image section -->
-
-      <div class="background-overlay"></div>
-
-      <div class="container">
-
-        <h1 class="hoverable header" data-image="assets/images/team/Josef.jpg" data-description="Originally an aircraft mechanic and pilot, in addition to working for Czech Airlines and Travel
+            <h1 class="hoverable header" data-image="assets/images/team/Josef.jpg" data-description="Originally an aircraft mechanic and pilot, in addition to working for Czech Airlines and Travel
         Service / Smartwings, he also worked in so-called third world countries. He participated in the
         implementation of ICAO standards in the African Congo. He then got a taste of flying in military
         conflicts and returned to the Czech Republic after working in Dubai to pass on his experience."
-          data-title="Co-founder & Chief Pilot"> Josef Pavlíček
-        </h1>
-        <h1 class="hoverable header" data-image="assets/images/team/robert.jpg" data-description="He has been flying since 2011, more often than seen he is heard - as an AFIS dispatcher or as an
+              data-title="Co-founder & Chief Pilot"> Josef Pavlíček
+            </h1>
+            <h1 class="hoverable header" data-image="assets/images/team/robert.jpg" data-description="He has been flying since 2011, more often than seen he is heard - as an AFIS dispatcher or as an
         air traffic controller. Throughout his life, he gradually gained experience as an aviation
         freelancer,
         ranging from aircraft avionics maintenance and pilot training to the development and maintenance
         of
         flight simulators around the world. Together with Josef, Robert is responsible for the complete
         management of the company, you can meet him at most Fly Czech activities." data-title="Co-founder & CEO">
-          Robert Scribuck
-        </h1>
+              Robert Scribuck
+            </h1>
 
-        <div id="description-box"></div>
+            <div id="description-box"></div>
 
-        <!-- Pagination Controls -->
-        <div class="swiper-pagination swiper-project-pagination"></div>
-      </div>
-    </section>
-
-    <div class="paragraph-section"> <!-- Paragraph section -->
-      <h4 id="team-member-title"> Our Team </h4>
-      <p id="description-text">
-        Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and contribute to
-        the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation, improve
-        safety, and provide high-quality training through close cooperation with airlines and aviation organizations.
-      </p>
-    </div>
-  </div>
-
-  <!-- Project area end -->
-
-
-  <!-- Contact area start -->
-  <section id="contact" class="section-fullscreen contact-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
-    <div class="container">
-      <div class="section-title-wrap text-center">
-        <h2 class="section-title"><span class="section-title-text">How To Contact Us?</span></h2>
-        <!-- Paragraph with updated color -->
-        <p>Ready to take flight? Whether you're interested in beginning your journey as a pilot, booking an introductory
-          flight, or simply learning more about our courses, we’re here to help! Contact us today, and let’s get you
-          soaring. Reach us on WhatsApp for the quickest response, and let’s start your aviation adventure together!</p>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="button-wrapper">
-            <!-- Call Us Button -->
-            <a class="button button-yellow" href="tel:+420773626601" title="Call Us">Call Us</a>
-
-            <!-- WhatsApp Button -->
-            <a class="button button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
-              target="_blank">
-              Chat with us
-            </a>
-
-            <!-- Google Maps Button for Letnany Aeroprague Club -->
-            <a class="button button-map" href="https://maps.app.goo.gl/xp5FqoD9ygRNS5waA" title="Find us on Google Maps"
-              target="_blank">
-              Find us on Google Maps
-            </a>
-
-            <!-- Email Us Button -->
-            <a class="button button-email" href="mailto:info@flyczech.eu" title="Send us an Email">
-              Send us an Email
-            </a>
+            <!-- Pagination Controls -->
+            <div class="swiper-pagination swiper-project-pagination"></div>
           </div>
+        </section>
+
+        <div class="paragraph-section"> <!-- Paragraph section -->
+          <h4 id="team-member-title"> Our Team </h4>
+          <p id="description-text">
+            Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and
+            contribute to
+            the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation,
+            improve
+            safety, and provide high-quality training through close cooperation with airlines and aviation
+            organizations.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Contact area end -->
+
+      <!-- Project area end -->
 
 
-  <div id="clients">
-    <!-- Testimonial area start -->
-    <section class="testimonial-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <h2 class="section-title"><span class="section-title-text">Words from satisfied students</span></h2>
-          <p>We take pride in delivering exceptional training and creating a supportive environment for our students.
-            Hear what our students have to say about their experience obtaining their PPL license and building flight
-            hours with us in Prague.</p>
-        </div>
+      <!-- Contact area start -->
+      <section id="contact" class="section-fullscreen contact-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="section-title"><span class="section-title-text">How To Contact Us?</span></h2>
+            <!-- Paragraph with updated color -->
+            <p>Ready to take flight? Whether you're interested in beginning your journey as a pilot, booking an
+              introductory
+              flight, or simply learning more about our courses, we’re here to help! Contact us today, and let’s get you
+              soaring. Reach us on WhatsApp for the quickest response, and let’s start your aviation adventure together!
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="button-wrapper">
+                <!-- Call Us Button -->
+                <a class="button button-yellow" href="tel:+420773626601" title="Call Us">Call Us</a>
 
-        <div class="testimonial-slider">
-          <div class="swiper-wrapper">
+                <!-- WhatsApp Button -->
+                <a class="button button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
+                  target="_blank">
+                  Chat with us
+                </a>
 
-            <!-- Testimonial 1 -->
-            <div class="swiper-slide">
-              <div class="testimonials-single">
-                <div class="testimonials-text">
-                  <span aria-hidden="true" class="testimonials-quote-top-wrap"><i class="icofont-quote-left"></i></span>
-                  <p>"Fly Czech was an incredible choice for my pilot training. The instructors offered personal
-                    guidance and made sure I understood every aspect, from pre-flight checks to final maneuvers. They
-                    really cared about my progress and were there to help with every detail. Highly recommend!"</p>
-                  <span aria-hidden="true" class="testimonials-quote-wrap"><i class="icofont-quote-right"></i></span>
-                </div>
-                <h3 class="testimonials-title">- Jan Novák, Pilot License Holder</h3>
+                <!-- Google Maps Button for Letnany Aeroprague Club -->
+                <a class="button button-map" href="https://maps.app.goo.gl/xp5FqoD9ygRNS5waA"
+                  title="Find us on Google Maps" target="_blank">
+                  Find us on Google Maps
+                </a>
+
+                <!-- Email Us Button -->
+                <a class="button button-email" href="mailto:info@flyczech.eu" title="Send us an Email">
+                  Send us an Email
+                </a>
               </div>
             </div>
-
-            <!-- Testimonial 2 -->
-            <div class="swiper-slide">
-              <div class="testimonials-single">
-                <div class="testimonials-text">
-                  <span aria-hidden="true" class="testimonials-quote-top-wrap"><i class="icofont-quote-left"></i></span>
-                  <p>"Time-building with Fly Czech has been a fantastic experience. The team is very flexible and made
-                    it easy to schedule flights around my work. They provide top-notch aircraft and a supportive
-                    environment, ensuring I could focus on developing my skills and confidence. It's the best place to
-                    build hours!"</p>
-                  <span aria-hidden="true" class="testimonials-quote-wrap"><i class="icofont-quote-right"></i></span>
-                </div>
-                <h3 class="testimonials-title">- Mher Tolpin, Time-Building Pilot</h3>
-              </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="swiper-slide">
-              <div class="testimonials-single">
-                <div class="testimonials-text">
-                  <span aria-hidden="true" class="testimonials-quote-top-wrap"><i class="icofont-quote-left"></i></span>
-                  <p>"Choosing Fly Czech in Prague was the best decision I made for my PPL training. The instructors are
-                    not only skilled but also very supportive, guiding me through each lesson with patience and
-                    enthusiasm. They go above and beyond to ensure students are prepared for every aspect of flying."
-                  </p>
-                  <span aria-hidden="true" class="testimonials-quote-wrap"><i class="icofont-quote-right"></i></span>
-                </div>
-                <h3 class="testimonials-title">- Petra Horáková, PPL Graduate</h3>
-              </div>
-            </div>
-
-          </div>
-          <div class="swiper-testimonial-pagination"></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <!-- Testimonial area end -->
-
-  <!-- Clients area start -->
-  <section class="client-wrap pt-0 pb-120" style="background-color: #f8f6f3;">
-    <div class="container">
-      <div class="section-title-wrap text-center">
-        <h2 class="section-title"><span class="section-title-text">Pictures from the cockpit!</span></h2>
-      </div>
-
-      <div class="client-slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/1.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/2.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/3.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/4.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/5.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/6.jpg" alt="client logo" class="client-image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="client-logo-wrap">
-              <img src="assets/images/clients/7.jpg" alt="client logo" class="client-image">
-            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+      <!-- Contact area end -->
 
-  <!-- Clients area end -->
+
+      <div id="clients">
+        <!-- Testimonial area start -->
+        <section class="testimonial-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
+          <div class="container">
+            <div class="section-title-wrap text-center">
+              <h2 class="section-title"><span class="section-title-text">Words from satisfied students</span></h2>
+              <p>We take pride in delivering exceptional training and creating a supportive environment for our
+                students.
+                Hear what our students have to say about their experience obtaining their PPL license and building
+                flight
+                hours with us in Prague.</p>
+            </div>
+
+            <div class="testimonial-slider">
+              <div class="swiper-wrapper">
+
+                <!-- Testimonial 1 -->
+                <div class="swiper-slide">
+                  <div class="testimonials-single">
+                    <div class="testimonials-text">
+                      <span aria-hidden="true" class="testimonials-quote-top-wrap"><i
+                          class="icofont-quote-left"></i></span>
+                      <p>"Fly Czech was an incredible choice for my pilot training. The instructors offered personal
+                        guidance and made sure I understood every aspect, from pre-flight checks to final maneuvers.
+                        They
+                        really cared about my progress and were there to help with every detail. Highly recommend!"</p>
+                      <span aria-hidden="true" class="testimonials-quote-wrap"><i
+                          class="icofont-quote-right"></i></span>
+                    </div>
+                    <h3 class="testimonials-title">- Jan Novák, Pilot License Holder</h3>
+                  </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="swiper-slide">
+                  <div class="testimonials-single">
+                    <div class="testimonials-text">
+                      <span aria-hidden="true" class="testimonials-quote-top-wrap"><i
+                          class="icofont-quote-left"></i></span>
+                      <p>"Time-building with Fly Czech has been a fantastic experience. The team is very flexible and
+                        made
+                        it easy to schedule flights around my work. They provide top-notch aircraft and a supportive
+                        environment, ensuring I could focus on developing my skills and confidence. It's the best place
+                        to
+                        build hours!"</p>
+                      <span aria-hidden="true" class="testimonials-quote-wrap"><i
+                          class="icofont-quote-right"></i></span>
+                    </div>
+                    <h3 class="testimonials-title">- Mher Tolpin, Time-Building Pilot</h3>
+                  </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="swiper-slide">
+                  <div class="testimonials-single">
+                    <div class="testimonials-text">
+                      <span aria-hidden="true" class="testimonials-quote-top-wrap"><i
+                          class="icofont-quote-left"></i></span>
+                      <p>"Choosing Fly Czech in Prague was the best decision I made for my PPL training. The instructors
+                        are
+                        not only skilled but also very supportive, guiding me through each lesson with patience and
+                        enthusiasm. They go above and beyond to ensure students are prepared for every aspect of
+                        flying."
+                      </p>
+                      <span aria-hidden="true" class="testimonials-quote-wrap"><i
+                          class="icofont-quote-right"></i></span>
+                    </div>
+                    <h3 class="testimonials-title">- Petra Horáková, PPL Graduate</h3>
+                  </div>
+                </div>
+
+              </div>
+              <div class="swiper-testimonial-pagination"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- Testimonial area end -->
+
+      <!-- Clients area start -->
+      <section class="client-wrap pt-0 pb-120" style="background-color: #f8f6f3;">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="section-title"><span class="section-title-text">Pictures from the cockpit!</span></h2>
+          </div>
+
+          <div class="client-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/1.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/2.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/3.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/4.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/5.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/6.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-logo-wrap">
+                  <img src="assets/images/clients/7.jpg" alt="client logo" class="client-image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clients area end -->
   </div>
 
   <!-- Footer area start -->
@@ -944,6 +602,7 @@
   <script src="assets/js//lottie-player.js"></script>
   <script src="assets/js/scripts.js?ver=1.0"></script>
   <script src="assets/js/our-team.js"></script>
+  <script src="assets/js/fleet.js"></script>
 
 </body>
 

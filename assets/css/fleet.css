@@ -1,0 +1,74 @@
+.fleet-div {
+    display: flex;
+    width: 100%;
+    /* Flexbox to create a two-column layout */
+}
+
+.fleet-background {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 75%;
+    /* Image section takes 75% of the width */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    transition: background-image 0.3s linear;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.fleet-background h1 {
+    text-align: right;
+    color: white;
+    margin: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.fleet-background h1:hover {
+    opacity: 1;
+    color: white !important;
+}
+
+.paragraph-section {
+    width: 25%;
+    /* Paragraph section takes 25% of the width */
+    background-color: rgba(255, 255, 255, 0.429);
+    /* Background color for the paragraph section */
+    display: flex;
+    flex-direction: column;
+    /* Stack title and text vertically */
+    align-items: center;
+    /* Horizontally center the content */
+    justify-content: center;
+    /* Vertically center the content */
+    padding: 20px;
+    color: black;
+    /* Text color set to black */
+    font-size: 16px;
+    text-align: center;
+    /* Centers the text horizontally */
+}
+
+.paragraph-section h1 {
+    margin-bottom: 20px;
+    /* Adds space between title and paragraph */
+}
+
+#aircraft-info {
+    display: none;
+}
