@@ -17,6 +17,7 @@ const aircraftInfo = document.getElementById('aircraft-info');
 let defaultBackgroundImage = ''; // Initially empty, updated on background click
 let isDefaultView = true; // Tracks whether the default view is active
 let isPermanentView = false; // Tracks whether the details are permanent (set by click)
+let clickedHeaderData = null; // Store the data of the clicked header for later use
 
 const defaultBackgroundVideo = 'assets/videos/fleet/fleet.mov';
 const defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
@@ -31,6 +32,7 @@ const defaultAvionics = '';
 function resetToDefault() {
     isDefaultView = true; // Mark default view as active
     isPermanentView = false; // Mark permanent view as inactive
+    clickedHeaderData = null; // Reset clicked header data
     fleetVideo.style.display = 'block'; // Show the video
     fleetElement.style.backgroundImage = ''; // Remove any background image
 
@@ -48,8 +50,9 @@ function resetToDefault() {
 // Hover behavior for headers (temporary view)
 fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
-        if (isPermanentView) return; // Ignore hover if in permanent view
+        if (isPermanentView && !clickedHeaderData) return; // Ignore hover if permanent view is active and no clicked header data
 
+        // Temporarily show hover details
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
         const title = this.getAttribute('data-title');
@@ -71,29 +74,49 @@ fleetHeaders.forEach(header => {
         aircraftInfo.style.display = 'block'; // Show the aircraft info
     });
 
-    // On hover out, revert to the default view if not permanent
+    // On hover out, revert to the clicked header's details if permanent
     header.addEventListener('mouseleave', function () {
-        if (isPermanentView) return; // Don't reset if permanent view is active
-        resetToDefault();
+        if (isPermanentView && clickedHeaderData) {
+            // Revert to the clicked header details
+            fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
+            fleetDescriptionText.textContent = clickedHeaderData.description;
+            fleetTitle.textContent = clickedHeaderData.title;
+            aircraftReg.textContent = clickedHeaderData.reg;
+            priceElement.textContent = clickedHeaderData.price;
+            rangeElement.textContent = clickedHeaderData.range;
+            nightRatedElement.textContent = clickedHeaderData.nightRated;
+            avionicsTypeElement.textContent = clickedHeaderData.avionics;
+            aircraftInfo.style.display = 'block'; // Keep aircraft info visible
+        } else {
+            resetToDefault(); // Revert to default if not permanent
+        }
     });
 
     header.addEventListener('click', function () {
         isPermanentView = true; // Mark permanent view as active
 
-        // Set the clicked airplane as the persistent view
-        const imageUrl = this.getAttribute('data-image');
-        defaultBackgroundImage = `url(${imageUrl})`;
+        // Store clicked header's data for later use
+        clickedHeaderData = {
+            imageUrl: `url(${this.getAttribute('data-image')})`,
+            description: this.getAttribute('data-description'),
+            title: this.getAttribute('data-title'),
+            reg: this.getAttribute('data-aircraft-reg'),
+            price: this.getAttribute('data-price'),
+            range: this.getAttribute('data-range'),
+            nightRated: this.getAttribute('data-night-rated'),
+            avionics: this.getAttribute('data-avionics')
+        };
 
-        // Update persistent defaults
+        // Update persistent view
         fleetVideo.style.display = 'none'; // Hide the video
-        fleetElement.style.backgroundImage = defaultBackgroundImage; // Set the persistent image
-        fleetDescriptionText.textContent = this.getAttribute('data-description');
-        fleetTitle.textContent = this.getAttribute('data-title');
-        aircraftReg.textContent = this.getAttribute('data-aircraft-reg');
-        priceElement.textContent = this.getAttribute('data-price');
-        rangeElement.textContent = this.getAttribute('data-range');
-        nightRatedElement.textContent = this.getAttribute('data-night-rated');
-        avionicsTypeElement.textContent = this.getAttribute('data-avionics');
+        fleetElement.style.backgroundImage = clickedHeaderData.imageUrl; // Set the persistent image
+        fleetDescriptionText.textContent = clickedHeaderData.description;
+        fleetTitle.textContent = clickedHeaderData.title;
+        aircraftReg.textContent = clickedHeaderData.reg;
+        priceElement.textContent = clickedHeaderData.price;
+        rangeElement.textContent = clickedHeaderData.range;
+        nightRatedElement.textContent = clickedHeaderData.nightRated;
+        avionicsTypeElement.textContent = clickedHeaderData.avionics;
         aircraftInfo.style.display = 'block'; // Keep aircraft info visible
     });
 });
