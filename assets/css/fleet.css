@@ -1,7 +1,12 @@
 .fleet-div {
     display: flex;
     width: 100%;
-    /* Flexbox to create a two-column layout */
+    height: 100vh;
+    /* Ensure the parent takes up the full viewport height */
+    justify-content: center;
+    /* Horizontally center the child */
+    align-items: center;
+    /* Vertically center the child */
 }
 
 .fleet-background {
@@ -17,7 +22,6 @@
     justify-content: flex-end;
     transition: background-image 0.3s linear, background-size 0s, background-position 0s;
 }
-
 
 .background-overlay {
     position: absolute;
@@ -46,42 +50,59 @@
 
 .paragraph-section {
     width: 25%;
-    /* Paragraph section takes 25% of the width */
+    height: 60vh;
+    /* Set the height of the text section to 60% of the viewport height */
     background-color: rgba(255, 255, 255, 0.429);
-    /* Background color for the paragraph section */
     display: flex;
     flex-direction: column;
-    /* Stack title and text vertically */
     align-items: center;
-    /* Horizontally center the content */
+    /* Horizontally center content */
     justify-content: center;
-    /* Vertically center the content */
+    /* Vertically center content */
     padding: 20px;
     color: black;
-    /* Text color set to black */
-    font-size: 16px;
+    font-size: 2.5vw;
+    /* Use vw for font size to make it responsive */
     text-align: center;
-    /* Centers the text horizontally */
+}
+
+.paragraph-section h1 {
+    margin-bottom: 20px;
 }
 
 .aircraft-info {
-    font-size: 16px;
+    font-size: 2.5vw;
     text-align: left;
 }
 
 .aircraft-info p {
     margin: 5px 0;
-    /* Reduce the margin between paragraphs */
     line-height: 1.2;
-    /* Adjust line spacing for a tighter layout */
-}
-
-
-.paragraph-section h1 {
-    margin-bottom: 20px;
-    /* Adds space between title and paragraph */
 }
 
 #aircraft-info {
     display: none;
+}
+
+/* Media Queries to adjust text size based on viewport height */
+@media (max-height: 600px) {
+    .paragraph-section {
+        font-size: 3vw;
+        /* Smaller font size for smaller screens */
+    }
+
+    .aircraft-info {
+        font-size: 3vw;
+    }
+}
+
+@media (max-height: 400px) {
+    .paragraph-section {
+        font-size: 4vw;
+        /* Even smaller font size for very small screens */
+    }
+
+    .aircraft-info {
+        font-size: 4vw;
+    }
 }
