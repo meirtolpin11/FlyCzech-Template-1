@@ -2049,7 +2049,7 @@ p {
   ------------------------------*/
 .contact-wrap {
   position: relative;
-  background: url(../images/bg/contact-block.jpg) center center no-repeat fixed;
+  /* background: url(../images/bg/contact-block.jpg) center center no-repeat fixed; */
   background-size: auto;
   background-size: cover;
 }

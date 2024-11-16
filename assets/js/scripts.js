@@ -1,13 +1,13 @@
 (function ($) {
   "use strict";
 
-  /* Preloader */
-  var preloader = $("#preloader");
+  // /* Preloader */
+  // var preloader = $("#preloader");
 
 
-  $(window).on('load', function () {
-    preloader.fadeOut('slow');
-  });
+  // $(window).on('load', function () {
+  //   preloader.fadeOut('slow');
+  // });
 
   /* Sticky Header */
   // var header = $(".page-header");
