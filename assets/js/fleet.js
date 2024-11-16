@@ -16,6 +16,7 @@ const aircraftInfo = document.getElementById('aircraft-info');
 // Default content
 let defaultBackgroundImage = ''; // Initially empty, updated on background click
 let isDefaultView = true; // Tracks whether the default view is active
+let isPermanentView = false; // Tracks whether the details are permanent (set by click)
 
 const defaultBackgroundVideo = 'assets/videos/fleet/fleet.mov';
 const defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
@@ -29,6 +30,7 @@ const defaultAvionics = '';
 // Function to reset to the default view
 function resetToDefault() {
     isDefaultView = true; // Mark default view as active
+    isPermanentView = false; // Mark permanent view as inactive
     fleetVideo.style.display = 'block'; // Show the video
     fleetElement.style.backgroundImage = ''; // Remove any background image
 
@@ -43,10 +45,10 @@ function resetToDefault() {
     aircraftInfo.style.display = 'none'; // Hide the aircraft info
 }
 
-// Hover behavior for headers
+// Hover behavior for headers (temporary view)
 fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
-        if (!isDefaultView) return; // Ignore hover if not in default view
+        if (isPermanentView) return; // Ignore hover if in permanent view
 
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
@@ -69,8 +71,14 @@ fleetHeaders.forEach(header => {
         aircraftInfo.style.display = 'block'; // Show the aircraft info
     });
 
+    // On hover out, revert to the default view if not permanent
+    header.addEventListener('mouseleave', function () {
+        if (isPermanentView) return; // Don't reset if permanent view is active
+        resetToDefault();
+    });
+
     header.addEventListener('click', function () {
-        isDefaultView = false; // Mark default view as inactive
+        isPermanentView = true; // Mark permanent view as active
 
         // Set the clicked airplane as the persistent view
         const imageUrl = this.getAttribute('data-image');
