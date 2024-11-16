@@ -61,39 +61,56 @@
     /* Vertically center content */
     padding: 20px;
     color: black;
-    font-size: 1.8vw;
-    /* Use vw for font size to make it responsive */
+    font-size: 2.5vw;
+    /* Base font size set to 2.5vw */
     text-align: center;
 }
 
 .paragraph-section h1 {
     margin-bottom: 15px;
     /* Adjust the spacing between the title and the text */
-    font-size: 2.2vw;
-    /* Smaller title size */
+    font-size: 3vw;
+    /* Adjust font size for the header */
 }
 
-/* Media Queries to adjust text size based on viewport height */
+/* Media Queries to adjust text size based on viewport height and width */
 @media (max-height: 600px) {
     .paragraph-section {
-        font-size: 2.5vw;
-        /* Slightly bigger font size for small screens */
+        font-size: 1vw;
+        /* Smaller font size for smaller screens */
     }
 
     .paragraph-section h1 {
-        font-size: 2.8vw;
-        /* Adjust title size for small screens */
+        font-size: 1.5vw;
+        /* Adjust title size for smaller screens */
     }
 }
 
 @media (max-height: 400px) {
     .paragraph-section {
-        font-size: 3vw;
-        /* Even smaller font size for very small screens */
+        font-size: 1.5vw;
+        /* Further reduce font size for very small screens */
     }
 
     .paragraph-section h1 {
-        font-size: 3.2vw;
-        /* Even smaller title size for very small screens */
+        font-size: 1vw;
+        /* Further reduce title size for very small screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .paragraph-section {
+        font-size: 1vw;
+        /* Ensure text size reduces on narrow screens */
+    }
+
+    .paragraph-section h1 {
+        font-size: 1.5vw;
+        /* Adjust title size for narrow screens */
+    }
+
+    .paragraph-section h4 {
+        font-size: 2vw;
+        /* Adjust title size for narrow screens */
     }
 }

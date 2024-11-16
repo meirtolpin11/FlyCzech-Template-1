@@ -61,7 +61,7 @@
     /* Vertically center content */
     padding: 20px;
     color: black;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     /* Use vw for font size to make it responsive */
     text-align: center;
 }
@@ -71,7 +71,7 @@
 }
 
 .aircraft-info {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     text-align: left;
 }
 
@@ -86,23 +86,13 @@
 
 /* Media Queries to adjust text size based on viewport height */
 @media (max-height: 600px) {
-    .paragraph-section {
-        font-size: 3vw;
-        /* Smaller font size for smaller screens */
-    }
-
     .aircraft-info {
-        font-size: 3vw;
+        font-size: 1vw;
     }
 }
 
 @media (max-height: 400px) {
-    .paragraph-section {
-        font-size: 4vw;
-        /* Even smaller font size for very small screens */
-    }
-
     .aircraft-info {
-        font-size: 4vw;
+        font-size: 1vw;
     }
 }
