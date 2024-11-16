@@ -1,3 +1,44 @@
+/* RELATED TO THUMBNAIL -  TODO: MOVE */
+/* Set the container to relative positioning */
+.swiper-slide {
+    position: relative;
+}
+
+/* Position the thumbnail behind other content */
+.background-thumbnail {
+    position: absolute;
+    /* Make it positioned absolutely within the swiper-slide */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure it covers the entire area without stretching */
+    z-index: -1;
+    /* Move it to the background */
+}
+
+/* Ensure the video is positioned correctly behind other content */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the video also covers the full area */
+    z-index: -1;
+    /* Ensure it's also behind the content */
+}
+
+/* Make sure slide content stays on top */
+.slide-content {
+    position: relative;
+    z-index: 1;
+    /* Ensure the content stays in front */
+}
+
+
 .fleet-div {
     display: flex;
     width: 100%;

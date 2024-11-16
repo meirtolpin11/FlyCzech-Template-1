@@ -46,8 +46,8 @@
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="preload" href="assets/images/per.mov" as="image">
-  <link rel="preload" href="assets/images/fleet/fleet.mov" as="image">
+  <!-- <link rel="preload" href="assets/images/per.mov" as="image"> -->
+  <!-- <link rel="preload" href="assets/images/fleet/fleet.mov" as="image"> -->
   <link rel="preload" href="assets/images/team/josef.jpg" as="image">
   <link rel="preload" href="assets/images/team/robert.jpg" as="image">
 
@@ -58,7 +58,7 @@
 
   <div id="preloader">
 
-    <div class="preloader-container">
+    <!-- <div class="preloader-container">
       <div class="coast">
         <div class="wave-rel-wrap">
           <div class="wave"></div>
@@ -76,7 +76,7 @@
       <div class="preloader-text preloader-text-5">I</div>
       <div class="preloader-text preloader-text-6">N</div>
       <div class="preloader-text preloader-text-7">G</div>
-    </div>
+    </div> -->
 
 
   </div>
@@ -139,7 +139,6 @@
 
     <!-- Page content area start -->
     <main>
-
       <!-- Banner area start -->
       <section class="section-fullscreen banner-wrap pb-130" id="home">
         <!-- Slider main container -->
@@ -148,10 +147,13 @@
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide slide-1">
-              <video autoplay muted loop class="background-video">
-                <source src="assets/images/per.mov" type="video/mp4">
-                Your browser does not support the video tag.
+
+              <video id="background-video-1" class="background-video" autoplay muted loop preload="auto"
+                poster="assets/images/bg/hero-1.jpg">
+
+                <source id="video-source-1" src="assets/images/per.mov" type="video/mp4">
               </video>
+
               <div class="slide-content">
                 <p class="slide-title-1">Your journey starts here.</p>
                 <h1 class="slide-title-2">Fly Czech: Where your aviation dreams take flight.</h1>
@@ -166,7 +168,6 @@
         </div>
       </section>
       <!-- Banner area end -->
-
 
       <div id="fleet-div" class="fleet-div">
         <div class="paragraph-section"> <!-- Paragraph section -->
@@ -195,7 +196,8 @@
           style="background-color: #f8f6f3; position: relative;">
           <!-- Default video as the background -->
           <video id="fleet-video" autoplay muted loop
-            style="width: 100%; height: 100vh; object-fit: cover; position: absolute; z-index: 0;">
+            style="width: 100%; height: 100vh; object-fit: cover; position: absolute; z-index: 0;"
+            poster="assets/images/fleet/all.jpg">
             <source src="assets/images/fleet/fleet.mov" type="video/mp4">
           </video>
           <div class="background-overlay"></div>
@@ -547,6 +549,7 @@
   <script src="assets/js/our-team.js"></script>
   <script src="assets/js/fleet.js"></script>
   <script src="assets/js/scroll.js"></script>
+  <script src="assets/js/video.js"></script>
 
 </body>
 
