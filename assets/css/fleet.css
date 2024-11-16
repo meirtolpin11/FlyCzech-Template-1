@@ -82,6 +82,15 @@
     z-index: 10;
 }
 
+.fleet-background h6 {
+    text-align: right;
+    color: white;
+    margin: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+    z-index: 10;
+}
+
 .fleet-background h1:hover {
     opacity: 1;
     color: white !important;

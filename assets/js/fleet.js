@@ -1,7 +1,8 @@
-// Get all the hoverable headers
-const fleetHeaders = document.querySelectorAll('.fleet-header');
+// Get the reset message element
+const resetMessage = document.getElementById('reset-message');
 
 // Default elements and content
+const fleetHeaders = document.querySelectorAll('.fleet-header');
 const fleetElement = document.getElementById('fleet');
 const fleetVideo = document.getElementById('fleet-video');
 const fleetDescriptionText = document.getElementById('fleet-text');
@@ -45,6 +46,9 @@ function resetToDefault() {
     nightRatedElement.textContent = defaultNightRated;
     avionicsTypeElement.textContent = defaultAvionics;
     aircraftInfo.style.display = 'none'; // Hide the aircraft info
+
+    // Hide reset message when reset
+    resetMessage.style.display = 'none';
 }
 
 // Hover behavior for headers (temporary view)
@@ -77,6 +81,9 @@ fleetHeaders.forEach(header => {
         nightRatedElement.textContent = nightRated;
         avionicsTypeElement.textContent = avionics;
         aircraftInfo.style.display = 'block'; // Show the aircraft info
+
+        // Show reset message when hovering over header
+        resetMessage.style.display = 'block';
     });
 
     // On hover out, revert to the clicked header's details if permanent
@@ -92,6 +99,7 @@ fleetHeaders.forEach(header => {
             nightRatedElement.textContent = clickedHeaderData.nightRated;
             avionicsTypeElement.textContent = clickedHeaderData.avionics;
             aircraftInfo.style.display = 'block'; // Keep aircraft info visible
+
         } else {
             resetToDefault(); // Revert to default if not permanent
         }
@@ -123,6 +131,9 @@ fleetHeaders.forEach(header => {
         nightRatedElement.textContent = clickedHeaderData.nightRated;
         avionicsTypeElement.textContent = clickedHeaderData.avionics;
         aircraftInfo.style.display = 'block'; // Keep aircraft info visible
+
+        // Hide reset message when clicked
+        resetMessage.style.display = 'block';
     });
 });
 
