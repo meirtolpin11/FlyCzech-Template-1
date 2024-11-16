@@ -47,6 +47,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="preload" href="assets/images/per.mov" as="image">
+  <link rel="preload" href="assets/images/fleet/fleet.mov" as="image">
   <link rel="preload" href="assets/images/team/josef.jpg" as="image">
   <link rel="preload" href="assets/images/team/robert.jpg" as="image">
 
@@ -167,7 +168,6 @@
       <!-- Banner area end -->
 
 
-
       <div id="fleet-div" class="fleet-div">
         <div class="paragraph-section"> <!-- Paragraph section -->
           <h4 id="fleet-title"> Our Fleet </h4>
@@ -178,10 +178,10 @@
           <div id="aircraft-info" class="aircraft-info">
             <p><strong>Price per Hour:</strong> <span id="price"></span></p>
             <p><strong>Range:</strong> <span id="range"></span></p>
-            <p><strong>Speed:</strong> 100 knots<span id="speed"></span></p>
+            <p><strong>Speed:</strong> <span id="speed">100 knots</span></p>
             <p><strong>Night Rated:</strong> <span id="night-rated"></span></p>
             <p><strong>Avionics Type:</strong> <span id="avionics-type"></span></p>
-            <p><strong>Base Airport:</strong> LKLT<span id="base-airport"></span></p>
+            <p><strong>Base Airport:</strong> <span id="base-airport">LKLT</span></p>
           </div>
 
           <!-- Discount note at the very bottom of the text area -->
@@ -192,22 +192,27 @@
         </div>
 
         <section id="fleet" class="section-fullscreen fleet-background project-wrap pt-120 pb-120"
-          style="background-color: #f8f6f3;">
+          style="background-color: #f8f6f3; position: relative;">
+          <!-- Default video as the background -->
+          <video id="fleet-video" autoplay muted loop
+            style="width: 100%; height: 100vh; object-fit: cover; position: absolute; z-index: 0;">
+            <source src="assets/images/fleet/fleet.mov" type="video/mp4">
+          </video>
           <div class="background-overlay"></div>
           <div class="container">
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKISR"
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKISR.jpg"
               data-description="Cessna 150 is a reliable and easy-to-fly trainer ideal for beginner pilots."
               data-title="Cessna 150" data-aircraft-reg="OK-ISR" data-price="3800 czk" data-range="250 nm (465 km)"
               data-night-rated="Yes" data-avionics="Garmin G1000">
               Cessna 150
             </h1>
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIT"
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIT.jpg"
               data-description="Bristel B23 is a versatile aircraft, suitable for both training and leisure flying."
               data-title="Bristel B23" data-aircraft-reg="OK-BIT" data-price="3900 czk" data-range="700 nm (1300 km)"
               data-night-rated="Yes" data-avionics="Garmin G500">
               Bristel B23
             </h1>
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIK"
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIK.jpg"
               data-description="Tecnam P2008JC is a modern, lightweight aircraft perfect for flight training and touring."
               data-title="Tecnam P2008JC" data-aircraft-reg="OK-BIK" data-price="3490 czk" data-range="520 nm (960 km)"
               data-night-rated="No" data-avionics="Avidyne IFD540">
@@ -215,9 +220,8 @@
             </h1>
           </div>
         </section>
-
-
       </div>
+
 
 
       <!-- Project area start -->

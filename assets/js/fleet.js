@@ -1,41 +1,53 @@
 // Get all the hoverable headers
 const fleetHeaders = document.querySelectorAll('.fleet-header');
 
-// Set the default background image
-let defaultBackgroundImage = 'url(assets/images/fleet/all.jpg)'; // Default image
-let defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
-let defaultTitle = 'Our Fleet';
-let defaultReg = '';
-let defaultPrice = '';
-let defaultRange = '';
-let defaultNightRated = '';
-let defaultAvionics = '';
-
-// Set the default background image
-document.getElementById('fleet').style.backgroundImage = defaultBackgroundImage; // Set default background image
-
-// Get the description paragraph elements
+// Default elements and content
+const fleetElement = document.getElementById('fleet');
+const fleetVideo = document.getElementById('fleet-video');
 const fleetDescriptionText = document.getElementById('fleet-text');
 const fleetTitle = document.getElementById('fleet-title');
 const aircraftReg = document.getElementById('aircraft-reg');
-
-// Get the aircraft information elements
 const priceElement = document.getElementById('price');
 const rangeElement = document.getElementById('range');
 const nightRatedElement = document.getElementById('night-rated');
 const avionicsTypeElement = document.getElementById('avionics-type');
 const aircraftInfo = document.getElementById('aircraft-info');
 
-// Function to generate a random number between 1 and 3
-function getRandomSuffix() {
-    return Math.floor(Math.random() * 3) + 1;
+// Default content
+let defaultBackgroundImage = ''; // Initially empty, updated on background click
+let isDefaultView = true; // Tracks whether the default view is active
+
+const defaultBackgroundVideo = 'assets/videos/fleet/fleet.mov';
+const defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
+const defaultTitle = 'Our Fleet';
+const defaultReg = '';
+const defaultPrice = '';
+const defaultRange = '';
+const defaultNightRated = '';
+const defaultAvionics = '';
+
+// Function to reset to the default view
+function resetToDefault() {
+    isDefaultView = true; // Mark default view as active
+    fleetVideo.style.display = 'block'; // Show the video
+    fleetElement.style.backgroundImage = ''; // Remove any background image
+
+    // Reset text content to defaults
+    fleetDescriptionText.textContent = defaultDescription;
+    fleetTitle.textContent = defaultTitle;
+    aircraftReg.textContent = defaultReg;
+    priceElement.textContent = defaultPrice;
+    rangeElement.textContent = defaultRange;
+    nightRatedElement.textContent = defaultNightRated;
+    avionicsTypeElement.textContent = defaultAvionics;
+    aircraftInfo.style.display = 'none'; // Hide the aircraft info
 }
 
-// Function to change background image and description on hover
+// Hover behavior for headers
 fleetHeaders.forEach(header => {
-    let changeInterval;
-
     header.addEventListener('mouseenter', function () {
+        if (!isDefaultView) return; // Ignore hover if not in default view
+
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
         const title = this.getAttribute('data-title');
@@ -45,75 +57,43 @@ fleetHeaders.forEach(header => {
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
-        // Set initial background image
-        document.getElementById('fleet').style.backgroundImage = `url(${imageUrl}-${getRandomSuffix()}.jpg)`;
-
-        // Change description based on hover
+        fleetVideo.style.display = 'none'; // Hide the video
+        fleetElement.style.backgroundImage = `url(${imageUrl})`; // Set the image
         fleetDescriptionText.textContent = description;
         fleetTitle.textContent = title;
         aircraftReg.textContent = reg;
-
-        // Update the aircraft details
         priceElement.textContent = price;
         rangeElement.textContent = range;
         nightRatedElement.textContent = nightRated;
         avionicsTypeElement.textContent = avionics;
-
-        // Show the aircraft info when hovering
-        aircraftInfo.style.display = 'block';
-
-        // Change background image every 3 seconds
-        changeInterval = setInterval(() => {
-            document.getElementById('fleet').style.backgroundImage = `url(${imageUrl}-${getRandomSuffix()}.jpg)`;
-        }, 3000);  // Change every 3 seconds
-    });
-
-    header.addEventListener('mouseleave', function () {
-        // Revert to the selected default background image and other default values
-        document.getElementById('fleet').style.backgroundImage = defaultBackgroundImage;
-
-        // Revert back to the default description
-        fleetDescriptionText.textContent = defaultDescription;
-        fleetTitle.textContent = defaultTitle;
-        aircraftReg.textContent = defaultReg;
-
-        // Clear the aircraft details
-        priceElement.textContent = defaultPrice;
-        rangeElement.textContent = defaultRange;
-        nightRatedElement.textContent = defaultNightRated;
-        avionicsTypeElement.textContent = defaultAvionics;
-
-        console.log(defaultTitle);
-        // Hide the aircraft info when not hovering
-        if (defaultTitle.trim() == 'Our Fleet') {
-            aircraftInfo.style.display = 'none';
-        }
-
-        // Clear the interval to stop changing background images when hover ends
-        clearInterval(changeInterval);
+        aircraftInfo.style.display = 'block'; // Show the aircraft info
     });
 
     header.addEventListener('click', function () {
-        // Set the default values based on the clicked header
-        defaultBackgroundImage = document.getElementById('fleet').style.backgroundImage;
-        defaultDescription = this.getAttribute('data-description');
-        defaultTitle = this.getAttribute('data-title');
-        defaultReg = this.getAttribute('data-aircraft-reg');
-        defaultPrice = this.getAttribute('data-price');
-        defaultRange = this.getAttribute('data-range');
-        defaultNightRated = this.getAttribute('data-night-rated');
-        defaultAvionics = this.getAttribute('data-avionics');
+        isDefaultView = false; // Mark default view as inactive
 
-        // Immediately update the UI with the selected defaults (optional)
-        fleetDescriptionText.textContent = defaultDescription;
-        fleetTitle.textContent = defaultTitle;
-        aircraftReg.textContent = defaultReg;
-        priceElement.textContent = defaultPrice;
-        rangeElement.textContent = defaultRange;
-        nightRatedElement.textContent = defaultNightRated;
-        avionicsTypeElement.textContent = defaultAvionics;
+        // Set the clicked airplane as the persistent view
+        const imageUrl = this.getAttribute('data-image');
+        defaultBackgroundImage = `url(${imageUrl})`;
 
-        // Show the aircraft info by default
-        aircraftInfo.style.display = 'block';
+        // Update persistent defaults
+        fleetVideo.style.display = 'none'; // Hide the video
+        fleetElement.style.backgroundImage = defaultBackgroundImage; // Set the persistent image
+        fleetDescriptionText.textContent = this.getAttribute('data-description');
+        fleetTitle.textContent = this.getAttribute('data-title');
+        aircraftReg.textContent = this.getAttribute('data-aircraft-reg');
+        priceElement.textContent = this.getAttribute('data-price');
+        rangeElement.textContent = this.getAttribute('data-range');
+        nightRatedElement.textContent = this.getAttribute('data-night-rated');
+        avionicsTypeElement.textContent = this.getAttribute('data-avionics');
+        aircraftInfo.style.display = 'block'; // Keep aircraft info visible
     });
+});
+
+// Event listener for the fleet background to restore the default view
+fleetElement.addEventListener('click', function (event) {
+    // Check if the click is outside the headers
+    if (!event.target.closest('.fleet-header')) {
+        resetToDefault(); // Reset to defaults
+    }
 });
