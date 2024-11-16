@@ -83,8 +83,9 @@ fleetHeaders.forEach(header => {
         nightRatedElement.textContent = defaultNightRated;
         avionicsTypeElement.textContent = defaultAvionics;
 
+        console.log(defaultTitle);
         // Hide the aircraft info when not hovering
-        if (!defaultTitle) {
+        if (defaultTitle.trim() == 'Our Fleet') {
             aircraftInfo.style.display = 'none';
         }
 

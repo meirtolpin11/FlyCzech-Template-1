@@ -64,6 +64,19 @@
     /* Centers the text horizontally */
 }
 
+.aircraft-info {
+    font-size: 16px;
+    text-align: left;
+}
+
+.aircraft-info p {
+    margin: 5px 0;
+    /* Reduce the margin between paragraphs */
+    line-height: 1.2;
+    /* Adjust line spacing for a tighter layout */
+}
+
+
 .paragraph-section h1 {
     margin-bottom: 20px;
     /* Adds space between title and paragraph */

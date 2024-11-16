@@ -1,5 +1,5 @@
 let scrollTimeout;
-const sections = ["#home", "#about", "#fleet", "#team", "#contact"];
+const sections = ["#home", "#fleet", "#team", "#contact"];
 let currentIndex = 0;
 
 function jumpToSection(index) {
