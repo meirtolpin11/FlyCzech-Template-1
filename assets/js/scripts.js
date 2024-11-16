@@ -9,37 +9,19 @@
     preloader.fadeOut('slow');
   });
 
-
   /* Sticky Header */
-  var header = $(".page-header");
-  var mobileNav = $(".mobile-nav");
-  var toggleClass = "is-sticky";
-  var scrollLast = 0;
+  // var header = $(".page-header");
 
+  // $(window).on("scroll", function () {
+  //   var scrollTop = $(window).scrollTop();
 
-  function toggleHeader() {
-    var scrollTop = $(window).scrollTop();
-    var direction = scrollTop > scrollLast ? 'down' : 'up';
-    scrollLast = scrollTop;
+  //   if (scrollTop > 300) {
+  //     header.addClass("is-sticky");
+  //   } else {
+  //     header.removeClass("is-sticky");
+  //   }
+  // });
 
-    if (scrollTop > 300 && direction == 'up') {
-      if (!header.hasClass(toggleClass)) {
-        header.addClass(toggleClass);
-        mobileNav.animate({ opacity: 0 }, 100, function () {
-          mobileNav.animate({ opacity: 1 }, 100);
-        });
-      }
-    } else {
-      header.removeClass(toggleClass);
-      if (scrollTop > 300) {
-        mobileNav.css('opacity', '0');
-      }
-
-    }
-  }
-
-
-  $(window).on('scroll', toggleHeader);
 
   /* Single page Anchor Menu */
 

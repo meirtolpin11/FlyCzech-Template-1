@@ -1,0 +1,143 @@
+/* General Navbar Styling */
+.page-header .navbar {
+    position: sticky;
+    top: 0;
+    /* Stick to the top */
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+    height: 60px;
+    /* Adjusted height */
+    width: 100vw;
+    /* Optional: adds a blur effect */
+    padding: 0;
+    /* Remove unnecessary padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for visibility */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Smooth transitions */
+}
+
+.dimmed-navbar {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Parent Container Styling */
+.page-header .container-fluid {
+    width: 100%;
+    /* Ensure it takes up the full width */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+}
+
+.page-header .row {
+    margin: 0;
+    /* Reset row margin */
+    padding: 0;
+    /* Reset row padding */
+}
+
+/* Logo Styling */
+.logo-wrap .navbar-brand img.main-logo {
+    max-height: 40px;
+    /* Adjust logo height */
+    margin: 5px 0;
+    /* Vertical centering for smaller navbar */
+}
+
+/* Menu Link Styling */
+.header-menu .nav-link {
+    padding: 5px 10px;
+    /* Compact padding for smaller navbar */
+    font-size: 14px;
+    /* Smaller font for compact design */
+    color: #fff;
+    /* Good contrast on dimmed background */
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+}
+
+.header-menu .nav-link.active,
+.header-menu .nav-link:hover {
+    color: #f8d34a;
+    /* Highlight color for active/hovered links */
+}
+
+/* Mobile Menu Button Styling */
+.mobile-nav .menu-toggler {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    /* Indicates clickable */
+}
+
+.mobile-nav .menu-toggler .line {
+    background-color: #fff;
+    height: 3px;
+    width: 100%;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    /* Adds smooth animation */
+}
+
+/* Header Contact Button */
+.header-contact .button.button-yellow {
+    font-size: 12px;
+    /* Adjust button font size */
+    padding: 5px 15px;
+    /* Compact padding for smaller design */
+    background-color: #f8d34a;
+    /* Yellow button color */
+    color: #000;
+    /* Text color for readability */
+    border-radius: 4px;
+    /* Slightly rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth hover transition */
+}
+
+.header-contact .button.button-yellow:hover {
+    background-color: #d6b32e;
+    /* Darker yellow on hover */
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 992px) {
+    #navbar {
+        margin-top: 10px;
+        /* Space under the logo */
+    }
+
+    .header-menu .nav-link {
+        padding: 8px 10px;
+        /* Slightly larger padding for readability */
+        font-size: 16px;
+        /* Larger font size on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header .navbar {
+        height: 70px;
+        /* Slightly taller navbar for touch devices */
+    }
+
+    .logo-wrap .navbar-brand img.main-logo {
+        max-height: 35px;
+        /* Smaller logo on very small screens */
+    }
+
+    .mobile-nav .menu-toggler {
+        width: 50px;
+        height: 35px;
+        /* Larger button for easier tapping */
+    }
+
+    .mobile-nav .menu-toggler .line {
+        height: 4px;
+        /* Thicker lines for better visibility */
+    }
+}
