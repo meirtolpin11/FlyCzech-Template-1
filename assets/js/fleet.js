@@ -52,7 +52,7 @@ fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
         if (isPermanentView && !clickedHeaderData) return; // Ignore hover if permanent view is active and no clicked header data
 
-        // Temporarily show hover details
+        // Temporarily show hover details with random image URL
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
         const title = this.getAttribute('data-title');
@@ -62,8 +62,13 @@ fleetHeaders.forEach(header => {
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
+        // Remove .jpg extension and add random number
+        const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
+        const randomImageUrl = `${imageUrlWithoutExtension}-${randomNumber}.jpg`;
+
         fleetVideo.style.display = 'none'; // Hide the video
-        fleetElement.style.backgroundImage = `url(${imageUrl})`; // Set the image
+        fleetElement.style.backgroundImage = `url(${randomImageUrl})`; // Set the random image
         fleetDescriptionText.textContent = description;
         fleetTitle.textContent = title;
         aircraftReg.textContent = reg;
@@ -77,7 +82,7 @@ fleetHeaders.forEach(header => {
     // On hover out, revert to the clicked header's details if permanent
     header.addEventListener('mouseleave', function () {
         if (isPermanentView && clickedHeaderData) {
-            // Revert to the clicked header details
+            // Revert to the clicked header details with the selected random image
             fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
             fleetDescriptionText.textContent = clickedHeaderData.description;
             fleetTitle.textContent = clickedHeaderData.title;
@@ -97,7 +102,7 @@ fleetHeaders.forEach(header => {
 
         // Store clicked header's data for later use
         clickedHeaderData = {
-            imageUrl: `url(${this.getAttribute('data-image')})`,
+            imageUrl: fleetElement.style.backgroundImage, // Use the random image URL
             description: this.getAttribute('data-description'),
             title: this.getAttribute('data-title'),
             reg: this.getAttribute('data-aircraft-reg'),
@@ -109,7 +114,7 @@ fleetHeaders.forEach(header => {
 
         // Update persistent view
         fleetVideo.style.display = 'none'; // Hide the video
-        fleetElement.style.backgroundImage = clickedHeaderData.imageUrl; // Set the persistent image
+        fleetElement.style.backgroundImage = `url(${clickedHeaderData.imageUrl})`; // Set the persistent image with random number
         fleetDescriptionText.textContent = clickedHeaderData.description;
         fleetTitle.textContent = clickedHeaderData.title;
         aircraftReg.textContent = clickedHeaderData.reg;
