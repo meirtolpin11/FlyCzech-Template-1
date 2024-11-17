@@ -29,13 +29,14 @@ const defaultRange = '';
 const defaultNightRated = '';
 const defaultAvionics = '';
 
+let imageRotationInterval = null; // Stores the interval for image rotation
+
 // Function to reset to the default view
 function resetToDefault() {
     isDefaultView = true; // Mark default view as active
     isPermanentView = false; // Mark permanent view as inactive
     clickedHeaderData = null; // Reset clicked header data
-    fleetVideo.style.display = 'block'; // Show the video
-    fleetElement.style.backgroundImage = ''; // Remove any background image
+    fleetElement.style.backgroundImage = ``; // Remove any background image
 
     // Reset text content to defaults
     fleetDescriptionText.textContent = defaultDescription;
@@ -47,8 +48,17 @@ function resetToDefault() {
     avionicsTypeElement.textContent = defaultAvionics;
     aircraftInfo.style.display = 'none'; // Hide the aircraft info
 
+
+    // Stop any ongoing image rotation
+    clearInterval(imageRotationInterval);
+    imageRotationInterval = null;
+
     // Hide reset message when reset
     resetMessage.style.display = 'none';
+
+    fleetVideo.style.display = 'block'; // Show the video
+
+
 }
 
 // Hover behavior for headers (temporary view)
@@ -56,7 +66,6 @@ fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
         if (isPermanentView && !clickedHeaderData) return; // Ignore hover if permanent view is active and no clicked header data
 
-        // Temporarily show hover details with random image URL
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
         const title = this.getAttribute('data-title');
@@ -66,13 +75,22 @@ fleetHeaders.forEach(header => {
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
-        // Remove .jpg extension and add random number
+        // Start rotating random images
+        let imageIndex = 1;
+        console.log(imageUrl)
         const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
-        const randomNumber = Math.floor(Math.random() * 3) + 1;
-        const randomImageUrl = `${imageUrlWithoutExtension}-${randomNumber}.jpg`;
+        const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
+        fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+        imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
 
-        fleetVideo.style.display = 'none'; // Hide the video
-        fleetElement.style.backgroundImage = `url(${randomImageUrl})`; // Set the random image
+        imageRotationInterval = setInterval(() => {
+            const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
+            const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
+            fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+            imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
+        }, 3000);
+
+
         fleetDescriptionText.textContent = description;
         fleetTitle.textContent = title;
         aircraftReg.textContent = reg;
@@ -84,10 +102,15 @@ fleetHeaders.forEach(header => {
 
         // Show reset message when hovering over header
         resetMessage.style.display = 'block';
+
+        fleetVideo.style.display = 'none'; // Hide the videov
     });
 
     // On hover out, revert to the clicked header's details if permanent
     header.addEventListener('mouseleave', function () {
+        clearInterval(imageRotationInterval); // Stop rotating images
+        imageRotationInterval = null;
+
         if (isPermanentView && clickedHeaderData) {
             // Revert to the clicked header details with the selected random image
             fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
@@ -99,7 +122,6 @@ fleetHeaders.forEach(header => {
             nightRatedElement.textContent = clickedHeaderData.nightRated;
             avionicsTypeElement.textContent = clickedHeaderData.avionics;
             aircraftInfo.style.display = 'block'; // Keep aircraft info visible
-
         } else {
             resetToDefault(); // Revert to default if not permanent
         }

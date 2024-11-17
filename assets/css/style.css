@@ -19,7 +19,7 @@ body {
   padding: 0;
   width: 100%;
   /* Ensure full width of the viewport */
-  overflow-x: hidden;
+  overflow: hidden;
   /* Prevent horizontal overflow */
 }
 
@@ -938,7 +938,7 @@ p {
   display: inline-block;
   position: relative;
   min-width: 8.23em;
-  min-width: 200px;
+  /* min-width: 200px; */
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 600;
@@ -2049,7 +2049,7 @@ p {
   ------------------------------*/
 .contact-wrap {
   position: relative;
-  /* background: url(../images/bg/contact-block.jpg) center center no-repeat fixed; */
+  background: url(../images/bg/contact-block.jpg) center center no-repeat fixed;
   background-size: auto;
   background-size: cover;
 }
@@ -3392,4 +3392,50 @@ Airplane Button
 .button-map {
   background-color: #4285F4;
   /* Google Maps blue color */
+}
+
+.contact-circle-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+}
+
+.contact-circle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+}
+
+.contact-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #f8f6f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.contact-icon:hover {
+  background-color: #ffd700;
+}
+
+.contact-info {
+  font-size: 1.25vw;
+  color: white;
+  text-align: left;
+}
+
+.contact-circle:hover .contact-info {
+  color: #ffd700;
 }

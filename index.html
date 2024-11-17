@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="assets/css/our-team.css">
   <link rel="stylesheet" href="assets/css/fleet.css">
   <link rel="stylesheet" href="assets/css/navbar.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="assets/css/common.css"> -->
 
   <!-- Accessibility -->
@@ -132,9 +134,13 @@
                 <p class="slide-title-1">Your journey starts here.</p>
                 <h1 class="slide-title-2">Fly Czech: Where your aviation dreams take flight.</h1>
                 <div class="button-wrapper">
-                  <a class="button button-yellow" href="mailto:info@flyczech.eu">Fly with us!</a>
+                  <a class="button button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
+                    target="_blank">
+                    <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Fly with us
+                  </a>
                 </div>
               </div>
+
             </div>
           </div>
           <!-- pagination -->
@@ -171,7 +177,7 @@
           <!-- Default video as the background -->
           <video id="fleet-video" muted loop
             style="width: 100%; height: 100vh; object-fit: cover; position: absolute; z-index: 0;"
-            poster="assets/images/fleet/all.jpg" preload="none">
+            poster="assets/images/fleet/all.jpg" preload="none" autoplay>
             <source src="assets/images/fleet/fleet.mov" type="video/mp4">
           </video>
 
@@ -253,42 +259,65 @@
 
       <!-- Project area end -->
 
-
       <!-- Contact area start -->
       <section id="contact" class="section-fullscreen contact-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
-        <div class="container">
+        <div class="container" style="height: 100vh;"> <!-- Ensure the container scales to full height -->
           <div class="section-title-wrap text-center">
             <h2 class="section-title"><span class="section-title-text">How To Contact Us?</span></h2>
-            <!-- Paragraph with updated color -->
-            <p>Ready to take flight? Whether you're interested in beginning your journey as a pilot, booking an
-              introductory
-              flight, or simply learning more about our courses, we’re here to help! Contact us today, and let’s get you
-              soaring. Reach us on WhatsApp for the quickest response, and let’s start your aviation adventure together!
+            <p>
+              Ready to take a flight? Whether you're interested in beginning your journey as a pilot, booking an
+              introductory flight, or simply learning more about our courses, we’re here to help! Contact us today, and
+              let’s get you in the air. We are always available on Whatsapp, let’s start your aviation journey together!
             </p>
           </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <div class="button-wrapper">
-                <!-- Call Us Button -->
-                <a class="button button-yellow" href="tel:+420773626601" title="Call Us">Call Us</a>
+          <div class="row align-items-center" style="height: 50%;"> <!-- Row takes most of the container height -->
+            <!-- Left Side: Contact Circles -->
+            <div class="col-md-6 text-center" style="height: 80%;">
+              <div class="contact-circle-wrapper"
+                style="display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 20px;">
 
-                <!-- WhatsApp Button -->
-                <a class="button button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
-                  target="_blank">
-                  Chat with us
-                </a>
+                <!-- Call Us Circle -->
+                <div class="contact-circle">
+                  <a class="contact-icon" href="tel:+420773626601" title="Call Us">
+                    <i class="fa fa-phone"></i>
+                  </a>
+                  <span class="contact-info">+420 773 626 601</span>
+                </div>
 
-                <!-- Google Maps Button for Letnany Aeroprague Club -->
-                <a class="button button-map" href="https://maps.app.goo.gl/xp5FqoD9ygRNS5waA"
-                  title="Find us on Google Maps" target="_blank">
-                  Find us on Google Maps
-                </a>
+                <!-- WhatsApp Circle -->
+                <div class="contact-circle">
+                  <a class="contact-icon" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
+                    target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                  </a>
+                  <span class="contact-info">Chat with us on WhatsApp</span>
+                </div>
 
-                <!-- Email Us Button -->
-                <a class="button button-email" href="mailto:info@flyczech.eu" title="Send us an Email">
-                  Send us an Email
-                </a>
+                <!-- Email Us Circle -->
+                <div class="contact-circle">
+                  <a class="contact-icon" href="mailto:info@flyczech.eu" title="Send us an Email">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <span class="contact-info">info@flyczech.eu</span>
+                </div>
+
+                <!-- Address Circle -->
+                <div class="contact-circle">
+                  <a class="contact-icon" href="https://maps.app.goo.gl/2z5RKhMu3m4Roq21A" title="Open in Google Maps"
+                    target="_blank">
+                    <i class="fa fa-map-marker"></i>
+                  </a>
+                  <span class="contact-info">FlyCzech s.r.o. <br />Hůlkova, 197 00 Praha 19, Czechia</span>
+                </div>
               </div>
+            </div>
+
+            <!-- Right Side: Google Maps Iframe -->
+            <div class="col-md-6 text-center" style="height: 80%;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2211.427444748304!2d14.5243626!3d50.1275467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bed50ab240e5b%3A0x810017243311ce41!2sFlyCzech%20s.r.o.!5e1!3m2!1sen!2sil!4v1731859860377!5m2!1sen!2sil"
+                width="95%" height="100%" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
+              </iframe>
             </div>
           </div>
         </div>
