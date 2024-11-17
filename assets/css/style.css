@@ -3367,26 +3367,62 @@ Airplane Button
   /* Crops image to fill container while maintaining aspect ratio */
 }
 
-/* Contact us buttons */
-.button-wrapper {
+
+/* Button Wrapper */
+.contact-button-wrapper {
   display: flex;
   flex-direction: column;
-  /* Stack buttons vertically */
-  gap: 30px;
-  /* Increase gap to create more space between buttons */
+  gap: 15px;
+  /* Adjust space between buttons */
   align-items: center;
-  margin-top: 30px;
-  /* Optional: add top margin for extra separation from other elements */
+  margin-top: 20px;
 }
 
-*/ .button-yellow {
-  background-color: #FFC107;
-  /* Yellow color for Call Us */
+/* Default Button Style */
+.contact-button {
+  text-decoration: none;
+  display: inline-flex;
+  /* Use inline-flex for alignment */
+  align-items: center;
+  /* Vertically align the icon and text */
+  justify-content: center;
+  /* Horizontally align the text and icon */
+  padding: 12px 24px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 25px;
+  /* Rounded corners */
+  font-weight: bold;
+  line-height: 1;
+  /* Ensure line-height doesn't affect vertical alignment */
 }
 
-.button-whatsapp {
-  background-color: #25D366;
-  /* WhatsApp green color */
+/* WhatsApp Button */
+.contact-button-whatsapp {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  width: 200px;
+  position: relative;
+  z-index: 10;
+  border-radius: 25px;
+  /* Rounded corners for WhatsApp button */
+}
+
+/* Hover Effects */
+.contact-button-whatsapp:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Light transparent white */
+  color: black;
+  /* Change text color to black */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  ;
+  /* WhatsApp green border on hover */
+}
+
+.contact-button-whatsapp i {
+  margin-right: 8px;
+  /* Spacing between icon and text */
 }
 
 .button-map {
