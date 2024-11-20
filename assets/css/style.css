@@ -1876,6 +1876,7 @@ p {
   animation: fadeInUp 1s;
 }
 
+/* Pagination adjustments */
 .swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
@@ -1883,22 +1884,67 @@ p {
   bottom: 20px;
 }
 
+/* Bullet circle style */
 .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
+  width: 60px;
+  /* Increased size */
+  height: 60px;
+  /* Increased size */
   background-color: var(--color-white);
+  border: 3px solid transparent;
+  /* Make border transparent initially */
+  border-radius: 50%;
+  /* Makes it a circle */
+  position: relative;
+  /* Needed for the pseudo-element */
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
+/* Active bullet circle style with moving border */
 .swiper-pagination-bullet-active {
-  width: 55px;
-  border-radius: 15px;
-  background-clip: padding-box;
-  /* stops bg color from leaking outside the border: */
-  background-color: var(--color-primary);
+  background-color: transparent;
+  /* Keep background transparent for active state */
+  border-color: transparent;
+  /* Remove the border color */
+  animation: clock-border 10s linear;
+  /* Add rotation animation */
 }
 
+/* Creating the clock-like rotating border effect */
+@keyframes clock-border {
+  0% {
+    border-top-color: var(--color-primary);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  25% {
+    border-top-color: var(--color-primary);
+    border-right-color: var(--color-primary);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  50% {
+    border-top-color: var(--color-primary);
+    border-right-color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    border-left-color: transparent;
+  }
+
+  100% {
+    border-top-color: var(--color-primary);
+    border-right-color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+}
+
+
+/* Navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--color-secondary);
@@ -1956,8 +2002,6 @@ p {
   }
 }
 
-.swiper-button-next::after,
-.swiper-rtl .swiper-button-prs
 
 /*--------------------------
   ABOUT US

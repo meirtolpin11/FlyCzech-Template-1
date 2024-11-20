@@ -1,86 +1,13 @@
 (function ($) {
   "use strict";
 
-  // /* Preloader */
-  // var preloader = $("#preloader");
-
-
-  // $(window).on('load', function () {
-  //   preloader.fadeOut('slow');
-  // });
-
-  /* Sticky Header */
-  // var header = $(".page-header");
-
-  // $(window).on("scroll", function () {
-  //   var scrollTop = $(window).scrollTop();
-
-  //   if (scrollTop > 300) {
-  //     header.addClass("is-sticky");
-  //   } else {
-  //     header.removeClass("is-sticky");
-  //   }
-  // });
-
-
-  /* Single page Anchor Menu */
-
-  window.addEventListener('DOMContentLoaded', event => {
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#navbar');
-    if (mainNav) {
-      new bootstrap.ScrollSpy(document.body, {
-        target: '#navbar',
-        offset: 40,
-      });
-    };
-
-    // Function to check if the device is a mobile device based on screen width
-    function isMobileDevice() {
-      return window.innerWidth <= 992; // Adjust the width as needed for your design
-    }
-    // Get the necessary elements
-    const navbarToggler = document.querySelector('.menu-toggler');
-    const navItemsContainer = document.querySelector('#navbar');
-
-
-    // Function to handle the click event
-    function handleNavItemClick(event) {
-      if (isMobileDevice() && event.target.classList.contains('nav-link')) {
-        navbarToggler.click();
-      }
-    }
-
-    // Attach the click event listener only if it's a mobile device
-    if (isMobileDevice()) {
-      navItemsContainer.addEventListener('click', handleNavItemClick);
-    }
-
-
-  });
-
-  /* Menu Toggler */
-  var menu = $('.menu-toggler');
-
-
-  menu.on('click', function () {
-    menu.toggleClass('open');
-    if (menu.hasClass('open')) {
-      $('html').addClass('no-scroll');
-      $('body').addClass('no-scroll');
-    }
-    else {
-      $('html').removeClass('no-scroll');
-      $('body').removeClass('no-scroll');
-    }
-  });
-
+  // Declare swiper variable globally
+  window.swiper = null;  // Initialize the swiper global variable
 
   /* Swiper Instance */
   if ($('.swiper').length) {
-    var swiper = new Swiper('.swiper', {
+    window.swiper = new Swiper('.swiper', {
       loop: true,
-
       speed: 1000,
       autoHeight: false,
       effect: 'fade',
@@ -121,72 +48,12 @@
       prevEl: '.swiper-button-prev',  // Previous slide button
     },
     breakpoints: {
-      // When screen is larger than 768px, show the content in grid
       768: {
         slidesPerView: 'auto',  // Multiple items on desktop
         spaceBetween: 30,       // More space between the items on desktop
       },
     },
   });
-  /* Lottie Player */
-  // const playerContainers = document.querySelectorAll(".service-box");
-  // playerContainers.forEach(container => {
-  //   container.addEventListener("mouseover", () => {
-  //     const player = container.querySelector("lottie-player");
-  //     player.setDirection(1);
-  //     player.play();
-  //   });
-
-  //   container.addEventListener("mouseleave", () => {
-  //     const player = container.querySelector("lottie-player");
-  //     player.setDirection(-1);
-  //     player.play();
-  //   });
-  // });
-
-
-
-  /* Project Slider */
-  if ($('.project-thumb-carousel').length) {
-    var projectThumbCarousel = new Swiper('.project-thumb-carousel', {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      freeMode: true,
-      effect: 'fade',
-      speed: 1400,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-      loop: true,
-      grabCursor: true,
-      autoplay: false,
-      thumbs: {
-        swiper: projectContentCarousel
-      }
-    });
-  }
-
-
-  if ($('.project-content-carousel').length) {
-    var projectContentCarousel = new Swiper('.project-content-carousel', {
-      pagination: {
-        el: '.swiper-project-pagination',
-        clickable: true,
-      },
-      observer: true,
-      observeParents: true,
-      speed: 1400,
-      mousewheel: false,
-      grabCursor: true,
-      autoplay: false,
-      autoplay: {
-        delay: 5000,
-      },
-      thumbs: {
-        swiper: projectThumbCarousel
-      }
-    });
-  }
-
 
   /* Testimonial Slider */
   if ($('.testimonial-slider').length) {
@@ -210,6 +77,7 @@
       }
     });
   }
+
   /* Client Slider */
   if ($('.client-slider').length) {
     var clientSwiper = new Swiper('.client-slider', {
@@ -246,63 +114,3 @@
   }
 
 })(jQuery);
-
-
-// Jump between sections
-
-// let isScrolling = false; // Prevent multiple scroll actions while processing
-
-// const links = document.querySelectorAll('.nav-link');
-// const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
-
-// function jumpToSection(targetIndex) {
-//   // Ensure the targetIndex is within bounds
-//   if (targetIndex < 0 || targetIndex >= sections.length) return;
-
-//   // Change the URL hash to the target section's href
-//   window.location.hash = links[targetIndex].getAttribute('href');
-// }
-
-// window.addEventListener('wheel', function (event) {
-//   event.preventDefault();  // Prevent default scrolling behavior
-
-//   if (isScrolling) return;  // Ignore if already processing a scroll event
-
-//   isScrolling = true; // Set scrolling state to true
-
-//   // Get the current scroll position relative to the viewport
-//   let currentScrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
-//   let currentSectionIndex = null;
-
-//   // Find the current section in view
-//   for (let i = 0; i < sections.length; i++) {
-//     let sectionTop = sections[i].offsetTop;
-//     let sectionBottom = sectionTop + sections[i].offsetHeight;
-//     if (currentScrollPosition >= sectionTop && currentScrollPosition < sectionBottom) {
-//       currentSectionIndex = i;
-//       break;
-//     }
-//   }
-
-//   if (event.deltaY > 0) {
-//     // Scroll down: Go to the next section
-//     if (currentSectionIndex !== null && currentSectionIndex < sections.length - 1) {
-//       jumpToSection(currentSectionIndex + 1);
-//     }
-//   } else {
-//     // Scroll up: Go to the previous section
-//     if (currentSectionIndex !== null && currentSectionIndex > 0) {
-//       jumpToSection(currentSectionIndex - 1);
-//     }
-//   }
-
-//   // Reset scrolling state after a short delay
-//   setTimeout(() => {
-//     isScrolling = false; // Allow the next scroll event
-//   }, 600);  // Adjust timeout to match desired speed between jumps
-// });
-
-// // Optional: Handle touch events (if you want to handle mobile devices as well)
-// window.addEventListener('touchstart', function (event) {
-//   event.preventDefault();  // Prevent touch scrolling
-// });
