@@ -31,12 +31,16 @@ const defaultAvionics = '';
 
 let imageRotationInterval = null; // Stores the interval for image rotation
 
-// Function to reset to the default view
+let mouseEnterTimeout = null;
+let resetTimeout = null
+
 function resetToDefault() {
     isDefaultView = true; // Mark default view as active
     isPermanentView = false; // Mark permanent view as inactive
     clickedHeaderData = null; // Reset clicked header data
-    fleetElement.style.backgroundImage = ``; // Remove any background image
+
+    clearTimeout(mouseEnterTimeout)
+    clearTimeout(resetTimeout)
 
     // Reset text content to defaults
     fleetDescriptionText.textContent = defaultDescription;
@@ -48,23 +52,33 @@ function resetToDefault() {
     avionicsTypeElement.textContent = defaultAvionics;
     aircraftInfo.style.display = 'none'; // Hide the aircraft info
 
-
-    // Stop any ongoing image rotation
-    clearInterval(imageRotationInterval);
-    imageRotationInterval = null;
-
     // Hide reset message when reset
     resetMessage.style.display = 'none';
 
-    fleetVideo.style.display = 'block'; // Show the video
+    // Ensure the video is in the DOM and starts hidden
+    fleetVideo.style.display = 'block';
+    fleetVideo.style.opacity = '0';
 
+    // Fade in the video
+    resetTimeout = setTimeout(() => {
+        fleetVideo.style.transition = 'opacity 0.5s ease'; // Smooth fade
+        fleetVideo.style.opacity = '1'; // Start fading in
 
+        // Remove the background photo after the fade-in completes
+        setTimeout(() => {
+            fleetElement.style.backgroundImage = ''; // Remove the photo
+        }, 300); // Match the fade-in duration (0.5s)
+    }, 10); // Small delay to ensure CSS transition applies
 }
 
 // Hover behavior for headers (temporary view)
 fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
         if (isPermanentView && !clickedHeaderData) return; // Ignore hover if permanent view is active and no clicked header data
+
+        console.log("mouse enter - clear timeout")
+        clearTimeout(mouseEnterTimeout)
+        clearTimeout(resetTimeout)
 
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
@@ -75,9 +89,12 @@ fleetHeaders.forEach(header => {
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
+        if (imageUrl == null) {
+            return
+        }
+
         // Start rotating random images
         let imageIndex = 1;
-        console.log(imageUrl)
         const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
         const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
         fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
@@ -103,7 +120,15 @@ fleetHeaders.forEach(header => {
         // Show reset message when hovering over header
         resetMessage.style.display = 'block';
 
-        fleetVideo.style.display = 'none'; // Hide the videov
+        // Fade out the video
+        fleetVideo.style.opacity = '0';
+        fleetVideo.style.transition = 'opacity 0.5s ease';
+
+        // After the fade-out completes, set display: none
+        mouseEnterTimeout = setTimeout(() => {
+            fleetVideo.style.display = 'none';
+        }, 300); // Match the transition duration
+
     });
 
     // On hover out, revert to the clicked header's details if permanent
