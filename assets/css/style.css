@@ -247,7 +247,7 @@ pre,
 blockquote,
 table,
 hr {
-  margin: 0 0 20px 0;
+  /* margin: 0 0 20px 0; */
 }
 
 h1,
@@ -1757,13 +1757,7 @@ p {
 
 .swiper .swiper-slide .slide-content {
   position: relative;
-  padding: 60px 20px;
-}
-
-@media only screen and (min-width: 768px) {
-  .swiper .swiper-slide .slide-content {
-    padding: 100px 20px;
-  }
+  /* padding: 60px 20px; */
 }
 
 .swiper .swiper-slide .slide-content .slide-title-1 {
@@ -3402,7 +3396,7 @@ Airplane Button
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  width: 200px;
+  width: auto;
   position: relative;
   z-index: 10;
   border-radius: 25px;
