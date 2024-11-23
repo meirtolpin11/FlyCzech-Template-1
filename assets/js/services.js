@@ -11,6 +11,7 @@ paginationBullets.forEach(bullet => {
     });
 });
 
+
 // Ensure we reset the animation for each bullet after the slide changes
 swiper.on('slideChange', () => {
     paginationBullets.forEach(bullet => {
@@ -18,4 +19,21 @@ swiper.on('slideChange', () => {
         bullet.offsetHeight;  // Trigger reflow to re-apply the animation
         bullet.style.animation = '';  // Re-apply animation style
     });
+
+    // Update the navbar with the current slide index
+    if (isSwiperInFocus()) {
+        updateActiveNav(swiper.realIndex);
+    }
 });
+
+// Function to check if Swiper is in focus
+function isSwiperInFocus() {
+    const swiperContainer = document.querySelector('.swiper');  // Or the relevant class if it's different
+    return swiperContainer === document.activeElement || isElementInViewport(swiperContainer);
+}
+
+// Function to check if the Swiper container is in the viewport
+function isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
