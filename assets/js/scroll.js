@@ -88,7 +88,7 @@ document.querySelectorAll(".nav-link").forEach((link, index) => {
             // Then, move to the first slide after scrolling
             setTimeout(() => {
                 swiper.slideTo(3); // Go to the first slide
-                updateActiveNav(1);
+                updateActiveNav(2);
                 autoplay = false;
             }, 500); // Delay the slide change to allow smooth scroll to "home"
         } else if (link.getAttribute('href') === "#home") {
