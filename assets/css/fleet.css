@@ -113,26 +113,26 @@
 
 .paragraph-section h1 {
     margin-bottom: 1vw;
-    font-size: 1.5vw;
+    font-size: 2rem;
 }
 
 .paragraph-section h6 {
-    font-size: 1.5vw;
+    font-size: 2rem;
     margin-bottom: 1vw;
 }
 
 .paragraph-section h4 {
-    font-size: 1.5vw;
+    font-size: 2rem;
     margin-bottom: 1vw;
 }
 
 .paragraph-section p {
-    font-size: 1vw;
+    font-size: 1.25rem;
     margin-bottom: 1vw;
 }
 
 .aircraft-info {
-    font-size: 1.5vw;
+    font-size: 2rem;
     text-align: left;
 }
 

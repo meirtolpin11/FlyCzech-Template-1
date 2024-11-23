@@ -1,13 +1,19 @@
 
 // Select all pagination bullets
 const paginationBullets = document.querySelectorAll('.swiper-pagination-bullet');
+var autoplay = true
 
 // Add event listener for each bullet's animation end to trigger next slide
 paginationBullets.forEach(bullet => {
     console.log(bullet)
     bullet.addEventListener('animationend', () => {
         console.log("Animation ended");
-        swiper.slideNext();  // Move to next slide when animation ends
+        if (autoplay) {
+            swiper.slideNext();  // Move to next slide when animation ends
+        }
+    });
+    bullet.addEventListener('click', () => {
+        autoplay = false;
     });
 });
 

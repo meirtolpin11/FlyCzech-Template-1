@@ -1,11 +1,12 @@
 let scrollTimeout;
-const sectionNums = [0, 2, 3, 4]
+const sectionNums = [0, 3, 4, 5]
 const sections = {
     0: "#home",
     1: "#services",
-    2: "#fleet",
-    3: "#our-team",
-    4: "#contact"
+    2: "#experience",
+    3: "#fleet",
+    4: "#our-team",
+    5: "#contact"
 };
 let currentIndex = 0;
 
@@ -23,6 +24,7 @@ function jumpToSection(index) {
 
 // Update active class on the navbar
 function updateActiveNav(index) {
+    console.log("setting - " + index)
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link, i) => {
         if (i === index) {
@@ -74,7 +76,20 @@ document.querySelectorAll(".nav-link").forEach((link, index) => {
             setTimeout(() => {
                 swiper.slideTo(2); // Go to the first slide
                 updateActiveNav(1);
+                autoplay = false;
 
+            }, 500); // Delay the slide change to allow smooth scroll to "home"
+        } else if (link.getAttribute('href') === "#experience") {
+            console.log("experience")
+            // If it's the "Services" link, handle the special behavior
+            currentIndex = 0; // Set currentIndex to "home"
+            jumpToSection(sectionNums[currentIndex]);
+
+            // Then, move to the first slide after scrolling
+            setTimeout(() => {
+                swiper.slideTo(3); // Go to the first slide
+                updateActiveNav(1);
+                autoplay = false;
             }, 500); // Delay the slide change to allow smooth scroll to "home"
         } else if (link.getAttribute('href') === "#home") {
             // If it's the "Services" link, handle the special behavior
@@ -85,10 +100,12 @@ document.querySelectorAll(".nav-link").forEach((link, index) => {
             setTimeout(() => {
                 swiper.slideTo(1); // Go to the first slide
                 updateActiveNav(0);
+                autoplay = true;
             }, 500); // Delay the slide change to allow smooth scroll to "home"
         } else {
             // Normal behavior for other navbar links
-            currentIndex = sectionNums[index - 1];
+            currentIndex = sectionNums[index - 2];
+            console.log(index, currentIndex)
             jumpToSection(currentIndex);
         }
     });
@@ -107,3 +124,4 @@ window.addEventListener("scroll", () => {
         updateActiveNav(currentIndex);  // Update active navbar
     }
 });
+``
