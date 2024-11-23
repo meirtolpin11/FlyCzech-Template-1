@@ -88,8 +88,8 @@ document.querySelectorAll(".nav-link").forEach((link, index) => {
             }, 500); // Delay the slide change to allow smooth scroll to "home"
         } else {
             // Normal behavior for other navbar links
-            currentIndex = index;
-            jumpToSection(sectionNums[index]);
+            currentIndex = sectionNums[index - 1];
+            jumpToSection(currentIndex);
         }
     });
 });
