@@ -35,29 +35,40 @@ function updateActiveNav(index) {
     });
 }
 
+
+let latestScrollTime = null;
+let timeBetweenScrolls = 50;
+
 // Handle wheel scrolling
 window.addEventListener("wheel", function (e) {
     e.preventDefault(); // Prevent default scroll behavior
 
-    clearTimeout(scrollTimeout); // Clear the timeout to avoid multiple triggers
+    // console.log("wheel")
 
-    scrollTimeout = setTimeout(() => {
-        if (e.deltaY > 0) {
-            // Scrolling down
-            const nextIndex = sectionNums.indexOf(currentIndex) + 1;
-            console.log(nextIndex)
-            if (nextIndex < sectionNums.length) {
-                jumpToSection(sectionNums[nextIndex]);
-            }
-        } else {
-            // Scrolling up
-            const prevIndex = sectionNums.indexOf(currentIndex) - 1;
-            if (prevIndex >= 0) {
-                index = sectionNums[prevIndex];
-                jumpToSection(sectionNums[prevIndex]);
-            }
+    if (latestScrollTime == null) {
+        latestScrollTime = Date.now()
+    } else {
+        if (Date.now() - latestScrollTime < timeBetweenScrolls) {
+            latestScrollTime = Date.now()
+            return
         }
-    }, 100);
+        latestScrollTime = Date.now()
+    }
+
+    if (e.deltaY > 0) {
+        // Scrolling down
+        const nextIndex = sectionNums.indexOf(currentIndex) + 1;
+        if (nextIndex < sectionNums.length) {
+            jumpToSection(sectionNums[nextIndex]);
+        }
+    } else {
+        // Scrolling up
+        const prevIndex = sectionNums.indexOf(currentIndex) - 1;
+        if (prevIndex >= 0) {
+            index = sectionNums[prevIndex];
+            jumpToSection(sectionNums[prevIndex]);
+        }
+    }
 }, { passive: false });
 
 // Handle clicks on navbar links
