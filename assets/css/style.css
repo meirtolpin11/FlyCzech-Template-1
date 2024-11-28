@@ -1903,9 +1903,9 @@ p {
 
 /* Default smaller dot for non-active bullets */
 .swiper-pagination .swiper-pagination-bullet {
-  width: calc(var(--size) * 0.8px);
+  width: calc(var(--size) * 1px);
   /* Small size for non-active bullets */
-  height: calc(var(--size) * 0.8px);
+  height: calc(var(--size) * 1px);
   /* Small size for non-active bullets */
   background: #6e6969;
   /* Solid gray for non-active bullets */
@@ -1920,15 +1920,16 @@ p {
   /* No animation for non-active bullets */
   transform: scale(1);
   /* No scaling */
+  opacity: 0.8;
 }
 
 /* Active bullet with the larger size and animation */
 .swiper-pagination .swiper-pagination-bullet-active {
   transform: rotate(180deg);
 
-  width: calc(var(--size) * 2.5px);
+  width: calc(var(--size) * 3px);
   /* Larger size for active bullet */
-  height: calc(var(--size) * 2.5px);
+  height: calc(var(--size) * 3px);
   /* Larger size for active bullet */
   background: -webkit-linear-gradient(left, skyBlue 50%, #6e6969 50%);
 
