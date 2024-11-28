@@ -36,6 +36,23 @@ function updateActiveNav(index) {
 }
 
 
+function prevButtonOn() {
+    document.getElementById("prev-page-button").style.removeProperty("display");
+}
+
+function prevButtonOff() {
+    document.getElementById("prev-page-button").style.display = "none";
+}
+
+function nextButtonOn() {
+    document.getElementById("next-page-button").style.removeProperty("display");
+}
+
+function nextButtonOff() {
+    document.getElementById("next-page-button").style.display = "none";
+}
+
+
 let latestScrollTime = null;
 let timeBetweenScrolls = 100;
 
@@ -59,17 +76,62 @@ window.addEventListener("wheel", function (e) {
         // Scrolling down
         const nextIndex = sectionNums.indexOf(currentIndex) + 1;
         if (nextIndex < sectionNums.length) {
+            if (nextIndex == sectionNums.length - 1) {
+                nextButtonOff()
+            }
             jumpToSection(sectionNums[nextIndex]);
         }
+
+        prevButtonOn()
     } else {
         // Scrolling up
         const prevIndex = sectionNums.indexOf(currentIndex) - 1;
         if (prevIndex >= 0) {
+
+            if (prevIndex == 0) {
+                prevButtonOff()
+            }
+
             index = sectionNums[prevIndex];
             jumpToSection(sectionNums[prevIndex]);
+            nextButtonOn()
         }
     }
 }, { passive: false });
+
+
+
+document.getElementById("next-page-button").addEventListener("click", (e) => {
+    // Scrolling down
+    const nextIndex = sectionNums.indexOf(currentIndex) + 1;
+    if (nextIndex < sectionNums.length) {
+
+        if (nextIndex == sectionNums.length - 1) {
+            nextButtonOff()
+        }
+        jumpToSection(sectionNums[nextIndex]);
+    }
+
+    prevButtonOn()
+
+});
+
+document.getElementById("prev-page-button").addEventListener("click", (e) => {
+    // Scrolling up
+    const prevIndex = sectionNums.indexOf(currentIndex) - 1;
+    if (prevIndex >= 0) {
+
+        if (prevIndex == 0) {
+            prevButtonOff()
+        }
+
+        index = sectionNums[prevIndex];
+        jumpToSection(sectionNums[prevIndex]);
+    }
+
+    nextButtonOn();
+});
+
 
 // Handle clicks on navbar links
 document.querySelectorAll(".nav-link").forEach((link, index) => {

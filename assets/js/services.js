@@ -10,10 +10,15 @@ paginationBullets.forEach(bullet => {
         console.log("Animation ended");
         if (autoplay) {
             swiper.slideNext();  // Move to next slide when animation ends
+        } else {
+            bullet.style.background = "skyBlue";
         }
     });
     bullet.addEventListener('click', () => {
         autoplay = false;
+        paginationBullets.forEach(bul => {
+            bul.style.removeProperty("background");
+        });
     });
 });
 
