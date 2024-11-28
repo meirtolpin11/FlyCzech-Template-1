@@ -21,6 +21,9 @@ body {
   /* Ensure full width of the viewport */
   overflow: hidden;
   /* Prevent horizontal overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body {
@@ -1932,7 +1935,6 @@ p {
   mask: radial-gradient(transparent 60%, #000 40%);
 }
 
-
 .mask {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   height: 100%;
@@ -1943,7 +1945,6 @@ p {
   -webkit-animation: mask calc(var(--duration) * 5s) steps(500, start);
   -webkit-transform-origin: 100% 50%;
 }
-
 
 @-webkit-keyframes mask {
   0% {
@@ -1968,9 +1969,9 @@ p {
     background: skyBlue;
     -webkit-transform: rotate(180deg);
     /* Rotate clockwise to the bottom point (180deg, 6 o'clock) */
+    /* This ensures the circle is fully filled with skyBlue */
   }
 }
-
 
 /* Navigation buttons */
 .swiper-button-next,
@@ -3540,4 +3541,39 @@ Airplane Button
 
 .contact-circle:hover .contact-info {
   color: #ffd700;
+}
+
+
+/*  */
+
+/* Add this to your CSS file or within a <style> tag in the HTML */
+.bottom-icon {
+  position: fixed;
+  /* left: 50%; */
+  bottom: 20px;
+  font-size: 30px;
+  /* Adjust size as needed */
+  color: rgba(255, 255, 255, 0.5);
+
+  /* Change color if needed */
+  cursor: pointer;
+  z-index: 100;
+  transform: scaleX(2);
+  /* 1.5 will make it 1.5 times wider */
+}
+
+/* Add this to your CSS file or within a <style> tag in the HTML */
+.upper-icon {
+  position: fixed;
+  /* left: 50%; */
+  top: 60px;
+  font-size: 30px;
+  /* Adjust size as needed */
+  color: rgba(255, 255, 255, 0.5);
+
+  /* Change color if needed */
+  cursor: pointer;
+  z-index: 100;
+  transform: scaleX(2);
+  /* 1.5 will make it 1.5 times wider */
 }
