@@ -1881,66 +1881,112 @@ p {
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: 20px;
+  right: 20px;
+  bottom: 30px !important;
+  /* Ensures the bullets are positioned in the bottom-right corner */
+  left: auto !important;
+  /* Resets any potential 'left' positioning */
+  position: fixed !important;
+  /* Fixes the position relative to the viewport */
+  display: flex;
+  /* Ensures bullets are aligned horizontally */
+  align-items: center;
+  /* Ensures vertical alignment of all bullets */
+  z-index: 10;
+  justify-content: flex-end;
+  /* Aligns the bullets to the right */
 }
 
-/* Bullet circle style */
-.swiper-pagination-bullet {
-  width: 60px;
-  /* Increased size */
-  height: 60px;
-  /* Increased size */
-  background-color: var(--color-white);
-  border: 3px solid transparent;
-  /* Make border transparent initially */
+/* Default smaller dot for non-active bullets */
+.swiper-pagination .swiper-pagination-bullet {
+  width: calc(var(--size) * 0.8px);
+  /* Small size for non-active bullets */
+  height: calc(var(--size) * 0.8px);
+  /* Small size for non-active bullets */
+  background: #eee;
+  /* Solid gray for non-active bullets */
   border-radius: 50%;
-  /* Makes it a circle */
+  /* Ensures the bullet is a dot */
   position: relative;
-  /* Needed for the pseudo-element */
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  margin: 0 5px;
+  /* Adds spacing between bullets */
+  transition: transform 0.3s ease;
+  /* Smooth transition for size change */
+  animation: none;
+  /* No animation for non-active bullets */
+  transform: scale(1);
+  /* No scaling */
 }
 
-/* Active bullet circle style with moving border */
-.swiper-pagination-bullet-active {
-  background-color: transparent;
-  /* Keep background transparent for active state */
-  border-color: transparent;
-  /* Remove the border color */
-  animation: clock-border 10s linear;
-  /* Add rotation animation */
+
+
+/* Active bullet with the larger size and animation */
+.swiper-pagination .swiper-pagination-bullet-active {
+  width: calc(var(--size) * 2.5px);
+  /* Larger size for active bullet */
+  height: calc(var(--size) * 2.5px);
+  /* Larger size for active bullet */
+  background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
+  /* Active bullet color */
+  -webkit-mask: radial-gradient(transparent 50%, #000 50%);
+  mask: radial-gradient(transparent 50%, #000 50%);
+  transition: width 0.3s, height 0.3s;
+  /* Smooth transition for size */
+  animation: time calc(var(--duration) * 5s) steps(1000, start);
+  /* Timer animation starts when bullet becomes active */
+  transform: scale(1);
+  /* Active bullet should not scale after animation starts */
+
+  mask: radial-gradient(transparent 50%, #000 50%);
+  border-radius: 100%;
+  position: relative;
+  animation: time calc(var(--duration) * 5s) steps(1000, start);
+  -webkit-mask: radial-gradient(transparent 50%, #000 50%);
+
 }
 
-/* Creating the clock-like rotating border effect */
-@keyframes clock-border {
-  0% {
-    border-top-color: var(--color-primary);
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
+.mask {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  -webkit-animation: mask calc(var(--duration) * 5s) steps(500, start) infinite;
+  -webkit-transform-origin: 100% 50%;
+}
+
+@-webkit-keyframes time {
+  100% {
+    -webkit-transform: rotate(360deg);
+    /* Clockwise rotation from the upper point (0deg, 12 o'clock) */
   }
+}
 
-  25% {
-    border-top-color: var(--color-primary);
-    border-right-color: var(--color-primary);
-    border-bottom-color: transparent;
-    border-left-color: transparent;
+@-webkit-keyframes mask {
+  0% {
+    background: #eee;
+    -webkit-transform: rotate(0deg);
+    /* Start at the upper point (0deg, 12 o'clock) */
   }
 
   50% {
-    border-top-color: var(--color-primary);
-    border-right-color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-    border-left-color: transparent;
+    background: #eee;
+    -webkit-transform: rotate(180deg);
+    /* Rotate clockwise to the bottom point (180deg, 6 o'clock) */
+  }
+
+  50.01% {
+    background: skyBlue;
+    -webkit-transform: rotate(0deg);
+    /* Reset back to the upper point */
   }
 
   100% {
-    border-top-color: var(--color-primary);
-    border-right-color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-    border-left-color: var(--color-primary);
+    background: skyBlue;
+    -webkit-transform: rotate(180deg);
+    /* Rotate clockwise to the bottom point (180deg, 6 o'clock) */
   }
-
 }
 
 
@@ -3505,7 +3551,7 @@ Airplane Button
 }
 
 .contact-info {
-  font-size: 1.25vw;
+  font-size: 1.25rem;
   color: white;
   text-align: left;
 }
