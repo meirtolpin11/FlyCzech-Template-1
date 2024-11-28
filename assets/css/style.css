@@ -3575,3 +3575,33 @@ Airplane Button
   transform: scaleX(2);
   /* 1.5 will make it 1.5 times wider */
 }
+
+
+
+
+/* Hide the text inside the navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '';
+  /* Remove any extra text */
+  display: none;
+  /* Ensure there's no text displayed */
+}
+
+.swiper-button-prev {
+  /* Optional: Adjust the size or style of the icon as needed */
+  font-size: 24px;
+}
+
+.swiper-button-next {
+  /* Optional: Adjust the size or style of the icon as needed */
+  font-size: 24px;
+}

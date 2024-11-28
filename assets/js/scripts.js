@@ -37,20 +37,12 @@
       el: '.swiper-pagination',  // Optional pagination (you can hide this if you don't need it)
       clickable: true,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',  // Next slide button
-      prevEl: '.swiper-button-prev',  // Previous slide button
-    },
   });
 
   new Swiper('.process-swiper', {
     slidesPerView: 1,  // Display one item at a time on mobile
     spaceBetween: 10,   // Space between slides
     loop: true,         // Enable looping
-    navigation: {
-      nextEl: '.swiper-button-next',  // Next slide button
-      prevEl: '.swiper-button-prev',  // Previous slide button
-    },
     breakpoints: {
       768: {
         slidesPerView: 'auto',  // Multiple items on desktop
