@@ -37,7 +37,7 @@ function updateActiveNav(index) {
 
 
 let latestScrollTime = null;
-let timeBetweenScrolls = 50;
+let timeBetweenScrolls = 100;
 
 // Handle wheel scrolling
 window.addEventListener("wheel", function (e) {
