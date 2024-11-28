@@ -1903,37 +1903,34 @@ p {
 
 /* Default smaller dot for non-active bullets */
 .swiper-pagination .swiper-pagination-bullet {
-  width: calc(var(--size) * 1px);
-  /* Small size for non-active bullets */
-  height: calc(var(--size) * 1px);
-  /* Small size for non-active bullets */
+  width: calc(var(--size) * 0.5px);
+  height: calc(var(--size) * 0.5px);
   background: #6e6969;
-  /* Solid gray for non-active bullets */
   border-radius: 50%;
-  /* Ensures the bullet is a dot */
   position: relative;
-  margin: 0 5px;
-  /* Adds spacing between bullets */
+
+  /* Adjust the horizontal spacing between bullets */
+  margin: 0 10px !important;
+  /* Increase the value to increase the spacing */
+
   transition: transform 0.3s ease;
-  /* Smooth transition for size change */
   animation: none;
-  /* No animation for non-active bullets */
   transform: scale(1);
-  /* No scaling */
   opacity: 0.8;
 }
+
 
 /* Active bullet with the larger size and animation */
 .swiper-pagination .swiper-pagination-bullet-active {
   transform: rotate(180deg);
 
-  width: calc(var(--size) * 3px);
+  width: calc(var(--size) * 4px);
   /* Larger size for active bullet */
-  height: calc(var(--size) * 3px);
+  height: calc(var(--size) * 4px);
   /* Larger size for active bullet */
   background: -webkit-linear-gradient(left, skyBlue 50%, #6e6969 50%);
 
-  mask: radial-gradient(transparent 60%, #000 40%);
+  mask: radial-gradient(transparent 65%, #000 35%);
 }
 
 .mask {

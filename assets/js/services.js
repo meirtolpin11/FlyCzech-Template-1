@@ -34,6 +34,7 @@ if (firstBullet) {
 swiper.on('slideChange', () => {
     // Remove mask from all bullets
     const bullets = document.querySelectorAll('.swiper-pagination .swiper-pagination-bullet');
+
     bullets.forEach(bullet => {
         bullet.querySelector('.mask')?.remove();  // Remove mask if present
     });
@@ -69,3 +70,5 @@ function isElementInViewport(element) {
     const rect = element.getBoundingClientRect();
     return rect.top >= 0 && rect.bottom <= window.innerHeight;
 }
+
+
