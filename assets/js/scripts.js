@@ -14,6 +14,12 @@
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        renderBullet: function (index, className) {
+          // Create a custom pagination bullet with a timer effect
+          return `<span class="${className} timer" style="--duration: 3; --size: 20;">
+                      <div class="mask"></div>
+                  </span>`;
+        },
       },
       navigation: {
         nextEl: '.swiper-button-next',
