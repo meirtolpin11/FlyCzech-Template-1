@@ -17,9 +17,30 @@ paginationBullets.forEach(bullet => {
     });
 });
 
+// Apply mask to the first bullet when swiper is initialized
+const firstBullet = document.querySelector('.swiper-pagination .swiper-pagination-bullet');
+if (firstBullet) {
+    const maskElement = document.createElement('div');
+    maskElement.classList.add('mask');
+    firstBullet.appendChild(maskElement);  // Add mask to first bullet
+}
 
 // Ensure we reset the animation for each bullet after the slide changes
 swiper.on('slideChange', () => {
+    // Remove mask from all bullets
+    const bullets = document.querySelectorAll('.swiper-pagination .swiper-pagination-bullet');
+    bullets.forEach(bullet => {
+        bullet.querySelector('.mask')?.remove();  // Remove mask if present
+    });
+
+    // Add mask to the active bullet
+    const activeBullet = document.querySelector('.swiper-pagination .swiper-pagination-bullet-active');
+    if (activeBullet) {
+        const maskElement = document.createElement('div');
+        maskElement.classList.add('mask');
+        activeBullet.appendChild(maskElement);  // Add mask to active bullet
+    }
+
     paginationBullets.forEach(bullet => {
         bullet.style.animation = 'none';  // Remove animation to reset it
         bullet.offsetHeight;  // Trigger reflow to re-apply the animation

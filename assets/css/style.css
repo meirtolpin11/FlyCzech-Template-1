@@ -1895,6 +1895,7 @@ p {
   z-index: 10;
   justify-content: flex-end;
   /* Aligns the bullets to the right */
+
 }
 
 /* Default smaller dot for non-active bullets */
@@ -1903,7 +1904,7 @@ p {
   /* Small size for non-active bullets */
   height: calc(var(--size) * 0.8px);
   /* Small size for non-active bullets */
-  background: #eee;
+  background: #6e6969;
   /* Solid gray for non-active bullets */
   border-radius: 50%;
   /* Ensures the bullet is a dot */
@@ -1918,32 +1919,19 @@ p {
   /* No scaling */
 }
 
-
-
 /* Active bullet with the larger size and animation */
 .swiper-pagination .swiper-pagination-bullet-active {
+  transform: rotate(180deg);
+
   width: calc(var(--size) * 2.5px);
   /* Larger size for active bullet */
   height: calc(var(--size) * 2.5px);
   /* Larger size for active bullet */
-  background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
-  /* Active bullet color */
-  -webkit-mask: radial-gradient(transparent 50%, #000 50%);
-  mask: radial-gradient(transparent 50%, #000 50%);
-  transition: width 0.3s, height 0.3s;
-  /* Smooth transition for size */
-  animation: time calc(var(--duration) * 5s) steps(1000, start);
-  /* Timer animation starts when bullet becomes active */
-  transform: scale(1);
-  /* Active bullet should not scale after animation starts */
+  background: -webkit-linear-gradient(left, skyBlue 50%, #6e6969 50%);
 
-  mask: radial-gradient(transparent 50%, #000 50%);
-  border-radius: 100%;
-  position: relative;
-  animation: time calc(var(--duration) * 5s) steps(1000, start);
-  -webkit-mask: radial-gradient(transparent 50%, #000 50%);
-
+  mask: radial-gradient(transparent 60%, #000 40%);
 }
+
 
 .mask {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
@@ -1952,26 +1940,20 @@ p {
   position: absolute;
   top: 0;
   width: 50%;
-  -webkit-animation: mask calc(var(--duration) * 5s) steps(500, start) infinite;
+  -webkit-animation: mask calc(var(--duration) * 5s) steps(500, start);
   -webkit-transform-origin: 100% 50%;
 }
 
-@-webkit-keyframes time {
-  100% {
-    -webkit-transform: rotate(360deg);
-    /* Clockwise rotation from the upper point (0deg, 12 o'clock) */
-  }
-}
 
 @-webkit-keyframes mask {
   0% {
-    background: #eee;
+    background: #6e6969;
     -webkit-transform: rotate(0deg);
     /* Start at the upper point (0deg, 12 o'clock) */
   }
 
   50% {
-    background: #eee;
+    background: #6e6969;
     -webkit-transform: rotate(180deg);
     /* Rotate clockwise to the bottom point (180deg, 6 o'clock) */
   }

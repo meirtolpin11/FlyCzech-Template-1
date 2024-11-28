@@ -15,10 +15,8 @@
         el: '.swiper-pagination',
         clickable: true,
         renderBullet: function (index, className) {
-          // Create a custom pagination bullet with a timer effect
-          return `<span class="${className} timer" style="--duration: 3; --size: 20;">
-                      <div class="mask"></div>
-                  </span>`;
+          // Initial rendering without the mask
+          return `<span class="${className}" style="--duration: 3; --size: 20;"></span>`;
         },
       },
       navigation: {
