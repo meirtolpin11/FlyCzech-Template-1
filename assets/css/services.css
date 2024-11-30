@@ -11,9 +11,15 @@
     text-align: center;
     border: 1px solid white;
     padding: 0.5rem;
-    /* Reduced padding */
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+    /* Smooth transition effect */
+}
+
+.services-category:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Lighter background on hover */
 }
 
 @media (max-width: 768px) {
