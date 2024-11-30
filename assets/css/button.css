@@ -1,0 +1,153 @@
+/* Button Wrapper */
+.contact-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Default Button Style */
+.contact-button {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* WhatsApp Button */
+.contact-button-whatsapp {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    width: auto;
+    position: relative;
+    z-index: 10;
+    border-radius: 25px;
+}
+
+/* Media Query for Screens with Height < 650px */
+@media (max-height: 650px) {
+    .contact-button-wrapper {
+        position: fixed;
+        /* Fix to viewport */
+        bottom: 70px;
+        /* Distance from the bottom */
+        left: 50%;
+        /* Center horizontally */
+        transform: translateX(-50%);
+        /* Adjust horizontal centering */
+        margin-top: 0;
+        /* Remove any margin affecting placement */
+        z-index: 999;
+        /* Ensure it stays above other content */
+    }
+}
+
+/* Hover Effects */
+.contact-button-whatsapp:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Light transparent white */
+    color: black;
+    /* Change text color to black */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    ;
+    /* WhatsApp green border on hover */
+}
+
+.contact-button-whatsapp i {
+    margin-right: 8px;
+    /* Spacing between icon and text */
+}
+
+.button-map {
+    background-color: #4285F4;
+    /* Google Maps blue color */
+}
+
+.contact-circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+}
+
+.contact-circle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+}
+
+.contact-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #f8f6f3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.contact-icon:hover {
+    background-color: #ffd700;
+}
+
+.contact-info {
+    font-size: 1.25rem;
+    color: white;
+    text-align: left;
+}
+
+.contact-circle:hover .contact-info {
+    color: #ffd700;
+}
+
+
+/*  */
+
+/* Add this to your CSS file or within a <style> tag in the HTML */
+.bottom-icon {
+    position: fixed;
+    /* left: 50%; */
+    bottom: 20px;
+    font-size: 30px;
+    /* Adjust size as needed */
+    color: rgba(255, 255, 255, 0.5);
+
+    /* Change color if needed */
+    cursor: pointer;
+    z-index: 100;
+    transform: scaleX(2);
+    /* 1.5 will make it 1.5 times wider */
+}
+
+/* Add this to your CSS file or within a <style> tag in the HTML */
+.upper-icon {
+    position: fixed;
+    /* left: 50%; */
+    top: 60px;
+    font-size: 30px;
+    /* Adjust size as needed */
+    color: rgba(255, 255, 255, 0.5);
+
+    /* Change color if needed */
+    cursor: pointer;
+    z-index: 100;
+    transform: scaleX(2);
+    /* 1.5 will make it 1.5 times wider */
+}

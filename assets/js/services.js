@@ -9,7 +9,7 @@ paginationBullets.forEach(bullet => {
     bullet.addEventListener('animationend', () => {
         console.log("Animation ended");
         if (autoplay) {
-            swiper.slideNext();  // Move to next slide when animation ends
+            // swiper.slideNext();  // Move to next slide when animation ends
         } else {
             bullet.style.background = "skyBlue";
         }
