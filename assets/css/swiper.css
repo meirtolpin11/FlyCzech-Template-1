@@ -58,7 +58,7 @@
 
 .swiper .swiper-slide .slide-content .slide-title-2 {
     font-family: var(--font-heading);
-    font-size: calc(1.525rem + 3.3vw);
+    font-size: 4rem;
     font-style: normal;
     font-weight: 700;
     line-height: 1.15;
@@ -302,7 +302,7 @@
     word-wrap: normal;
     direction: ltr;
     line-height: 1;
-    font-size: calc(1.525rem + 3.3vw);
+    font-size: 4rem;
 }
 
 @media (min-width: 1200px) {

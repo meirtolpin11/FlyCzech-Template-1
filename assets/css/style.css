@@ -277,7 +277,7 @@ h6 a {
 
 h1,
 .h1 {
-  font-size: calc(1.525rem + 3.3vw);
+  font-size: 4rem;
   line-height: 1.2;
 }
 
@@ -1145,7 +1145,7 @@ p {
   margin: 5px 0 40px;
   text-transform: capitalize;
   line-height: 1.4;
-  font-size: calc(1.525rem + 3.3vw);
+  font-size: 4rem;
 }
 
 @media (min-width: 1200px) {
