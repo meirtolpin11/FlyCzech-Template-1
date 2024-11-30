@@ -1,0 +1,13 @@
+@media (max-height: 750px) {
+    p.contact-us-description {
+        display: none;
+    }
+
+    .section-title-wrap {
+        padding: 0;
+    }
+
+    .pt-120 {
+        padding-top: 80px;
+    }
+}
