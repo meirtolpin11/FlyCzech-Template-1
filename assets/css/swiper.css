@@ -17,7 +17,16 @@
 
 .swiper .swiper-slide .slide-content {
     position: relative;
-    /* padding: 60px 20px; */
+}
+
+@media (max-width: 768px) {
+    .swiper .swiper-slide .slide-content {
+        height: 100%;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .swiper .swiper-slide .slide-content .slide-title-1 {
