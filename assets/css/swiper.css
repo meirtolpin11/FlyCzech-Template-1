@@ -214,6 +214,10 @@
     animation: none;
     transform: scale(1);
     opacity: 0.8;
+
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
 }
 
 

@@ -119,7 +119,6 @@
 
 
 /*  */
-
 /* Add this to your CSS file or within a <style> tag in the HTML */
 .bottom-icon {
     position: fixed;
@@ -128,12 +127,13 @@
     font-size: 30px;
     /* Adjust size as needed */
     color: rgba(255, 255, 255, 0.5);
-
     /* Change color if needed */
     cursor: pointer;
     z-index: 100;
     transform: scaleX(2);
     /* 1.5 will make it 1.5 times wider */
+    display: none;
+    /* Hidden by default on mobile */
 }
 
 /* Add this to your CSS file or within a <style> tag in the HTML */
@@ -144,10 +144,20 @@
     font-size: 30px;
     /* Adjust size as needed */
     color: rgba(255, 255, 255, 0.5);
-
     /* Change color if needed */
     cursor: pointer;
     z-index: 100;
     transform: scaleX(2);
     /* 1.5 will make it 1.5 times wider */
+    display: none;
+    /* Hidden by default on mobile */
+}
+
+/* Show icons on desktop */
+@media only screen and (min-width: 992px) {
+
+    .bottom-icon,
+    .upper-icon {
+        display: block;
+    }
 }

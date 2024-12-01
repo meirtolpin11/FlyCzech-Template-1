@@ -23,6 +23,27 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+@media only screen and (max-width: 991px) {
+    .dimmed-navbar {
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+}
+
+/* Mobile-specific container-fluid positioning */
+@media only screen and (max-width: 991px) {
+    .page-header .container-fluid {
+        position: fixed;
+        bottom: 0;
+        height: 80px;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+
 /* Reset Parent Container Styling */
 .page-header .container-fluid {
     width: 100%;
@@ -82,6 +103,33 @@
     transition: all 0.3s ease;
     /* Adds smooth animation */
 }
+
+/* Mobile Navigation Background */
+@media only screen and (max-width: 991px) {
+    .header-nav .mobile-nav {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar-brand {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+}
+
+/* Mobile Navigation Menu Background */
+@media only screen and (max-width: 991px) {
+    .header-nav .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.85);
+        /* Dark semi-transparent background */
+        background: rgba(0, 0, 0, 0.85);
+        /* Ensure background is set for full compatibility */
+    }
+}
+
 
 /* Header Contact Button */
 .header-contact .button.button-yellow {

@@ -1683,19 +1683,23 @@ p {
 
 /* STICKY STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media only screen and (max-width: 991px) {
+  .page-header.is-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0px;
+    z-index: 1000;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .page-header.is-sticky {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    /* background-color: #304352; */
-    /* background-image: -webkit-gradient(linear, right top, left top, from(#d7d2cc), to(#304352)); */
-    /* background-image: linear-gradient(to left, #d7d2cc, #304352); */
-    /* -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1); */
-    /* box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1); */
-    /* -webkit-animation: slideDown 0.35s ease-out; */
-    /* animation: slideDown 0.35s ease-out; */
   }
 }
 
@@ -1734,7 +1738,6 @@ p {
     transform: translateY(0);
   }
 }
-
 
 
 /*--------------------------

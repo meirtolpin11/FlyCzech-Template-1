@@ -5,6 +5,36 @@
     justify-content: center;
 }
 
+@media (max-width: 768px) {
+
+    .services-wrapper .services-description,
+    .services-wrapper .services-detail {
+        display: none;
+    }
+
+    .services-wrapper .services-category {
+        --is-phone: 1
+    }
+
+    .services-category:hover .services-description,
+    .services-category:hover .services-detail {
+        display: block;
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 .services-category {
     flex: 1 1 calc(30% - 1rem);
     max-width: 30%;
