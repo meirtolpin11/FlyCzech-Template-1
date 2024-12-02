@@ -105,10 +105,11 @@
         /* Rounded corners */
         z-index: 1000;
         width: 90%;
-        max-height: 90%;
+        height: 70%;
         overflow-y: auto;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         animation: popupFadeIn 0.3s ease-in-out;
+        justify-content: center;
     }
 
     @keyframes popupFadeIn {
