@@ -5,16 +5,24 @@
     justify-content: center;
 }
 
+.services-wrapper .service-button {
+    display: none;
+}
+
 @media (max-width: 768px) {
 
     .services-wrapper .services-description,
-    .services-wrapper .services-detail {
+    .services-wrapper .services-detail,
+    .services-wrapper .service-button {
         display: none;
     }
 
     .services-wrapper .services-category {
         --is-phone: 1
     }
+
+
+
 
 }
 
@@ -68,14 +76,15 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 1);
-        /* Background overlay */
+        background: rgba(20, 20, 25, 0.85);
+        /* Softer black overlay */
         z-index: 999;
         animation: fadeIn 0.3s ease-in-out;
     }
 
     .services-category.active .services-description,
     .services-category.active .services-detail,
+    .services-category.active .service-button,
     .services-category.active .services-title {
         display: block;
         position: relative;
@@ -103,34 +112,6 @@
         to {
             opacity: 1;
         }
-    }
-
-    /* Close button styling for popup */
-    .popup-close {
-        position: absolute;
-        top: 0.5rem;
-        left: 0.5rem;
-        width: 24px;
-        height: 24px;
-        background-color: #ff0000;
-        border: none;
-        border-radius: 50%;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        z-index: 1001;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .popup-close:hover {
-        background-color: #cc0000;
-    }
-
-    .popup-close::before {
-        content: '×';
     }
 }
 
