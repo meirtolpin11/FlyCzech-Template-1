@@ -16,23 +16,6 @@
         --is-phone: 1
     }
 
-    .services-category:hover .services-description,
-    .services-category:hover .services-detail {
-        display: block;
-        animation: fadeIn 0.3s ease-in;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 }
 
 .services-category {
@@ -50,48 +33,14 @@
 @media (max-width: 768px) {
     .services-category {
         --is-phone: 1;
+        /* display: none; */
+        /* Hidden by default */
         position: relative;
     }
 
-    .services-category .services-description,
-    .services-category .services-detail {
-        display: none;
-    }
-
-    .services-category:hover::before,
-    .services-category:focus-within::before,
-    .services-category:active::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 1);
-        /* Background overlay */
-        z-index: 999;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .services-category:hover .services-description,
-    .services-category:focus-within .services-description,
-    .services-category:active .services-description,
-    .services-category:hover .services-detail,
-    .services-category:focus-within .services-detail,
-    .services-category:active .services-detail,
-    .services-category:hover .services-title,
-    .services-category:focus-within .services-title,
-    .services-category:active .services-title {
-        display: block;
-        position: relative;
-        margin-bottom: 1rem;
-        z-index: 1005;
-    }
-
-    .services-category:hover,
-    .services-category:focus-within,
-    .services-category:active {
+    .services-category.active {
         display: flex;
+        /* Shown only when active */
         flex-direction: column;
         position: fixed;
         top: 50%;
@@ -110,6 +59,28 @@
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         animation: popupFadeIn 0.3s ease-in-out;
         justify-content: center;
+    }
+
+    .services-category.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 1);
+        /* Background overlay */
+        z-index: 999;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .services-category.active .services-description,
+    .services-category.active .services-detail,
+    .services-category.active .services-title {
+        display: block;
+        position: relative;
+        margin-bottom: 1rem;
+        z-index: 1005;
     }
 
     @keyframes popupFadeIn {
@@ -162,6 +133,7 @@
         content: '×';
     }
 }
+
 
 
 .services-category:hover {
