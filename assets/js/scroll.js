@@ -223,4 +223,35 @@ window.addEventListener("scroll", () => {
         updateActiveNav(currentIndex);  // Update active navbar
     }
 });
-``
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navbar = document.getElementById("navbar");
+
+    // Handle nav link clicks
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            // Check if window width is less than 992px (for mobile devices)
+            if (window.innerWidth < 992) {
+                // Initialize Bootstrap Collapse for mobile
+                const bsCollapse = new bootstrap.Collapse(navbar, {
+                    toggle: false, // Don't toggle state, just hide
+                });
+                bsCollapse.hide(); // Collapse the navbar
+            }
+        });
+    });
+
+    // Handle clicks outside navbar
+    document.addEventListener("click", (event) => {
+        if (window.innerWidth < 992) {
+            // Check if click is outside navbar and navbar is expanded
+            if (!navbar.contains(event.target) && navbar.classList.contains("show")) {
+                const bsCollapse = new bootstrap.Collapse(navbar, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        }
+    });
+});
