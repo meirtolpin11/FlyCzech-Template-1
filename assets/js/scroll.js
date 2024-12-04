@@ -56,49 +56,75 @@ function nextButtonOff() {
 let latestScrollTime = null;
 let timeBetweenScrolls = 100;
 
-// Handle wheel scrolling
-window.addEventListener("wheel", function (e) {
-    e.preventDefault(); // Prevent default scroll behavior
-
-    // console.log("wheel")
-
-    if (latestScrollTime == null) {
-        latestScrollTime = Date.now()
-    } else {
-        if (Date.now() - latestScrollTime < timeBetweenScrolls) {
-            latestScrollTime = Date.now()
-            return
-        }
-        latestScrollTime = Date.now()
-    }
-
-    if (e.deltaY > 0) {
-        // Scrolling down
+// Handle scroll/swipe navigation
+function handleNavigation(direction) {
+    if (direction === 'down') {
         const nextIndex = sectionNums.indexOf(currentIndex) + 1;
         if (nextIndex < sectionNums.length) {
-            if (nextIndex == sectionNums.length - 1) {
-                nextButtonOff()
+            if (nextIndex === sectionNums.length - 1) {
+                nextButtonOff();
             }
             jumpToSection(sectionNums[nextIndex]);
+            prevButtonOn();
         }
-
-        prevButtonOn()
-    } else {
-        // Scrolling up
+    } else if (direction === 'up') {
         const prevIndex = sectionNums.indexOf(currentIndex) - 1;
         if (prevIndex >= 0) {
-
-            if (prevIndex == 0) {
-                prevButtonOff()
+            if (prevIndex === 0) {
+                prevButtonOff();
             }
-
-            index = sectionNums[prevIndex];
             jumpToSection(sectionNums[prevIndex]);
-            nextButtonOn()
+            nextButtonOn();
         }
+    }
+}
+
+// Throttle scroll/swipe events
+function throttleEvent(callback) {
+    if (latestScrollTime == null) {
+        latestScrollTime = Date.now();
+    } else if (Date.now() - latestScrollTime < timeBetweenScrolls) {
+        latestScrollTime = Date.now();
+        return false;
+    }
+    latestScrollTime = Date.now();
+    return true;
+}
+
+// Handle wheel scrolling
+window.addEventListener("wheel", function (e) {
+    e.preventDefault();
+
+    if (!throttleEvent()) return;
+
+    if (e.deltaY > 0) {
+        handleNavigation('down');
+    } else {
+        handleNavigation('up');
     }
 }, { passive: false });
 
+// Handle touch events for mobile
+let touchStartY = 0;
+window.addEventListener('touchstart', function (e) {
+    touchStartY = e.touches[0].clientY;
+}, { passive: false });
+
+window.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+
+    if (!throttleEvent()) return;
+
+    const touchEndY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+
+
+    if (deltaY > 0) {
+        handleNavigation('down');
+    } else {
+        handleNavigation('up');
+    }
+}, { passive: false });
 
 
 document.getElementById("next-page-button").addEventListener("click", (e) => {
