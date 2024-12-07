@@ -30,12 +30,13 @@
   // this is for fleets
   new Swiper('.swiper-container', {
     slidesPerView: 1,  // Display one item at a time on mobile
-    spaceBetween: 10,   // Space between the slides
+    autoHeight: false,
     // autoplay: true,
     loop: true,         // Enable looping
-    pagination: {
-      el: '.swiper-pagination',  // Optional pagination (you can hide this if you don't need it)
-      clickable: true,
+    effect: 'fade',
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   });
 
