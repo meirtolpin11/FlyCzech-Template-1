@@ -117,7 +117,9 @@ window.addEventListener('touchmove', function (e) {
 
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
+    const threshold = 10; // Minimum swipe distance needed to trigger navigation
 
+    if (Math.abs(deltaY) < threshold) return; // Ignore small movements
 
     if (deltaY > 0) {
         handleNavigation('down');
