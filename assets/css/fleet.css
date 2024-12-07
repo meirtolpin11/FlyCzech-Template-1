@@ -233,11 +233,11 @@
         /* Moved down to be below the h1s */
     }
 
-    .swiper-slide {
+    .fleet-div .swiper-slide {
         position: relative;
     }
 
-    .swiper-slide::before {
+    .fleet-div .swiper-slide::before {
         content: '';
         position: absolute;
         top: 0;
