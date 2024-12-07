@@ -4,7 +4,7 @@ const sections = {
     0: "#home",
     1: "#services",
     2: "#experience",
-    3: "#fleet",
+    3: "#fleet-div",
     4: "#our-team",
     5: "#contact"
 };

@@ -31,7 +31,7 @@
   new Swiper('.swiper-container', {
     slidesPerView: 1,  // Display one item at a time on mobile
     spaceBetween: 10,   // Space between the slides
-    autoplay: true,
+    // autoplay: true,
     loop: true,         // Enable looping
     pagination: {
       el: '.swiper-pagination',  // Optional pagination (you can hide this if you don't need it)
