@@ -261,6 +261,7 @@
     .paragraph-section-mobile::before {
         content: '';
         position: absolute;
+        bottom: 140px;
         top: 0;
         left: 10%;
         right: 10%;
