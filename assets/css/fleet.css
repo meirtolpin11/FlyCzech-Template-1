@@ -63,6 +63,15 @@
     transition: background-image 0.5s linear, background-opacity 0.5s linear, background-size 0s, background-position 0s;
 }
 
+@media (max-width: 992px) {
+    .fleet-background {
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 70vh;
+        /* Position content 30% from bottom */
+    }
+}
+
 .background-overlay {
     position: absolute;
     top: 0;
@@ -81,6 +90,12 @@
     opacity: 0.6;
     transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
     z-index: 10;
+}
+
+@media (max-width: 992px) {
+    .fleet-background h1 {
+        font-size: 2.5rem;
+    }
 }
 
 .fleet-background h6 {
@@ -109,6 +124,12 @@
     color: black;
     font-size: 1vw;
     text-align: center;
+}
+
+@media (max-width: 992px) {
+    .paragraph-section {
+        display: none;
+    }
 }
 
 .paragraph-section h1 {
