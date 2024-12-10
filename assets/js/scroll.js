@@ -5,7 +5,7 @@ const sections = {
     1: "#services",
     2: "#experience",
     3: "#fleet-div",
-    4: "#our-team",
+    4: "#team",
     5: "#contact"
 };
 let currentIndex = 0;
