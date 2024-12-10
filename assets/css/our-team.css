@@ -171,45 +171,4 @@
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
         z-index: 1;
     }
-
-    .paragraph-section-mobile {
-        position: fixed;
-        bottom: 80px;
-        /* Moved up to be just above navbar */
-        color: white;
-        padding-left: 10%;
-        padding-right: 10%;
-        z-index: 10;
-    }
-
-    .paragraph-section-mobile::before {
-        content: '';
-        position: absolute;
-        bottom: 80px;
-        /* Adjusted to match new position */
-        top: 0;
-        left: 10%;
-        right: 10%;
-        width: 80%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 25px;
-        z-index: 1;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .paragraph-section-mobile h1,
-    .paragraph-section-mobile h4,
-    .paragraph-section-mobile h6,
-    .paragraph-section-mobile p {
-        position: relative;
-        z-index: 10;
-        color: white;
-        padding: 0 20px;
-    }
-
-    .paragraph-section-mobile p {
-        font-size: 1.25rem;
-    }
 }
