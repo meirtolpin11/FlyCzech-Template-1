@@ -40,3 +40,39 @@ headers.forEach(header => {
         teamMemberTitle.textContent = "Our Team";
     });
 });
+
+
+// Mobile onclick
+function handleServiceCategoryClick(element) {
+    // Check if we're on a phone
+    const isPhone = window.getComputedStyle(element).getPropertyValue('--is-phone') === '1';
+
+    // Get the URL from the data attribute
+    const url = element.getAttribute('data-url');
+
+    if (isPhone) {
+        const isActive = element.classList.contains('active');
+
+        // Remove "active" class from all elements
+        element.classList.remove('active');
+
+        // Add "active" class if it was not already set
+        if (!isActive) {
+            element.classList.add('active');
+        }
+    } else {
+        // Non-phone: Open the URL in a new tab
+        if (url) {
+            window.open(url, '_blank');
+        } else {
+            console.error('No URL found for this service category');
+        }
+    }
+}
+
+// Attach the function to the onclick event
+document.querySelectorAll('.team-category').forEach(element => {
+    element.onclick = function () {
+        handleServiceCategoryClick(this);
+    };
+});

@@ -171,4 +171,61 @@
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
         z-index: 1;
     }
+
+    .team-category {
+        --is-phone: 1;
+    }
+
+    .team-category p {
+        display: none;
+    }
+
+    .team-category.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000;
+        padding: 1.5rem;
+        border-radius: 16px;
+        z-index: 1000;
+        width: 90%;
+        height: 70%;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: popupFadeIn 0.3s ease-in-out;
+        justify-content: center;
+    }
+
+    .team-category.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(20, 20, 25, 0.85);
+        z-index: 999;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .team-category h1,
+    .team-category h6 {
+        display: block;
+    }
+
+    .team-category.active h1,
+    .team-category.active h6 {
+        display: none;
+    }
+
+    .team-category.active p {
+        display: block;
+        z-index: 1000;
+        max-height: 60vh;
+        padding-right: 10px;
+        overflow-y: auto;
+    }
 }

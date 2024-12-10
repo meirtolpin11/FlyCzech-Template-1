@@ -111,6 +111,15 @@ window.addEventListener('touchstart', function (e) {
 }, { passive: false });
 
 window.addEventListener('touchmove', function (e) {
+    // Check if target or any parent has allow-scroll class
+    let element = e.target;
+    while (element) {
+        if (element.classList && element.classList.contains('allow-scroll')) {
+            return;
+        }
+        element = element.parentElement;
+    }
+
     e.preventDefault();
 
     if (!throttleEvent()) return;
