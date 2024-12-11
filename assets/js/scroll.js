@@ -154,9 +154,6 @@ function handleNavButtonClick(direction) {
 
 function handleNavLinkClick(link, index) {
     const href = link.getAttribute('href');
-    currentIndex = 0;
-    jumpToSection(sectionNums[currentIndex]);
-
     setTimeout(() => {
         switch (href) {
             case '#services':
@@ -178,7 +175,7 @@ function handleNavLinkClick(link, index) {
                 currentIndex = sectionNums[index - 2];
                 jumpToSection(currentIndex);
         }
-    }, 500);
+    }, 0);
 }
 
 // Event listeners
@@ -192,6 +189,7 @@ document.getElementById("prev-page-button").addEventListener("click", () => hand
 document.querySelectorAll(".nav-link").forEach((link, index) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
+        console.log(link, index)
         handleNavLinkClick(link, index);
     });
 });
@@ -219,7 +217,7 @@ window.addEventListener("scroll", () => {
 
 // Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
-    jumpToSection(0);
+    // jumpToSection(0);
 
     const navLinks = document.querySelectorAll(".nav-link");
     const navbar = document.getElementById("navbar");
