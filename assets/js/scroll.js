@@ -23,7 +23,7 @@ function jumpToSection(index) {
         window.scrollTo({
             top,
             behavior: 'smooth',
-            duration: 500 // Shorter duration for smoother feel
+            duration: 700 // Shorter duration for smoother feel
         });
         updateActiveNav(index);
     }
