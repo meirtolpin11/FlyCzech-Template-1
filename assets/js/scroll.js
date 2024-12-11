@@ -80,7 +80,14 @@ function handleNavigation(direction) {
 }
 
 // Throttle scroll/swipe events
-function throttleEvent(callback) {
+let lastDirection = null;
+function throttleEvent(direction) {
+    if (direction !== lastDirection) {
+        // Reset timeout if direction changed
+        latestScrollTime = null;
+        lastDirection = direction;
+    }
+
     if (latestScrollTime == null) {
         latestScrollTime = Date.now();
     } else if (Date.now() - latestScrollTime < timeBetweenScrolls) {
@@ -95,7 +102,8 @@ function throttleEvent(callback) {
 window.addEventListener("wheel", function (e) {
     e.preventDefault();
 
-    if (!throttleEvent()) return;
+    const direction = e.deltaY > 0 ? 'down' : 'up';
+    if (!throttleEvent(direction)) return;
 
     if (e.deltaY > 0) {
         handleNavigation('down');
@@ -106,8 +114,10 @@ window.addEventListener("wheel", function (e) {
 
 // Handle touch events for mobile
 let touchStartY = 0;
+let touchStartX = 0;
 window.addEventListener('touchstart', function (e) {
     touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
 }, { passive: false });
 
 window.addEventListener('touchmove', function (e) {
@@ -122,14 +132,19 @@ window.addEventListener('touchmove', function (e) {
 
     e.preventDefault();
 
-    if (!throttleEvent()) return;
-
     const touchEndY = e.touches[0].clientY;
+    const touchEndX = e.touches[0].clientX;
     const deltaY = touchStartY - touchEndY;
-    const threshold = 15; // Minimum swipe distance needed to trigger navigation
+    const deltaX = Math.abs(e.touches[0].clientX - touchStartX); // Calculate horizontal movement
+    const threshold = 10; // Minimum swipe distance needed to trigger navigation
 
-    console.log(deltaY)
+    // Don't scroll if horizontal movement is significant
+    if (deltaX > 5) return;
+
     if (Math.abs(deltaY) < threshold) return; // Ignore small movements
+
+    const direction = deltaY > 0 ? 'down' : 'up';
+    if (!throttleEvent(direction)) return;
 
     if (deltaY > 0) {
         handleNavigation('down');
