@@ -252,6 +252,8 @@ window.addEventListener("scroll", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    jumpToSection(0);
+
     const navLinks = document.querySelectorAll(".nav-link");
     const navbar = document.getElementById("navbar");
 
@@ -300,3 +302,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+
