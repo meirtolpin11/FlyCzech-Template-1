@@ -1,5 +1,5 @@
-let scrollTimeout;
-const sectionNums = [0, 3, 4, 5]
+// Constants and state
+const sectionNums = [0, 3, 4, 5];
 const sections = {
     0: "#home",
     1: "#services",
@@ -9,22 +9,21 @@ const sections = {
     5: "#contact"
 };
 let currentIndex = 0;
+let latestScrollTime = null;
+let lastDirection = null;
+const timeBetweenScrolls = 100;
+let touchStartY = 0;
+let touchStartX = 0;
 
-
-// Smooth scroll to a section
+// Navigation functions
 function jumpToSection(index) {
-    console.log("jumping to " + index)
     if (index in sections) {
-        // Scroll to the section
-        console.log(sections[index])
         document.querySelector(sections[index]).scrollIntoView({ behavior: 'smooth' });
         updateActiveNav(index);
     }
 }
 
-// Update active class on the navbar
 function updateActiveNav(index) {
-    console.log("setting - " + index)
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link, i) => {
         if (i === index) {
@@ -35,7 +34,7 @@ function updateActiveNav(index) {
     });
 }
 
-
+// Button visibility functions
 function prevButtonOn() {
     document.getElementById("prev-page-button").style.removeProperty("display");
 }
@@ -52,11 +51,7 @@ function nextButtonOff() {
     document.getElementById("next-page-button").style.display = "none";
 }
 
-
-let latestScrollTime = null;
-let timeBetweenScrolls = 100;
-
-// Handle scroll/swipe navigation
+// Navigation handlers
 function handleNavigation(direction) {
     if (direction === 'down') {
         const nextIndex = sectionNums.indexOf(currentIndex) + 1;
@@ -79,11 +74,8 @@ function handleNavigation(direction) {
     }
 }
 
-// Throttle scroll/swipe events
-let lastDirection = null;
 function throttleEvent(direction) {
     if (direction !== lastDirection) {
-        // Reset timeout if direction changed
         latestScrollTime = null;
         lastDirection = direction;
     }
@@ -98,30 +90,20 @@ function throttleEvent(direction) {
     return true;
 }
 
-// Handle wheel scrolling
-window.addEventListener("wheel", function (e) {
+// Event handlers
+function handleWheelScroll(e) {
     e.preventDefault();
-
     const direction = e.deltaY > 0 ? 'down' : 'up';
     if (!throttleEvent(direction)) return;
+    handleNavigation(direction);
+}
 
-    if (e.deltaY > 0) {
-        handleNavigation('down');
-    } else {
-        handleNavigation('up');
-    }
-}, { passive: false });
-
-// Handle touch events for mobile
-let touchStartY = 0;
-let touchStartX = 0;
-window.addEventListener('touchstart', function (e) {
+function handleTouchStart(e) {
     touchStartY = e.touches[0].clientY;
     touchStartX = e.touches[0].clientX;
-}, { passive: false });
+}
 
-window.addEventListener('touchmove', function (e) {
-    // Check if target or any parent has allow-scroll class
+function handleTouchMove(e) {
     let element = e.target;
     while (element) {
         if (element.classList && element.classList.contains('allow-scroll')) {
@@ -133,156 +115,123 @@ window.addEventListener('touchmove', function (e) {
     e.preventDefault();
 
     const touchEndY = e.touches[0].clientY;
-    const touchEndX = e.touches[0].clientX;
     const deltaY = touchStartY - touchEndY;
-    const deltaX = Math.abs(e.touches[0].clientX - touchStartX); // Calculate horizontal movement
-    const threshold = 10; // Minimum swipe distance needed to trigger navigation
+    const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
+    const threshold = 10;
 
-    // Don't scroll if horizontal movement is significant
-    if (deltaX > 5) return;
-
-    if (Math.abs(deltaY) < threshold) return; // Ignore small movements
+    if (deltaX > 5 || Math.abs(deltaY) < threshold) return;
 
     const direction = deltaY > 0 ? 'down' : 'up';
     if (!throttleEvent(direction)) return;
+    handleNavigation(direction);
+}
 
-    if (deltaY > 0) {
-        handleNavigation('down');
+function handleNavButtonClick(direction) {
+    if (direction === 'next') {
+        const nextIndex = sectionNums.indexOf(currentIndex) + 1;
+        if (nextIndex < sectionNums.length) {
+            if (nextIndex === sectionNums.length - 1) {
+                nextButtonOff();
+            }
+            jumpToSection(sectionNums[nextIndex]);
+            prevButtonOn();
+        }
     } else {
-        handleNavigation('up');
-    }
-}, { passive: false });
-
-
-document.getElementById("next-page-button").addEventListener("click", (e) => {
-    // Scrolling down
-    const nextIndex = sectionNums.indexOf(currentIndex) + 1;
-    if (nextIndex < sectionNums.length) {
-
-        if (nextIndex == sectionNums.length - 1) {
-            nextButtonOff()
+        const prevIndex = sectionNums.indexOf(currentIndex) - 1;
+        if (prevIndex >= 0) {
+            if (prevIndex === 0) {
+                prevButtonOff();
+            }
+            jumpToSection(sectionNums[prevIndex]);
+            nextButtonOn();
         }
-        jumpToSection(sectionNums[nextIndex]);
     }
+}
 
-    prevButtonOn()
+function handleNavLinkClick(link, index) {
+    const href = link.getAttribute('href');
+    currentIndex = 0;
+    jumpToSection(sectionNums[currentIndex]);
 
-});
-
-document.getElementById("prev-page-button").addEventListener("click", (e) => {
-    // Scrolling up
-    const prevIndex = sectionNums.indexOf(currentIndex) - 1;
-    if (prevIndex >= 0) {
-
-        if (prevIndex == 0) {
-            prevButtonOff()
-        }
-
-        index = sectionNums[prevIndex];
-        jumpToSection(sectionNums[prevIndex]);
-    }
-
-    nextButtonOn();
-});
-
-
-// Handle clicks on navbar links
-document.querySelectorAll(".nav-link").forEach((link, index) => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault(); // Prevent default link behavior
-
-        // Check if the clicked link is "Services"
-        if (link.getAttribute('href') === "#services") {
-            console.log("services")
-            // If it's the "Services" link, handle the special behavior
-            currentIndex = 0; // Set currentIndex to "home"
-            jumpToSection(sectionNums[currentIndex]);
-
-            // Then, move to the first slide after scrolling
-            setTimeout(() => {
-                swiper.slideTo(2); // Go to the first slide
+    setTimeout(() => {
+        switch (href) {
+            case '#services':
+                swiper.slideTo(2);
                 updateActiveNav(1);
                 autoplay = false;
-
-            }, 500); // Delay the slide change to allow smooth scroll to "home"
-        } else if (link.getAttribute('href') === "#experience") {
-            console.log("experience")
-            // If it's the "Services" link, handle the special behavior
-            currentIndex = 0; // Set currentIndex to "home"
-            jumpToSection(sectionNums[currentIndex]);
-
-            // Then, move to the first slide after scrolling
-            setTimeout(() => {
-                swiper.slideTo(3); // Go to the first slide
+                break;
+            case '#experience':
+                swiper.slideTo(3);
                 updateActiveNav(2);
                 autoplay = false;
-            }, 500); // Delay the slide change to allow smooth scroll to "home"
-        } else if (link.getAttribute('href') === "#home") {
-            // If it's the "Services" link, handle the special behavior
-            currentIndex = 0; // Set currentIndex to "home"
-            jumpToSection(sectionNums[currentIndex]);
-
-            // Then, move to the first slide after scrolling
-            setTimeout(() => {
-                swiper.slideTo(1); // Go to the first slide
+                break;
+            case '#home':
+                swiper.slideTo(1);
                 updateActiveNav(0);
                 autoplay = true;
-            }, 500); // Delay the slide change to allow smooth scroll to "home"
-        } else {
-            // Normal behavior for other navbar links
-            currentIndex = sectionNums[index - 2];
-            console.log(index, currentIndex)
-            jumpToSection(currentIndex);
+                break;
+            default:
+                currentIndex = sectionNums[index - 2];
+                jumpToSection(currentIndex);
         }
+    }, 500);
+}
+
+// Event listeners
+window.addEventListener("wheel", handleWheelScroll, { passive: false });
+window.addEventListener('touchstart', handleTouchStart, { passive: false });
+window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+document.getElementById("next-page-button").addEventListener("click", () => handleNavButtonClick('next'));
+document.getElementById("prev-page-button").addEventListener("click", () => handleNavButtonClick('prev'));
+
+document.querySelectorAll(".nav-link").forEach((link, index) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        handleNavLinkClick(link, index);
     });
 });
 
-// Update navbar when scrolling manually
+// Scroll observer
 window.addEventListener("scroll", () => {
     let foundIndex = sectionNums.findIndex((index) => {
-        const section = document.querySelector(sections[index]);  // Use sectionNums to reference sections
+        const section = document.querySelector(sections[index]);
         const rect = section.getBoundingClientRect();
-        return rect.top >= 0 && rect.top < window.innerHeight / 2; // Section is within view
+        return rect.top >= 0 && rect.top < window.innerHeight / 2;
     });
 
     if (foundIndex !== -1 && foundIndex !== sectionNums.indexOf(currentIndex)) {
-        currentIndex = sectionNums[foundIndex];  // Get the actual section index
-        updateActiveNav(currentIndex);  // Update active navbar
+        currentIndex = sectionNums[foundIndex];
+        updateActiveNav(currentIndex);
     }
 });
 
+// Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
     jumpToSection(0);
 
     const navLinks = document.querySelectorAll(".nav-link");
     const navbar = document.getElementById("navbar");
 
-    // Handle nav link clicks
+    function handleMobileNavigation() {
+        if (window.innerWidth < 992) {
+            const bsCollapse = new bootstrap.Collapse(navbar, {
+                toggle: false
+            });
+            bsCollapse.hide();
+        }
+    }
+
     navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            // Check if window width is less than 992px (for mobile devices)
-            if (window.innerWidth < 992) {
-                // Initialize Bootstrap Collapse for mobile
-                const bsCollapse = new bootstrap.Collapse(navbar, {
-                    toggle: false, // Don't toggle state, just hide
-                });
-                bsCollapse.hide(); // Collapse the navbar
-            }
-        });
+        link.addEventListener("click", handleMobileNavigation);
     });
 
-    // Handle clicks outside navbar
     document.addEventListener("click", (event) => {
         if (window.innerWidth < 992) {
-            // Check if click is outside navbar and navbar is expanded
             if (!navbar.contains(event.target) && navbar.classList.contains("show")) {
-                const bsCollapse = new bootstrap.Collapse(navbar, {
-                    toggle: false
-                });
-                bsCollapse.hide();
+                handleMobileNavigation();
             }
 
-            // Check if click is outside services-category and remove active class
             const servicesCategories = document.querySelectorAll('.services-category');
             let clickedInsideServices = false;
 
@@ -299,8 +248,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-
-
 });
-
-
