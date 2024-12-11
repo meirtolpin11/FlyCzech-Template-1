@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Navigate to #home section on page load
+  window.location.hash = "home";
+});
+
+
 (function ($) {
   "use strict";
 
