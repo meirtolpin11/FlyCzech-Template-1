@@ -31,17 +31,53 @@
     }
 }
 
-/* Mobile-specific container-fluid positioning */
 @media only screen and (max-width: 991px) {
     .page-header .container-fluid {
         position: fixed;
         bottom: 0;
-        height: 80px;
         width: 100%;
         left: 0;
         right: 0;
+        transition: transform 0.3s ease-out;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        bottom: 80px;
+        /* Height of your bottom nav */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 1rem;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        transition: transform 2s ease-out, opacity 0.8s ease-out !important;
+        transform: translateY(calc(100vh - 80px));
+        opacity: 0;
+    }
+
+    .navbar-collapse.collapsing {
+        /* Ensures smooth animation during collapse */
+        transition: transform 0.1s ease-out, opacity 0.8s ease-out !important;
+
+        transform: translateY(calc(100vh - 80px));
+        opacity: 0;
+    }
+
+    .navbar-collapse.collapse {
+        /* For collapsed state */
+        display: none;
+    }
+
+    .navbar-collapse.show {
+        /* For expanded state */
+        display: block !important;
+        transform: translateY(0);
+        transition: transform 0.8s ease-out, opacity 0.8s ease-out !important;
+        opacity: 1;
     }
 }
+
 
 
 /* Reset Parent Container Styling */
