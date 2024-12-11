@@ -109,7 +109,7 @@ function handleTouchStart(e) {
     touchStartX = e.touches[0].clientX;
 }
 
-function handleTouchMove(e) {
+function handleTouchEnd(e) {
     let element = e.target;
     while (element) {
         if (element.classList && element.classList.contains('allow-scroll')) {
@@ -118,14 +118,12 @@ function handleTouchMove(e) {
         element = element.parentElement;
     }
 
-    e.preventDefault();
-
-    const touchEndY = e.touches[0].clientY;
+    const touchEndY = e.changedTouches[0].clientY;
     const deltaY = touchStartY - touchEndY;
-    const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
-    const threshold = 10;
+    const deltaX = Math.abs(e.changedTouches[0].clientX - touchStartX);
+    const threshold = 50;
 
-    if (deltaX > 5 || Math.abs(deltaY) < threshold) return;
+    if (deltaX > 50 || Math.abs(deltaY) < threshold) return;
 
     const direction = deltaY > 0 ? 'down' : 'up';
     if (!throttleEvent(direction)) return;
@@ -186,7 +184,7 @@ function handleNavLinkClick(link, index) {
 // Event listeners
 window.addEventListener("wheel", handleWheelScroll, { passive: true });
 window.addEventListener('touchstart', handleTouchStart, { passive: true });
-window.addEventListener('touchmove', handleTouchMove, { passive: true });
+window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
 document.getElementById("next-page-button").addEventListener("click", () => handleNavButtonClick('next'));
 document.getElementById("prev-page-button").addEventListener("click", () => handleNavButtonClick('prev'));
