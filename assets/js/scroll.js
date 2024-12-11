@@ -182,9 +182,9 @@ function handleNavLinkClick(link, index) {
 }
 
 // Event listeners
-window.addEventListener("wheel", handleWheelScroll, { passive: true });
-window.addEventListener('touchstart', handleTouchStart, { passive: true });
-window.addEventListener('touchend', handleTouchEnd, { passive: true });
+window.addEventListener("wheel", handleWheelScroll, { passive: false });
+window.addEventListener('touchstart', handleTouchStart, { passive: false });
+window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
 document.getElementById("next-page-button").addEventListener("click", () => handleNavButtonClick('next'));
 document.getElementById("prev-page-button").addEventListener("click", () => handleNavButtonClick('prev'));
