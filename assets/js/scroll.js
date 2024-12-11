@@ -154,19 +154,23 @@ function handleNavButtonClick(direction) {
 
 function handleNavLinkClick(link, index) {
     const href = link.getAttribute('href');
+
     setTimeout(() => {
         switch (href) {
             case '#services':
+                jumpToSection(0);
                 swiper.slideTo(2);
                 updateActiveNav(1);
                 autoplay = false;
                 break;
             case '#experience':
+                jumpToSection(0);
                 swiper.slideTo(3);
                 updateActiveNav(2);
                 autoplay = false;
                 break;
             case '#home':
+                jumpToSection(0);
                 swiper.slideTo(1);
                 updateActiveNav(0);
                 autoplay = true;
