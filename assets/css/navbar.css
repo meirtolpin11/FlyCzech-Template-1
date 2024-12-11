@@ -66,6 +66,7 @@
 
     .navbar-collapse.collapse {
         /* For collapsed state */
+
         display: none;
     }
 

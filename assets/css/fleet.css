@@ -283,7 +283,7 @@
     .paragraph-section-mobile h6,
     .paragraph-section-mobile p {
         position: relative;
-        z-index: 10;
+        z-index: 1001;
         color: white;
         padding: 0 5px;
     }

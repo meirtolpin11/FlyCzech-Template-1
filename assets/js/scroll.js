@@ -126,7 +126,7 @@ window.addEventListener('touchmove', function (e) {
 
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
-    const threshold = 10; // Minimum swipe distance needed to trigger navigation
+    const threshold = 20; // Minimum swipe distance needed to trigger navigation
 
     if (Math.abs(deltaY) < threshold) return; // Ignore small movements
 
@@ -263,6 +263,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 bsCollapse.hide();
             }
+
+            // Check if click is outside services-category and remove active class
+            const servicesCategories = document.querySelectorAll('.services-category');
+            let clickedInsideServices = false;
+
+            servicesCategories.forEach(category => {
+                if (category.contains(event.target)) {
+                    clickedInsideServices = true;
+                }
+            });
+
+            if (!clickedInsideServices) {
+                servicesCategories.forEach(category => {
+                    category.classList.remove('active');
+                });
+            }
         }
     });
+
+
 });

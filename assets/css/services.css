@@ -69,6 +69,19 @@
         justify-content: center;
     }
 
+    /* Add close button */
+    .services-category.active::after {
+        content: '×';
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        color: #000;
+        cursor: pointer;
+        z-index: 1006;
+        color: white;
+    }
+
     .services-category.active::before {
         content: '';
         position: fixed;
