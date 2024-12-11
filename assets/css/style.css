@@ -1120,6 +1120,10 @@ p {
   /* Centers content vertically */
   justify-content: center;
   /* Centers content horizontally */
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .process-min-height {

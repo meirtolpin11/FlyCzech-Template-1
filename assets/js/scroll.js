@@ -18,7 +18,13 @@ let touchStartX = 0;
 // Navigation functions
 function jumpToSection(index) {
     if (index in sections) {
-        document.querySelector(sections[index]).scrollIntoView({ behavior: 'smooth' });
+        const section = document.querySelector(sections[index]);
+        const top = section.offsetTop;
+        window.scrollTo({
+            top,
+            behavior: 'smooth',
+            duration: 500 // Shorter duration for smoother feel
+        });
         updateActiveNav(index);
     }
 }
@@ -178,9 +184,9 @@ function handleNavLinkClick(link, index) {
 }
 
 // Event listeners
-window.addEventListener("wheel", handleWheelScroll, { passive: false });
-window.addEventListener('touchstart', handleTouchStart, { passive: false });
-window.addEventListener('touchmove', handleTouchMove, { passive: false });
+window.addEventListener("wheel", handleWheelScroll, { passive: true });
+window.addEventListener('touchstart', handleTouchStart, { passive: true });
+window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
 document.getElementById("next-page-button").addEventListener("click", () => handleNavButtonClick('next'));
 document.getElementById("prev-page-button").addEventListener("click", () => handleNavButtonClick('prev'));
@@ -193,17 +199,24 @@ document.querySelectorAll(".nav-link").forEach((link, index) => {
 });
 
 // Scroll observer
+let scrollTimeout;
 window.addEventListener("scroll", () => {
-    let foundIndex = sectionNums.findIndex((index) => {
-        const section = document.querySelector(sections[index]);
-        const rect = section.getBoundingClientRect();
-        return rect.top >= 0 && rect.top < window.innerHeight / 2;
-    });
-
-    if (foundIndex !== -1 && foundIndex !== sectionNums.indexOf(currentIndex)) {
-        currentIndex = sectionNums[foundIndex];
-        updateActiveNav(currentIndex);
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
     }
+
+    scrollTimeout = window.requestAnimationFrame(() => {
+        let foundIndex = sectionNums.findIndex((index) => {
+            const section = document.querySelector(sections[index]);
+            const rect = section.getBoundingClientRect();
+            return rect.top >= 0 && rect.top < window.innerHeight / 2;
+        });
+
+        if (foundIndex !== -1 && foundIndex !== sectionNums.indexOf(currentIndex)) {
+            currentIndex = sectionNums[foundIndex];
+            updateActiveNav(currentIndex);
+        }
+    });
 });
 
 // Initialize on DOM load
