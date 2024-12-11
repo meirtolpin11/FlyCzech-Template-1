@@ -1,7 +1,7 @@
 .our-team-div {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     justify-content: center;
     align-items: center;
 }
@@ -10,7 +10,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100dvh;
     width: 75%;
     position: relative;
     display: flex;
