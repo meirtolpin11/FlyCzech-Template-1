@@ -35,9 +35,8 @@ headers.forEach(header => {
         document.getElementById('our-team').style.backgroundImage = 'url("assets/images/team/all.jpg")'; // Replace with your default image
 
         // Revert back to the default description
-        descriptionText.textContent = `Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and contribute to the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation, improve safety, and provide high-quality training through close cooperation with airlines and aviation organizations.`;
-        descriptionText.textContent = `Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and contribute to the education of future aviation professionals. We aim to uphold the proud tradition of Czech aviation, improve safety, and provide high-quality training through close cooperation with airlines and aviation organizations.`;
-        teamMemberTitle.textContent = "Our Team";
+        descriptionText.textContent = descriptionText.getAttribute('data-default');
+        teamMemberTitle.textContent = teamMemberTitle.getAttribute('data-default');
     });
 });
 

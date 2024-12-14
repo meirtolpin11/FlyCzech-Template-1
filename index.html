@@ -67,6 +67,8 @@
   <link rel="preload" href="assets/images/fleet/OKBIK-2.jpg" as="image">
   <link rel="preload" href="assets/images/fleet/OKBIK-3.jpg" as="image">
 
+  <script src="assets/js/translate.js"></script>
+
 </head>
 
 <body>
@@ -94,28 +96,40 @@
                 </div>
               </div>
 
+
               <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll header-menu">
                   <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link" data-translate="nav-home"></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#services" class="nav-link" data-translate="nav-services"></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#experience" class="nav-link" data-translate="nav-experience"></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#fleet" class="nav-link">Fleet</a>
+                    <a href="#fleet" class="nav-link" data-translate="nav-fleet"></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#our-team" class="nav-link">Our Team</a>
+                    <a href="#our-team" class="nav-link" data-translate="nav-team"></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link" data-translate="nav-contact"></a>
                   </li>
                 </ul>
               </div>
+
+              <div class="btn-group language-switch pe-3" role="group" aria-label="Language selector">
+                <button id="switch-lang-en" class="btn btn-outline-light btn-sm mx-1">
+                  <span class="fw-bold">EN</span>
+                </button>
+                <div class="vr mx-1"></div>
+                <button id="switch-lang-cs" class="btn btn-outline-light btn-sm mx-1">
+                  <span class="fw-bold">CS</span>
+                </button>
+              </div>
+
             </nav>
 
           </div>
@@ -146,12 +160,13 @@
               </video>
 
               <div class="slide-content">
-                <p class="slide-title-1">Your journey starts here.</p>
-                <h1 class="slide-title-2">Fly Czech: Where your aviation dreams take flight.</h1>
+                <p class="slide-title-1" data-translate="hero-subtitle"></p>
+                <h1 class="slide-title-2" data-translate="hero-title">
+                </h1>
                 <div class="contact-button-wrapper">
                   <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                     title="Chat with us on WhatsApp" target="_blank">
-                    <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Fly with us
+                    <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span data-translate="hero-cta"></span>
                   </a>
                 </div>
               </div>
@@ -168,9 +183,9 @@
               </video>
 
               <div class="slide-content second-slide">
-                <h1 class="slide-title-2 slide-title-slide-2" style="padding-bottom: 10px;">Our Training Programs</h1>
-                <p class="slide-subtitle slide-subtitle-slide-2">Explore our comprehensive courses and start your
-                  aviation journey today.</p>
+                <h1 class="slide-title-2 slide-title-slide-2" style="padding-bottom: 10px;"
+                  data-translate="services-title"></h1>
+                <p class="slide-subtitle slide-subtitle-slide-2" data-translate="services-subtitle"></p>
 
                 <div>
                   <div class="services-wrapper">
@@ -178,17 +193,19 @@
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20am%20interested%20in%20learning%20more%20about%20the%20Private%20Pilot%20License%20(PPL)%20program.%20Could%20you%20please%20provide%20me%20with%20more%20details%20about%20the%20course%20structure,%20schedule,%20and%20requirements?"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Private Pilot License (PPL)</h2>
-                      <p class="services-description">
-                        Learn to pilot single-engine aircraft with comprehensive training in navigation, communication,
-                        and hands-on flying.
+                      <h2 class="services-title" data-translate="ppl-title"></h2>
+                      <p class="services-description" data-translate="ppl-description">
+
                       </p>
-                      <p class="services-detail"><strong>Duration:</strong> Approx. 6-8 weeks</p>
-                      <p class="services-detail"><strong>Price:</strong> 9800 EUR</p>
+                      <p class="services-detail"><strong data-translate="duration-label"></strong> <span
+                          data-translate="ppl-duration"></span></p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="ppl-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -197,16 +214,19 @@
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20would%20like%20to%20know%20more%20about%20the%20Night%20Rating%20course.%20Could%20you%20please%20share%20information%20about%20the%20training%20requirements%20and%20available%20schedules?"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Night Rating</h2>
-                      <p class="services-description">
-                        Enhance your skills and explore night flying with specialized training after sunset.
+                      <h2 class="services-title" data-translate="night-rating-title"></h2>
+                      <p class="services-description" data-translate="night-rating-description">
+
                       </p>
-                      <p class="services-detail"><strong>Duration:</strong> Approx. 1-2 weeks</p>
-                      <p class="services-detail"><strong>Price:</strong> 1500 EUR</p>
+                      <p class="services-detail"><strong data-translate="duration-label"></strong> <span
+                          data-translate="night-rating-duration"></span></p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="night-rating-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -215,17 +235,18 @@
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20am%20interested%20in%20the%20Radiology%20Certification%20course.%20Could%20you%20please%20provide%20details%20about%20the%20course%20content%20and%20certification%20process?"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Radiology Certification</h2>
-                      <p class="services-description">
-                        Master the use of aircraft radios and communication systems to ensure clear and professional
-                        exchanges during flights.
+                      <h2 class="services-title" data-translate="radio-title"></h2>
+                      <p class="services-description" data-translate="radio-description">
                       </p>
-                      <p class="services-detail"><strong>Duration:</strong> Approx. 2 weeks</p>
-                      <p class="services-detail"><strong>Price:</strong> 900 EUR</p>
+                      <p class="services-detail"><strong data-translate="duration-label"></strong> <span
+                          data-translate="radio-duration"></span></p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="radio-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -234,17 +255,18 @@
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20would%20like%20to%20learn%20more%20about%20the%20ICAO%20English%20Training%20course.%20Could%20you%20please%20share%20information%20about%20the%20course%20levels%20and%20assessment%20process?"
                       style="cursor: pointer;">
-                      <h2 class="services-title">ICAO English Training</h2>
-                      <p class="services-description">
-                        Achieve the required English proficiency level for international aviation communication with
-                        ICAO standards.
+                      <h2 class="services-title" data-translate="icao-title"></h2>
+                      <p class="services-description" data-translate="icao-description">
                       </p>
-                      <p class="services-detail"><strong>Duration:</strong> Approx. 1 week</p>
-                      <p class="services-detail"><strong>Price:</strong> 500 EUR</p>
+                      <p class="services-detail"><strong data-translate="duration-label"></strong> <span
+                          data-translate="icao-duration">>/span></p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="icao-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -253,7 +275,8 @@
                   <div class="contact-button-wrapper contact-button-wrapper-slide-2">
                     <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                       title="Chat with us on WhatsApp" target="_blank">
-                      <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                      <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                        data-translate="contact-cta"></span>
                     </a>
                   </div>
                 </div>
@@ -273,33 +296,26 @@
               </video>
 
               <div class="slide-content">
-                <h1 class="slide-title-2" style="padding-bottom: 10px;">Book a Tour With Us</h1>
-                <p class="slide-subtitle slide-subtitle-slide-3">From thrilling experience flights to professional pilot
-                  training—your journey
-                  begins here.</p>
+                <h1 class="slide-title-2" style="padding-bottom: 10px;" data-translate="experience-title"></h1>
+                <p class="slide-subtitle slide-subtitle-slide-3" data-translate="experience-subtitle"></p>
 
                 <div class="services-wrapper">
                   <div class="services-wrapper">
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=I%20am%20interested%20in%20Pilgrimage%20Site%20Stará%20Boleslav%20and%20Brandýs%20nad%20Labem%20experience"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Pilgrimage Site Stará Boleslav and Brandýs nad Labem</h2>
-                      <p class="services-description">
-                        Become a low-cost sport aircraft pilot.<br>
-                        <strong>1-hour experience</strong><br>
-                        Aircraft: Cessna C150/Tecnam P2008JC<br>
-                        Location: Prague
+                      <h2 class="services-title" data-translate="pilgrimage-title"></h2>
+                      <p class="services-description" data-translate="pilgrimage-description-1">
                       </p>
-                      <p class="services-description">
-                        Start your adventure in aviation with us! You will prepare the aircraft for the flight with an
-                        instructor and then pilot the plane yourself. Meet fellow aviation enthusiasts and share your
-                        experiences during the theoretical briefing.
+                      <p class="services-description" data-translate="pilgrimage-description-2">
                       </p>
-                      <p class="services-detail"><strong>Price:</strong> 4,300 CZK (incl. VAT)</p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="pilgrimage-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -307,47 +323,40 @@
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hello!%20I%20am%20interested%20in%20booking%20the%20Průhonice%20Castle%20experience.%20Could%20you%20please%20provide%20more%20details%3F"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Průhonice Castle</h2>
-                      <p class="services-description">
-                        Become an exclusive sport aircraft pilot.<br>
-                        <strong>1.5-hour experience</strong><br>
-                        Aircraft: Cessna C150/Tecnam P2008JC<br>
-                        Location: Prague
+                      <h2 class="services-title" data-translate="pruhonice-title"></h2>
+                      <p class="services-description" data-translate="pruhonice-description-1">
+
                       </p>
-                      <p class="services-description">
-                        A special experience for aviation enthusiasts! Includes a 45-minute theory session with
-                        pre-flight preparation, a detailed description of the aircraft, and 30 minutes of piloting under
-                        instructor supervision—just like a student pilot's first flight.
+                      <p class="services-description" data-translate="pruhonice-description-2">
+
                       </p>
-                      <p class="services-detail"><strong>Price:</strong> 4,790 CZK (incl. VAT)</p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="pruhonice-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
-
                     <div class="services-category"
                       data-url="https://wa.me/+420773626601?text=Hello!%20I%20am%20interested%20in%20booking%20the%20Castles%20Around%20Prague%20experience.%20Could%20you%20please%20provide%20more%20details%3F"
                       style="cursor: pointer;">
-                      <h2 class="services-title">Castles Around Prague</h2>
-                      <p class="services-description">
-                        Become a V.I.P. sport aircraft pilot.<br>
-                        <strong>2-hour experience</strong><br>
-                        Aircraft: Cessna C150/Tecnam P2008JC<br>
-                        Location: Prague
+                      <h2 class="services-title" data-translate="castles-title"></h2>
+                      <p class="services-description" data-translate="castles-description-1">
+
                       </p>
-                      <p class="services-description">
-                        An extensive two-hour experience for aviation enthusiasts! Includes a 45-minute theory session
-                        with pre-flight preparation, a detailed description of the aircraft, and 60 minutes of piloting
-                        under instructor supervision. Enjoy an immersive journey as if you were a student pilot!
+                      <p class="services-description" data-translate="castles-description-2">
+
                       </p>
-                      <p class="services-detail"><strong>Price:</strong> 7,790 CZK (incl. VAT)</p>
+                      <p class="services-detail"><strong data-translate="price-label"></strong> <span
+                          data-translate="castles-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
                         <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                           title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                            data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -356,7 +365,8 @@
                   <div class="contact-button-wrapper contact-button-wrapper-slide-3">
                     <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
                       title="Chat with us on WhatsApp" target="_blank">
-                      <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> Contact Us to Learn More
+                      <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
+                        data-translate="contact-cta"></span>
                     </a>
                   </div>
                 </div>
@@ -383,24 +393,23 @@
 
 
         <div class="paragraph-section"> <!-- Paragraph section -->
-          <h4 id="fleet-title"> Our Fleet </h4>
+          <h4 id="fleet-title" data-translate="fleet-title"></h4>
           <h6 id="aircraft-reg"></h6>
-          <p id="fleet-text">
-            Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.
+          <p id="fleet-text" data-translate="fleet-description">
+
           </p>
           <div id="aircraft-info" class="aircraft-info">
-            <p><strong>Price per Hour:</strong> <span id="price"></span></p>
-            <p><strong>Range:</strong> <span id="range"></span></p>
-            <p><strong>Speed:</strong> <span id="speed">100 knots</span></p>
-            <p><strong>Night Rated:</strong> <span id="night-rated"></span></p>
-            <p><strong>Avionics Type:</strong> <span id="avionics-type"></span></p>
-            <p><strong>Base Airport:</strong> <span id="base-airport">LKLT</span></p>
+            <p><strong data-translate="price-per-hour-label"></strong> <span id="price"></span></p>
+            <p><strong data-translate="range-label"></strong> <span id="range"></span></p>
+            <p><strong data-translate="speed-label"></strong> <span id="speed"></span></p>
+            <p><strong data-translate="night-rated-label"></strong> <span id="night-rated"></span></p>
+            <p><strong data-translate="avionics-label"></strong> <span id="avionics-type"></span></p>
+            <p><strong data-translate="base-airport-label"></strong> <span id="base-airport">LKLT</span>
+            </p>
           </div>
 
           <!-- Discount note at the very bottom of the text area -->
-          <p style="margin-top: 40px; font-style: italic; color: #2d2d2d;">
-            * When purchasing 10 hours, you will receive a 5% discount.
-            <br /> * Prices don't include 21% VAT
+          <p style="margin-top: 40px; font-style: italic; color: #2d2d2d;" data-translate="discount-note">
           </p>
         </div>
 
@@ -415,27 +424,22 @@
 
           <div class="background-overlay"></div>
 
-
           <div class="container">
             <!-- Label in the top left corner -->
-            <h6 class="fleet-header" id="reset-message" style="display: none;">Press on image to reset</h6>
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKISR.jpg"
-              data-description="Cessna 150 is a reliable and easy-to-fly trainer ideal for beginner pilots."
-              data-title="Cessna 150" data-aircraft-reg="OK-ISR" data-price="3800 czk" data-range="250 nm (465 km)"
-              data-night-rated="Yes" data-avionics="Garmin G1000">
-              Cessna 150
+            <h6 class="fleet-header" id="reset-message" style="display: none;" data-translate="reset-message"></h6>
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKISR.jpg" data-description=""
+              data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
+              data-speed="" data-translate="cessna">
+
             </h1>
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIT.jpg"
-              data-description="Bristel B23 is a versatile aircraft, suitable for both training and leisure flying."
-              data-title="Bristel B23" data-aircraft-reg="OK-BIT" data-price="3900 czk" data-range="700 nm (1300 km)"
-              data-night-rated="Yes" data-avionics="Garmin G500">
-              Bristel B23
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIT.jpg" data-description=""
+              data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
+              data-speed="" data-translate="bristel">
+
             </h1>
-            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIK.jpg"
-              data-description="Tecnam P2008JC is a modern, lightweight aircraft perfect for flight training and touring."
-              data-title="Tecnam P2008JC" data-aircraft-reg="OK-BIK" data-price="3490 czk" data-range="520 nm (960 km)"
-              data-night-rated="No" data-avionics="Avidyne IFD540">
-              Tecnam P2008JC
+            <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIK.jpg" data-description=""
+              data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
+              data-speed="" data-translate="tecnam">
             </h1>
           </div>
         </section>
@@ -453,12 +457,10 @@
                 </video>
                 <div class="overlay">
                   <div class="container">
-                    <h1 data-swiper-slide-index="1">Cessna 150</h1>
-                    <h1 data-swiper-slide-index="2">Bristel B23</h1>
-                    <h1 data-swiper-slide-index="3">Tecnam P2008JC</h1>
-                    <p>
-                      * When purchasing 10 hours, you will receive a 5% discount.
-                      <br /> * Prices don't include 21% VAT
+                    <h1 data-swiper-slide-index="1" data-translate="cessna"></h1>
+                    <h1 data-swiper-slide-index="2" data-translate="bristel"></h1>
+                    <h1 data-swiper-slide-index="3" data-translate="tecnam"></h1>
+                    <p data-translate="fleet-discount-note">
                     </p>
                   </div>
                 </div>
@@ -469,15 +471,18 @@
             <div class="swiper-slide"
               style="background-image: url('assets/images/fleet/OKISR.jpg'); background-size: cover; background-position: center;">
               <div class="paragraph-section-mobile">
-                <h4>Cessna 150</h4>
-                <h6 id="aircraft-reg">OK-ISR</h6>
+                <h4 data-translate="cessna-mobile-title"></h4>
+                <h6 id="aircraft-reg" data-translate="cessna_aircraft-reg"></h6>
                 <div class="aircraft-info">
-                  <p><strong>Price per Hour:</strong> <span>3800 CZK</span></p>
-                  <p><strong>Range:</strong> <span>250 nm (465 km)</span></p>
-                  <p><strong>Speed:</strong> <span>100 knots</span></p>
-                  <p><strong>Night Rated:</strong> <span>Yes</span></p>
-                  <p><strong>Avionics Type:</strong> <span>Garmin G1000</span></p>
-                  <p><strong>Base Airport:</strong> <span>LKLT</span></p>
+                  <p><strong data-translate="price-per-hour-label"></strong> <span data-translate="cessna_price"></span>
+                  </p>
+                  <p><strong data-translate="range-label"></strong> <span data-translate="cessna_range"></span></p>
+                  <p><strong data-translate="speed-label"></strong> <span data-translate="cessna_speed"></span></p>
+                  <p><strong data-translate="night-rated-label"></strong> <span
+                      data-translate="cessna_night-rated"></span></p>
+                  <p><strong data-translate="avionics-label"></strong> <span data-translate="cessna_avionics"></span>
+                  </p>
+                  <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
                 </div>
               </div>
             </div>
@@ -486,15 +491,18 @@
             <div class="swiper-slide"
               style="background-image: url('assets/images/fleet/OKBIT-1.jpg'); background-size: cover; background-position: center;">
               <div class="paragraph-section-mobile">
-                <h4>Bristel B23</h4>
-                <h6 id="aircraft-reg">OK-BIT</h6>
+                <h4 data-translate="bristel-mobile-title"></h4>
+                <h6 id="aircraft-reg" data-translate="bristel_aircraft-reg"></h6>
                 <div class="aircraft-info">
-                  <p><strong>Price per Hour:</strong> <span>3900 CZK</span></p>
-                  <p><strong>Range:</strong> <span>700 nm (1300 km)</span></p>
-                  <p><strong>Speed:</strong> <span>100 knots</span></p>
-                  <p><strong>Night Rated:</strong> <span>Yes</span></p>
-                  <p><strong>Avionics Type:</strong> <span>Garmin G500</span></p>
-                  <p><strong>Base Airport:</strong> <span>LKLT</span></p>
+                  <p><strong data-translate="price-per-hour-label"></strong> <span
+                      data-translate="bristel_price"></span></p>
+                  <p><strong data-translate="range-label"></strong> <span data-translate="bristel_range"></span></p>
+                  <p><strong data-translate="speed-label"></strong> <span data-translate="bristel_speed"></span></p>
+                  <p><strong data-translate="night-rated-label"></strong> <span
+                      data-translate="bristel_night-rated"></span></p>
+                  <p><strong data-translate="avionics-label"></strong> <span data-translate="bristel_avionics"></span>
+                  </p>
+                  <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
                 </div>
               </div>
             </div>
@@ -503,15 +511,18 @@
             <div class="swiper-slide"
               style="background-image: url('assets/images/fleet/OKBIK-3.jpg'); background-size: cover; background-position: center;">
               <div class="paragraph-section-mobile">
-                <h4>Tecnam P2008JC</h4>
-                <h6 id="aircraft-reg">OK-BIK</h6>
+                <h4 data-translate="tecnam-mobile-title"></h4>
+                <h6 id="aircraft-reg" data-translate="tecnam_aircraft-reg"></h6>
                 <div class="aircraft-info">
-                  <p><strong>Price per Hour:</strong> <span>3490 CZK</span></p>
-                  <p><strong>Range:</strong> <span>520 nm (960 km)</span></p>
-                  <p><strong>Speed:</strong> <span>100 knots</span></p>
-                  <p><strong>Night Rated:</strong> <span>No</span></p>
-                  <p><strong>Avionics Type:</strong> <span>Avidyne IFD540</span></p>
-                  <p><strong>Base Airport:</strong> <span>LKLT</span></p>
+                  <p><strong data-translate="price-per-hour-label"></strong> <span data-translate="tecnam_price"></span>
+                  </p>
+                  <p><strong data-translate="range-label"></strong> <span data-translate="tecnam_range"></span></p>
+                  <p><strong data-translate="speed-label"></strong> <span data-translate="tecnam_speed"></span></p>
+                  <p><strong data-translate="night-rated-label"></strong> <span
+                      data-translate="tecnam_night-rated"></span></p>
+                  <p><strong data-translate="avionics-label"></strong> <span data-translate="tecnam_avionics"></span>
+                  </p>
+                  <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
                 </div>
               </div>
             </div>
@@ -539,19 +550,11 @@
           <div class="background-overlay"></div>
 
           <div class="container">
-            <h1 class="hoverable header" data-image="assets/images/team/josef.jpg" data-description="Originally an aircraft mechanic and pilot, in addition to working for Czech Airlines and Travel
-              Service / Smartwings, he also worked in so-called third world countries. He participated in the
-              implementation of ICAO standards in the African Congo. He then got a taste of flying in military
-              conflicts and returned to the Czech Republic after working in Dubai to pass on his experience."
-              data-title="Co-founder & Chief Pilot">
-              Josef Pavlíček
+            <h1 class="hoverable header" data-image="assets/images/team/josef.jpg" data-translate="josef"
+              data-description="" data-title="">
             </h1>
-            <h1 class="hoverable header" data-image="assets/images/team/robert.jpg" data-description="He has been flying since 2011, more often than seen he is heard - as an AFIS dispatcher or as an
-              air traffic controller. Throughout his life, he gradually gained experience as an aviation
-              freelancer, ranging from aircraft avionics maintenance and pilot training to the development and maintenance
-              of flight simulators around the world. Together with Josef, Robert is responsible for the complete
-              management of the company, you can meet him at most Fly Czech activities." data-title="Co-founder & CEO">
-              Robert Scribuck
+            <h1 class="hoverable header" data-image="assets/images/team/robert.jpg" data-translate="robert"
+              data-description="" data-title="">
             </h1>
 
             <div id="description-box"></div>
@@ -559,13 +562,8 @@
         </section>
 
         <div class="paragraph-section"> <!-- Paragraph section -->
-          <h4 id="team-member-title">Our Team</h4>
-          <p id="description-text">
-            Our team, united by a passion for aviation, founded FlyCzech in 2018 to pass on our enthusiasm and
-            contribute to the education of future aviation professionals. We aim to uphold the proud tradition of Czech
-            aviation,
-            improve safety, and provide high-quality training through close cooperation with airlines and aviation
-            organizations.
+          <h4 id="team-member-title" data-translate="team-title" data-default=""></h4>
+          <p id="description-text" data-translate="team-description" data-default="">
           </p>
         </div>
 
@@ -577,8 +575,8 @@
               style="background-image: url('assets/images/team/all.jpg'); background-size: cover; background-position: center; image-resolution: from-image 300dpi;">
               <div class="overlay">
                 <div class="container">
-                  <h1 data-swiper-slide-index="1">Josef Pavlíček</h1>
-                  <h1 data-swiper-slide-index="2">Robert Scribuck</h1>
+                  <h1 data-swiper-slide-index="1" data-translate="josef"></h1>
+                  <h1 data-swiper-slide-index="2" data-translate="robert"></h1>
                 </div>
               </div>
             </div>
@@ -587,13 +585,9 @@
             <div class="swiper-slide"
               style="background-image: url('assets/images/team/josef.jpg'); background-size: cover; background-position: center;">
               <div class="paragraph-section-mobile team-category" onclick="handleTeamCategoryClick(this)">
-                <h4>Josef Pavlíček</h4>
-                <h6>Co-founder & Chief Pilot</h6>
-                <p class="allow-scroll">Originally an aircraft mechanic and pilot, in addition to working for Czech
-                  Airlines and Travel
-                  Service / Smartwings, he also worked in so-called third world countries. He participated in the
-                  implementation of ICAO standards in the African Congo. He then got a taste of flying in military
-                  conflicts and returned to the Czech Republic after working in Dubai to pass on his experience.</p>
+                <h4 data-translate="josef"></h4>
+                <h6 data-translate="josef-role"></h6>
+                <p class="allow-scroll" data-translate="josef-bio"></p>
               </div>
             </div>
 
@@ -601,15 +595,9 @@
             <div class="swiper-slide"
               style="background-image: url('assets/images/team/robert.jpg'); background-size: cover; background-position: center;">
               <div class="paragraph-section-mobile team-category" onclick="handleTeamCategoryClick(this)">
-                <h4>Robert Scribuck</h4>
-                <h6>Co-founder & CEO</h6>
-                <p class="allow-scroll">He has been flying since 2011, more often than seen he is heard - as an AFIS
-                  dispatcher or as an
-                  air traffic controller. Throughout his life, he gradually gained experience as an aviation
-                  freelancer, ranging from aircraft avionics maintenance and pilot training to the development and
-                  maintenance
-                  of flight simulators around the world. Together with Josef, Robert is responsible for the complete
-                  management of the company, you can meet him at most Fly Czech activities.</p>
+                <h4 data-translate="robert"></h4>
+                <h6 data-translate="robert-role"></h6>
+                <p class="allow-scroll" data-translate="robert-bio"></p>
               </div>
             </div>
 
@@ -626,58 +614,49 @@
 
       <!-- Contact area start -->
       <section id="contact" class="section-fullscreen contact-wrap pt-120 pb-120" style="background-color: #f8f6f3;">
-        <div class="container" style="height: 100dvh;"> <!-- Ensure the container scales to full height -->
+        <div class="container" style="height: 100dvh;">
           <div class="section-title-wrap text-center">
-            <h2 class="section-title"><span class="section-title-text">How To Contact Us?</span></h2>
-            <p class="contact-us-description">
-              Ready to take a flight? Whether you're interested in beginning your journey as a pilot, booking an
-              introductory flight, or simply learning more about our courses, we’re here to help! Contact us today, and
-              let’s get you in the air. We are always available on Whatsapp, let’s start your aviation journey together!
+            <h2 class="section-title"><span class="section-title-text" data-translate="contact-title"></span></h2>
+            <p class="contact-us-description" data-translate="contact-description">
             </p>
           </div>
-          <div class="row align-items-center" style="height: 50%;"> <!-- Row takes most of the container height -->
-            <!-- Left Side: Contact Circles -->
+          <div class="row align-items-center" style="height: 50%;">
             <div class="col-md-6 text-center" style="height: 80%;">
               <div class="contact-circle-wrapper"
                 style="display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 20px;">
 
-                <!-- Call Us Circle -->
                 <div class="contact-circle">
                   <a class="contact-icon" href="tel:+420773626601" title="Call Us">
                     <i class="fa fa-phone"></i>
                   </a>
-                  <span class="contact-info">+420 773 626 601</span>
+                  <span class="contact-info" data-translate="contact-phone"></span>
                 </div>
 
-                <!-- WhatsApp Circle -->
                 <div class="contact-circle">
                   <a class="contact-icon" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
                     target="_blank">
                     <i class="fa fa-whatsapp"></i>
                   </a>
-                  <span class="contact-info">Chat with us on WhatsApp</span>
+                  <span class="contact-info" data-translate="contact-whatsapp"></span>
                 </div>
 
-                <!-- Email Us Circle -->
                 <div class="contact-circle">
                   <a class="contact-icon" href="mailto:info@flyczech.eu" title="Send us an Email">
                     <i class="fa fa-envelope"></i>
                   </a>
-                  <span class="contact-info">info@flyczech.eu</span>
+                  <span class="contact-info" data-translate="contact-email"></span>
                 </div>
 
-                <!-- Address Circle -->
                 <div class="contact-circle">
                   <a class="contact-icon" href="https://maps.app.goo.gl/2z5RKhMu3m4Roq21A" title="Open in Google Maps"
                     target="_blank">
                     <i class="fa fa-map-marker"></i>
                   </a>
-                  <span class="contact-info">FlyCzech s.r.o. <br />Hůlkova, 197 00 Praha 19, Czechia</span>
+                  <span class="contact-info" data-translate="contact-address"></span>
                 </div>
               </div>
             </div>
 
-            <!-- Right Side: Google Maps Iframe -->
             <div class="col-md-6 text-center google-maps" style="height: 80%;">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2211.427444748304!2d14.5243626!3d50.1275467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bed50ab240e5b%3A0x810017243311ce41!2sFlyCzech%20s.r.o.!5e1!3m2!1sen!2sil!4v1731859860377!5m2!1sen!2sil"

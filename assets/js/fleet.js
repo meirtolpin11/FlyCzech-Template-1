@@ -10,6 +10,7 @@ const fleetTitle = document.getElementById('fleet-title');
 const aircraftReg = document.getElementById('aircraft-reg');
 const priceElement = document.getElementById('price');
 const rangeElement = document.getElementById('range');
+const speedElement = document.getElementById('speed');
 const nightRatedElement = document.getElementById('night-rated');
 const avionicsTypeElement = document.getElementById('avionics-type');
 const aircraftInfo = document.getElementById('aircraft-info');
@@ -21,11 +22,10 @@ let isPermanentView = false; // Tracks whether the details are permanent (set by
 let clickedHeaderData = null; // Store the data of the clicked header for later use
 
 const defaultBackgroundVideo = 'assets/videos/fleet/fleet.mov';
-const defaultDescription = 'Discover our fleet of top-class aircraft, each designed to offer an exceptional flying experience.';
-const defaultTitle = 'Our Fleet';
 const defaultReg = '';
 const defaultPrice = '';
 const defaultRange = '';
+const defaultSpeed = '';
 const defaultNightRated = '';
 const defaultAvionics = '';
 
@@ -43,11 +43,14 @@ function resetToDefault() {
     clearTimeout(resetTimeout)
 
     // Reset text content to defaults
-    fleetDescriptionText.textContent = defaultDescription;
-    fleetTitle.textContent = defaultTitle;
+    fleetDescriptionText.textContent = fleetDescriptionText.getAttribute('data-default');
+    fleetTitle.textContent = fleetTitle.getAttribute('data-default');
+
+
     aircraftReg.textContent = defaultReg;
     priceElement.textContent = defaultPrice;
     rangeElement.textContent = defaultRange;
+    speedElement.textContent = defaultSpeed;
     nightRatedElement.textContent = defaultNightRated;
     avionicsTypeElement.textContent = defaultAvionics;
     aircraftInfo.style.display = 'none'; // Hide the aircraft info
@@ -86,6 +89,7 @@ fleetHeaders.forEach(header => {
         const reg = this.getAttribute('data-aircraft-reg');
         const price = this.getAttribute('data-price');
         const range = this.getAttribute('data-range');
+        const speed = this.getAttribute('data-speed');
         const nightRated = this.getAttribute('data-night-rated');
         const avionics = this.getAttribute('data-avionics');
 
@@ -113,6 +117,7 @@ fleetHeaders.forEach(header => {
         aircraftReg.textContent = reg;
         priceElement.textContent = price;
         rangeElement.textContent = range;
+        speedElement.textContent = speed;
         nightRatedElement.textContent = nightRated;
         avionicsTypeElement.textContent = avionics;
         aircraftInfo.style.display = 'block'; // Show the aircraft info
@@ -144,6 +149,7 @@ fleetHeaders.forEach(header => {
             aircraftReg.textContent = clickedHeaderData.reg;
             priceElement.textContent = clickedHeaderData.price;
             rangeElement.textContent = clickedHeaderData.range;
+            speedElement.textContent = clickedHeaderData.speed;
             nightRatedElement.textContent = clickedHeaderData.nightRated;
             avionicsTypeElement.textContent = clickedHeaderData.avionics;
             aircraftInfo.style.display = 'block'; // Keep aircraft info visible
@@ -163,6 +169,7 @@ fleetHeaders.forEach(header => {
             reg: this.getAttribute('data-aircraft-reg'),
             price: this.getAttribute('data-price'),
             range: this.getAttribute('data-range'),
+            speed: this.getAttribute('data-speed'),
             nightRated: this.getAttribute('data-night-rated'),
             avionics: this.getAttribute('data-avionics')
         };
@@ -175,6 +182,7 @@ fleetHeaders.forEach(header => {
         aircraftReg.textContent = clickedHeaderData.reg;
         priceElement.textContent = clickedHeaderData.price;
         rangeElement.textContent = clickedHeaderData.range;
+        speedElement.textContent = clickedHeaderData.speed;
         nightRatedElement.textContent = clickedHeaderData.nightRated;
         avionicsTypeElement.textContent = clickedHeaderData.avionics;
         aircraftInfo.style.display = 'block'; // Keep aircraft info visible

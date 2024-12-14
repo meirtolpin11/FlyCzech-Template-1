@@ -14,7 +14,7 @@
 
 @media (max-width: 992px) {
     .section-title-text {
-        font-size: min(2.5rem, 9vw);
+        font-size: min(2.5rem, 8vw);
     }
 
     .contact-us-description {
