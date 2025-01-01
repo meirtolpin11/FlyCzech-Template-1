@@ -45,6 +45,8 @@ function resetToDefault() {
     // Reset text content to defaults
     fleetDescriptionText.textContent = fleetDescriptionText.getAttribute('data-default');
     fleetTitle.textContent = fleetTitle.getAttribute('data-default');
+    fleetDescriptionText.removeAttribute('keep-text');
+    fleetTitle.removeAttribute('keep-text');
 
 
     aircraftReg.textContent = defaultReg;
@@ -112,6 +114,8 @@ fleetHeaders.forEach(header => {
         }, 3000);
 
 
+        fleetDescriptionText.setAttribute('keep-text', '1');
+        fleetTitle.setAttribute('keep-text', '1');
         fleetDescriptionText.textContent = description;
         fleetTitle.textContent = title;
         aircraftReg.textContent = reg;
@@ -145,7 +149,9 @@ fleetHeaders.forEach(header => {
             // Revert to the clicked header details with the selected random image
             fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
             fleetDescriptionText.textContent = clickedHeaderData.description;
+            fleetDescriptionText.setAttribute('keep-text', '1');
             fleetTitle.textContent = clickedHeaderData.title;
+            fleetTitle.setAttribute('keep-text', '1');
             aircraftReg.textContent = clickedHeaderData.reg;
             priceElement.textContent = clickedHeaderData.price;
             rangeElement.textContent = clickedHeaderData.range;
@@ -158,7 +164,12 @@ fleetHeaders.forEach(header => {
         }
     });
 
-    header.addEventListener('click', function () {
+    header.addEventListener('click', function (e) {
+        // Skip if clicked element has id "reset-message"
+        if (e.target.id === 'reset-message') {
+            return;
+        }
+
         isPermanentView = true; // Mark permanent view as active
 
         // Store clicked header's data for later use
@@ -178,7 +189,9 @@ fleetHeaders.forEach(header => {
         fleetVideo.style.display = 'none'; // Hide the video
         fleetElement.style.backgroundImage = `url(${clickedHeaderData.imageUrl})`; // Set the persistent image with random number
         fleetDescriptionText.textContent = clickedHeaderData.description;
+        fleetDescriptionText.setAttribute('keep-text', 1);
         fleetTitle.textContent = clickedHeaderData.title;
+        fleetTitle.setAttribute('keep-text', 1);
         aircraftReg.textContent = clickedHeaderData.reg;
         priceElement.textContent = clickedHeaderData.price;
         rangeElement.textContent = clickedHeaderData.range;

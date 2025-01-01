@@ -246,7 +246,7 @@ async function loadTranslations(lang) {
       });
 
       // Then check for direct translation without attributes
-      if (translations[lang][key]) {
+      if (translations[lang][key] && !el.hasAttribute('keep-text')) {
         el.innerHTML = translations[lang][key];
       }
     });
