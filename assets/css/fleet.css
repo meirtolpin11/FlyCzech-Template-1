@@ -95,7 +95,7 @@
 .fleet-background h1 {
     text-align: right;
     color: white;
-    margin: 0;
+    margin-bottom: 5px !important;
     opacity: 0.6;
     transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
     z-index: 10;

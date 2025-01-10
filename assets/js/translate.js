@@ -1,5 +1,6 @@
 translations = {
   "en": {
+    "price-list": "Price List",
     "nav-home": "Home",
     "nav-services": "Services",
     "nav-experience": "Experience",
@@ -105,6 +106,7 @@ translations = {
     "duration-label": "Duration:"
   },
   "cs": {
+    "price-list": "Price List",
     "nav-home": "Domů",
     "nav-services": "Služby",
     "nav-experience": "Zážitky",

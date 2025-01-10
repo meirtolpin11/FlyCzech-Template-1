@@ -10,6 +10,7 @@
     .pt-120 {
         padding-top: 80px;
     }
+
 }
 
 @media (max-width: 992px) {
@@ -23,5 +24,12 @@
 
     .google-maps {
         display: none !important;
+    }
+
+
+    .contact-circle.social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
