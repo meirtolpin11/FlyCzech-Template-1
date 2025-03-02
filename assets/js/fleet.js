@@ -76,6 +76,8 @@ function resetToDefault() {
     }, 10); // Small delay to ensure CSS transition applies
 }
 
+let currentImg = new Image(); // Create single image object
+
 // Hover behavior for headers (temporary view)
 fleetHeaders.forEach(header => {
     header.addEventListener('mouseenter', function () {
@@ -104,25 +106,29 @@ fleetHeaders.forEach(header => {
         const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
         const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
 
-        // Create new image and preload it
-        const img = new Image();
-        img.onload = () => {
+
+        // Cancel any previous onload handler
+        currentImg.onload = null;
+        currentImg.onload = () => {
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
         };
-        img.src = randomImageUrl;
+        currentImg.src = randomImageUrl;
 
         imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
+
 
         imageRotationInterval = setInterval(() => {
             const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
             const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
 
-            // Create new image and preload it
-            const img = new Image();
-            img.onload = () => {
+            // Cancel previous onload handler
+            currentImg.onload = null;
+
+            // Set new onload handler and src
+            currentImg.onload = () => {
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             };
-            img.src = randomImageUrl;
+            currentImg.src = randomImageUrl;
 
             imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
         }, 3000);
