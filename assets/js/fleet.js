@@ -35,6 +35,7 @@ let mouseEnterTimeout = null;
 let resetTimeout = null
 
 function resetToDefault() {
+    console.log("resetToDefault");
     isDefaultView = true; // Mark default view as active
     isPermanentView = false; // Mark permanent view as inactive
     clickedHeaderData = null; // Reset clicked header data
@@ -113,6 +114,14 @@ fleetHeaders.forEach(header => {
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             // After the fade-out completes, set display: none
             mouseEnterTimeout = setTimeout(() => {
+
+                // Show reset message when hovering over header
+                resetMessage.style.display = 'block';
+
+                // Fade out the video
+                fleetVideo.style.opacity = '0';
+                fleetVideo.style.transition = 'opacity 0.5s ease';
+
                 fleetVideo.style.display = 'none';
             }, 300); // Match the transition duration
         };
@@ -150,15 +159,6 @@ fleetHeaders.forEach(header => {
         nightRatedElement.textContent = nightRated;
         avionicsTypeElement.textContent = avionics;
         aircraftInfo.style.display = 'block'; // Show the aircraft info
-
-        // Show reset message when hovering over header
-        resetMessage.style.display = 'block';
-
-        // Fade out the video
-        fleetVideo.style.opacity = '0';
-        fleetVideo.style.transition = 'opacity 0.5s ease';
-
-
 
     });
 
