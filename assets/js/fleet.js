@@ -172,9 +172,10 @@ fleetHeaders.forEach(header => {
         console.log("mouse-leave")
         clearInterval(imageRotationInterval); // Stop rotating images
         imageRotationInterval = null;
+        currentImg.onload = null
+        currentImgInterval.onload = null
 
         if (isPermanentView && clickedHeaderData) {
-            currentImg.onload = null
             // Revert to the clicked header details with the selected random image
             fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
             fleetDescriptionText.textContent = clickedHeaderData.description;
