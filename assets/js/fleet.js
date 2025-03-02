@@ -109,7 +109,14 @@ fleetHeaders.forEach(header => {
         imageRotationInterval = setInterval(() => {
             const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
             const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
-            fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+
+            // Create new image and preload it
+            const img = new Image();
+            img.onload = () => {
+                fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+            };
+            img.src = randomImageUrl;
+
             imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
         }, 3000);
 
