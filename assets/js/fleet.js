@@ -126,6 +126,21 @@ fleetHeaders.forEach(header => {
 
             // Set new onload handler and src
             currentImg.onload = () => {
+
+
+                // Show reset message when hovering over header
+                resetMessage.style.display = 'block';
+
+                // Fade out the video
+                fleetVideo.style.opacity = '0';
+                fleetVideo.style.transition = 'opacity 0.5s ease';
+
+                // After the fade-out completes, set display: none
+                mouseEnterTimeout = setTimeout(() => {
+                    fleetVideo.style.display = 'none';
+                }, 300); // Match the transition duration
+
+
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             };
             currentImg.src = randomImageUrl;
@@ -145,18 +160,6 @@ fleetHeaders.forEach(header => {
         nightRatedElement.textContent = nightRated;
         avionicsTypeElement.textContent = avionics;
         aircraftInfo.style.display = 'block'; // Show the aircraft info
-
-        // Show reset message when hovering over header
-        resetMessage.style.display = 'block';
-
-        // Fade out the video
-        fleetVideo.style.opacity = '0';
-        fleetVideo.style.transition = 'opacity 0.5s ease';
-
-        // After the fade-out completes, set display: none
-        mouseEnterTimeout = setTimeout(() => {
-            fleetVideo.style.display = 'none';
-        }, 300); // Match the transition duration
 
     });
 
