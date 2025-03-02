@@ -150,7 +150,7 @@ fleetHeaders.forEach(header => {
             currentImgInterval.src = randomImageUrl;
 
             imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
-        }, 3000);
+        }, 5000);
 
 
         fleetDescriptionText.setAttribute('keep-text', '1');
