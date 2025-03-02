@@ -108,27 +108,32 @@ fleetHeaders.forEach(header => {
         const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
         const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
 
-
         // Cancel any previous onload handler
+        console.log('Setting initial image:', randomImageUrl);
         currentImg.onload = null;
         currentImg.onload = () => {
+            console.log('Initial image loaded');
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+
+            // Fade out the video
+            fleetVideo.style.opacity = '0';
+            fleetVideo.style.transition = 'opacity 0.5s ease';
         };
         currentImg.src = randomImageUrl;
 
         imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
 
-
         imageRotationInterval = setInterval(() => {
             const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
             const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
+            console.log('Rotating to image:', randomImageUrl);
 
             // Cancel previous onload handler
             currentImgInterval.onload = null;
 
             // Set new onload handler and src
             currentImgInterval.onload = () => {
-
+                console.log('Rotated image loaded');
 
                 // Show reset message when hovering over header
                 resetMessage.style.display = 'block';
@@ -139,9 +144,9 @@ fleetHeaders.forEach(header => {
 
                 // After the fade-out completes, set display: none
                 mouseEnterTimeout = setTimeout(() => {
+                    console.log('Video fade out complete');
                     fleetVideo.style.display = 'none';
                 }, 300); // Match the transition duration
-
 
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             };
