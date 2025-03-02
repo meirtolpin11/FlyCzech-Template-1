@@ -128,29 +128,28 @@ fleetHeaders.forEach(header => {
                 fleetVideo.style.display = 'none';
             }, 300); // Match the transition duration
 
+            // Start image rotation after initial image loads
+            imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
+
+            imageRotationInterval = setInterval(() => {
+                const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
+                const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
+                console.log('Rotating to image:', randomImageUrl);
+
+                // Cancel previous onload handler
+                currentImgInterval.onload = null;
+
+                // Set new onload handler and src
+                currentImgInterval.onload = () => {
+                    console.log('Rotated image loaded');
+                    fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+                };
+                currentImgInterval.src = randomImageUrl;
+
+                imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
+            }, 5000);
         };
         currentImg.src = randomImageUrl;
-
-        imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
-
-        imageRotationInterval = setInterval(() => {
-            const imageUrlWithoutExtension = imageUrl.replace('.jpg', '');
-            const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
-            console.log('Rotating to image:', randomImageUrl);
-
-            // Cancel previous onload handler
-            currentImgInterval.onload = null;
-
-            // Set new onload handler and src
-            currentImgInterval.onload = () => {
-                console.log('Rotated image loaded');
-
-                fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
-            };
-            currentImgInterval.src = randomImageUrl;
-
-            imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
-        }, 5000);
 
 
         fleetDescriptionText.setAttribute('keep-text', '1');
