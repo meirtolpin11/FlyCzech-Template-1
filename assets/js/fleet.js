@@ -78,6 +78,7 @@ function resetToDefault() {
 }
 
 let currentImg = new Image(); // Create single image object
+let currentImgInterval = new Image(); // Create single image object
 
 // Hover behavior for headers (temporary view)
 fleetHeaders.forEach(header => {
@@ -123,10 +124,10 @@ fleetHeaders.forEach(header => {
             const randomImageUrl = `${imageUrlWithoutExtension}-${imageIndex}.jpg`;
 
             // Cancel previous onload handler
-            currentImg.onload = null;
+            currentImgInterval.onload = null;
 
             // Set new onload handler and src
-            currentImg.onload = () => {
+            currentImgInterval.onload = () => {
 
 
                 // Show reset message when hovering over header
@@ -144,7 +145,7 @@ fleetHeaders.forEach(header => {
 
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             };
-            currentImg.src = randomImageUrl;
+            currentImgInterval.src = randomImageUrl;
 
             imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
         }, 3000);
