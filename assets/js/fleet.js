@@ -108,11 +108,11 @@ fleetHeaders.forEach(header => {
 
 
         // Cancel any previous onload handler
-        img.onload = null;
-        img.onload = () => {
+        currentImg.onload = null;
+        currentImg.onload = () => {
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
         };
-        img.src = randomImageUrl;
+        currentImg.src = randomImageUrl;
 
         imageIndex = (imageIndex % 3) + 1; // Cycle through images 1 to 3
 
