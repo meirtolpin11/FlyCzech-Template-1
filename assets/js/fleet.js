@@ -111,6 +111,10 @@ fleetHeaders.forEach(header => {
         currentImg.onload = null;
         currentImg.onload = () => {
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+            // After the fade-out completes, set display: none
+            mouseEnterTimeout = setTimeout(() => {
+                fleetVideo.style.display = 'none';
+            }, 300); // Match the transition duration
         };
         currentImg.src = randomImageUrl;
 
@@ -127,6 +131,7 @@ fleetHeaders.forEach(header => {
             // Set new onload handler and src
             currentImg.onload = () => {
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
+
             };
             currentImg.src = randomImageUrl;
 
@@ -153,10 +158,7 @@ fleetHeaders.forEach(header => {
         fleetVideo.style.opacity = '0';
         fleetVideo.style.transition = 'opacity 0.5s ease';
 
-        // After the fade-out completes, set display: none
-        mouseEnterTimeout = setTimeout(() => {
-            fleetVideo.style.display = 'none';
-        }, 300); // Match the transition duration
+
 
     });
 
