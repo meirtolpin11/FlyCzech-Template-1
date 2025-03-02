@@ -162,6 +162,7 @@ fleetHeaders.forEach(header => {
 
     // On hover out, revert to the clicked header's details if permanent
     header.addEventListener('mouseleave', function () {
+        console.log("mouse-leave")
         clearInterval(imageRotationInterval); // Stop rotating images
         imageRotationInterval = null;
 
