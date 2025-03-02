@@ -115,9 +115,19 @@ fleetHeaders.forEach(header => {
             console.log('Initial image loaded');
             fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
 
+            // Show reset message when hovering over header
+            resetMessage.style.display = 'block';
+
             // Fade out the video
             fleetVideo.style.opacity = '0';
             fleetVideo.style.transition = 'opacity 0.5s ease';
+
+            // After the fade-out completes, set display: none
+            mouseEnterTimeout = setTimeout(() => {
+                console.log('Video fade out complete');
+                fleetVideo.style.display = 'none';
+            }, 300); // Match the transition duration
+
         };
         currentImg.src = randomImageUrl;
 
@@ -134,19 +144,6 @@ fleetHeaders.forEach(header => {
             // Set new onload handler and src
             currentImgInterval.onload = () => {
                 console.log('Rotated image loaded');
-
-                // Show reset message when hovering over header
-                resetMessage.style.display = 'block';
-
-                // Fade out the video
-                fleetVideo.style.opacity = '0';
-                fleetVideo.style.transition = 'opacity 0.5s ease';
-
-                // After the fade-out completes, set display: none
-                mouseEnterTimeout = setTimeout(() => {
-                    console.log('Video fade out complete');
-                    fleetVideo.style.display = 'none';
-                }, 300); // Match the transition duration
 
                 fleetElement.style.backgroundImage = `url(${randomImageUrl})`;
             };
