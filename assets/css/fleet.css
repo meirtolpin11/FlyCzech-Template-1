@@ -40,6 +40,8 @@
 
 
 .fleet-header {
+    position: relative;
+    z-index: 1010 !important;
     margin: 2px !important;
 }
 
