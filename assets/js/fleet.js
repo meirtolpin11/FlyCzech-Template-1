@@ -209,9 +209,18 @@ fleetHeaders.forEach(header => {
             avionics: this.getAttribute('data-avionics')
         };
 
-        // Update persistent view
-        fleetVideo.style.display = 'none'; // Hide the video
-        fleetElement.style.backgroundImage = `url(${clickedHeaderData.imageUrl})`; // Set the persistent image with random number
+
+        currentImg.onload = null;
+        currentImg.onload = () => {
+            fleetElement.style.backgroundImage = `url(${clickedHeaderData.imageUrl.trim()})`; // Set background after load
+
+            // Update persistent view
+            fleetVideo.style.display = 'none'; // Hide the video
+        };
+        // Extract the URL from the background-image CSS property and remove url() wrapper
+        const imageUrl = clickedHeaderData.imageUrl.replace(/^url\(['"]?|['"]?\)$/g, '').trim();
+        currentImg.src = imageUrl;
+
         fleetDescriptionText.textContent = clickedHeaderData.description;
         fleetDescriptionText.setAttribute('keep-text', 1);
         fleetTitle.textContent = clickedHeaderData.title;
