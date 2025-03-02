@@ -171,6 +171,7 @@ fleetHeaders.forEach(header => {
         imageRotationInterval = null;
 
         if (isPermanentView && clickedHeaderData) {
+            currentImg.onload = null
             // Revert to the clicked header details with the selected random image
             fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
             fleetDescriptionText.textContent = clickedHeaderData.description;
