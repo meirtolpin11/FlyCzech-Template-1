@@ -71,6 +71,7 @@ function resetToDefault() {
 
         // Remove the background photo after the fade-in completes
         setTimeout(() => {
+            console.log("Removing backgroiup - resetTimeout")
             currentImg.onload = null
             fleetElement.style.backgroundImage = ''; // Remove the photo
         }, 300); // Match the fade-in duration (0.5s)
