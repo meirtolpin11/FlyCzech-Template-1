@@ -33,6 +33,7 @@ let imageRotationInterval = null; // Stores the interval for image rotation
 
 let mouseEnterTimeout = null;
 let resetTimeout = null
+let resetBackgroundTimeout = null
 
 function resetToDefault() {
     isDefaultView = true; // Mark default view as active
@@ -70,7 +71,7 @@ function resetToDefault() {
         fleetVideo.style.opacity = '1'; // Start fading in
 
         // Remove the background photo after the fade-in completes
-        setTimeout(() => {
+        resetBackgroundTimeout = setTimeout(() => {
             console.log("Removing backgroiup - resetTimeout")
             currentImg.onload = null
             fleetElement.style.backgroundImage = ''; // Remove the photo
@@ -89,6 +90,7 @@ fleetHeaders.forEach(header => {
         console.log("mouse enter - clear timeout")
         clearTimeout(mouseEnterTimeout)
         clearTimeout(resetTimeout)
+        clearTimeout(resetBackgroundTimeout)
 
         const imageUrl = this.getAttribute('data-image');
         const description = this.getAttribute('data-description');
