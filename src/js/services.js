@@ -5,9 +5,7 @@ var autoplay = true
 
 // Add event listener for each bullet's animation end to trigger next slide
 paginationBullets.forEach(bullet => {
-    console.log(bullet)
     bullet.addEventListener('animationend', () => {
-        console.log("Animation ended");
         if (autoplay) {
             // swiper.slideNext();  // Move to next slide when animation ends
         } else {
@@ -93,8 +91,6 @@ function handleServiceCategoryClick(element) {
         // Non-phone: Open the URL in a new tab
         if (url) {
             window.open(url, '_blank');
-        } else {
-            console.error('No URL found for this service category');
         }
     }
 }

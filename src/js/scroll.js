@@ -193,7 +193,6 @@ document.getElementById("prev-page-button").addEventListener("click", () => hand
 document.querySelectorAll(".nav-link").forEach((link, index) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log(link, index)
         handleNavLinkClick(link, index);
     });
 });

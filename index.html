@@ -23,21 +23,19 @@
     href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,100;0,200;0,400;0,500;0,600;1,1&family=Quicksand:wght@500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- All CSS Files -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/icofont.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/our-team.css">
-  <link rel="stylesheet" href="assets/css/fleet.css">
-  <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/services.css">
-  <link rel="stylesheet" href="assets/css/button.css">
-  <link rel="stylesheet" href="assets/css/swiper.css">
-  <link rel="stylesheet" href="assets/css/contact-us.css">
-
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="assets/css/common.css"> -->
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/components/navbar.css">
+  <link rel="stylesheet" href="src/css/components/fleet.css">
+  <link rel="stylesheet" href="src/css/components/our-team.css">
+  <link rel="stylesheet" href="src/css/components/services.css">
+  <link rel="stylesheet" href="src/css/components/button.css">
+  <link rel="stylesheet" href="src/css/components/swiper.css">
 
   <!-- Accessibility -->
   <meta name="robots" content="index, follow">
@@ -52,7 +50,7 @@
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="preload" href="assets/images/team/josef.jpg" as="imag">
+  <link rel="preload" href="assets/images/team/josef.jpg" as="image">
   <link rel="preload" href="assets/images/team/robert.jpg" as="image">
 
   <link rel="preload" href="assets/images/fleet/OKISR-1.jpg" as="image">
@@ -60,11 +58,12 @@
   <link rel="preload" href="assets/images/fleet/OKBIT-1.jpg" as="image">
   <link rel="preload" href="assets/images/fleet/OKMIL-1.jpg" as="image">
 
-  <script src="assets/js/translate.js"></script>
+  <script src="src/js/translate.js"></script>
 
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
 
   <!-- Main page wrapper start -->
@@ -114,11 +113,11 @@
               </div>
 
               <div class="btn-group language-switch pe-3" role="group" aria-label="Language selector">
-                <button id="switch-lang-en" class="btn btn-outline-light btn-sm mx-1">
+                <button id="switch-lang-en" class="btn btn-outline-light btn-sm mx-1" aria-label="Switch to English">
                   <span class="fw-bold">EN</span>
                 </button>
                 <div class="vr mx-1"></div>
-                <button id="switch-lang-cs" class="btn btn-outline-light btn-sm mx-1">
+                <button id="switch-lang-cs" class="btn btn-outline-light btn-sm mx-1" aria-label="Přepnout do češtiny">
                   <span class="fw-bold">CS</span>
                 </button>
               </div>
@@ -136,7 +135,7 @@
     <!-- Header end -->
 
     <!-- Page content area start -->
-    <main>
+    <main id="main-content">
       <!-- Banner area start -->
       <section class="section-fullscreen banner-wrap pb-130" id="home">
         <!-- Slider main container -->
@@ -252,7 +251,7 @@
                       <p class="services-description" data-translate="icao-description">
                       </p>
                       <p class="services-detail"><strong data-translate="duration-label"></strong> <span
-                          data-translate="icao-duration">>/span></p>
+                          data-translate="icao-duration"></span></p>
                       <p class="services-detail"><strong data-translate="price-label"></strong> <span
                           data-translate="icao-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
@@ -750,17 +749,20 @@
   </div>
   <!-- Main page wrapper end -->
 
-  <!-- All Javascript Files -->
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js//lottie-player.js"></script>
-  <script src="assets/js/scripts.js?ver=1.0"></script>
-  <script src="assets/js/our-team.js"></script>
-  <script src="assets/js/fleet.js"></script>
-  <script src="assets/js/scroll.js"></script>
-  <script src="assets/js/video.js"></script>
-  <script src="assets/js/services.js"></script>
+  <!-- Vendor JS -->
+  <script src="vendor/js/jquery-3.6.0.min.js"></script>
+  <script src="vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/js/swiper-bundle.min.js"></script>
+  <script src="vendor/js/lottie-player.js"></script>
+
+  <!-- App JS -->
+  <script src="src/js/config.js"></script>
+  <script src="src/js/scripts.js"></script>
+  <script src="src/js/our-team.js"></script>
+  <script src="src/js/fleet.js"></script>
+  <script src="src/js/scroll.js"></script>
+  <script src="src/js/video.js"></script>
+  <script src="src/js/services.js"></script>
 
 </body>
 
