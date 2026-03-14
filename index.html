@@ -23,21 +23,19 @@
     href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,100;0,200;0,400;0,500;0,600;1,1&family=Quicksand:wght@500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- All CSS Files -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/icofont.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/our-team.css">
-  <link rel="stylesheet" href="assets/css/fleet.css">
-  <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/services.css">
-  <link rel="stylesheet" href="assets/css/button.css">
-  <link rel="stylesheet" href="assets/css/swiper.css">
-  <link rel="stylesheet" href="assets/css/contact-us.css">
-
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="assets/css/common.css"> -->
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/components/navbar.css">
+  <link rel="stylesheet" href="src/css/components/fleet.css">
+  <link rel="stylesheet" href="src/css/components/our-team.css">
+  <link rel="stylesheet" href="src/css/components/services.css">
+  <link rel="stylesheet" href="src/css/components/button.css">
+  <link rel="stylesheet" href="src/css/components/swiper.css">
 
   <!-- Accessibility -->
   <meta name="robots" content="index, follow">
@@ -52,7 +50,7 @@
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="preload" href="assets/images/team/josef.jpg" as="imag">
+  <link rel="preload" href="assets/images/team/josef.jpg" as="image">
   <link rel="preload" href="assets/images/team/robert.jpg" as="image">
 
   <link rel="preload" href="assets/images/fleet/OKISR-1.jpg" as="image">
@@ -60,11 +58,12 @@
   <link rel="preload" href="assets/images/fleet/OKBIT-1.jpg" as="image">
   <link rel="preload" href="assets/images/fleet/OKMIL-1.jpg" as="image">
 
-  <script src="assets/js/translate.js"></script>
+  <script src="src/js/translate.js"></script>
 
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
 
   <!-- Main page wrapper start -->
@@ -114,11 +113,11 @@
               </div>
 
               <div class="btn-group language-switch pe-3" role="group" aria-label="Language selector">
-                <button id="switch-lang-en" class="btn btn-outline-light btn-sm mx-1">
+                <button id="switch-lang-en" class="btn btn-outline-light btn-sm mx-1" aria-label="Switch to English">
                   <span class="fw-bold">EN</span>
                 </button>
                 <div class="vr mx-1"></div>
-                <button id="switch-lang-cs" class="btn btn-outline-light btn-sm mx-1">
+                <button id="switch-lang-cs" class="btn btn-outline-light btn-sm mx-1" aria-label="Přepnout do češtiny">
                   <span class="fw-bold">CS</span>
                 </button>
               </div>
@@ -136,7 +135,7 @@
     <!-- Header end -->
 
     <!-- Page content area start -->
-    <main>
+    <main id="main-content">
       <!-- Banner area start -->
       <section class="section-fullscreen banner-wrap pb-130" id="home">
         <!-- Slider main container -->
@@ -184,7 +183,7 @@
                   <div class="services-wrapper">
                     <!-- PPL Section -->
                     <div class="services-category"
-                      data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20am%20interested%20in%20learning%20more%20about%20the%20Private%20Pilot%20License%20(PPL)%20program.%20Could%20you%20please%20provide%20me%20with%20more%20details%20about%20the%20course%20structure,%20schedule,%20and%20requirements?"
+                      data-url="https://www.flyczech.eu/soukromy-pilot-letounu/"
                       style="cursor: pointer;">
                       <h2 class="services-title" data-translate="ppl-title"></h2>
                       <p class="services-description" data-translate="ppl-description">
@@ -195,17 +194,18 @@
                       <p class="services-detail"><strong data-translate="price-label"></strong> <span
                           data-translate="ppl-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
-                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
-                          title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
-                            data-translate="contact-cta"></span>
+                        <a class="contact-button contact-button-more-info" href="https://www.flyczech.eu/soukromy-pilot-letounu/" target="_blank" rel="noopener">
+                          <i class="fa fa-external-link"></i> <span data-translate="more-details"></span>
+                        </a>
+                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp" target="_blank">
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
 
                     <!-- Night Rating Section -->
                     <div class="services-category"
-                      data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20would%20like%20to%20know%20more%20about%20the%20Night%20Rating%20course.%20Could%20you%20please%20share%20information%20about%20the%20training%20requirements%20and%20available%20schedules?"
+                      data-url="https://www.flyczech.eu/letecka-skola/vfr-noc/"
                       style="cursor: pointer;">
                       <h2 class="services-title" data-translate="night-rating-title"></h2>
                       <p class="services-description" data-translate="night-rating-description">
@@ -216,17 +216,18 @@
                       <p class="services-detail"><strong data-translate="price-label"></strong> <span
                           data-translate="night-rating-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
-                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
-                          title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
-                            data-translate="contact-cta"></span>
+                        <a class="contact-button contact-button-more-info" href="https://www.flyczech.eu/letecka-skola/vfr-noc/" target="_blank" rel="noopener">
+                          <i class="fa fa-external-link"></i> <span data-translate="more-details"></span>
+                        </a>
+                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp" target="_blank">
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
 
                     <!-- Radiology Section -->
                     <div class="services-category"
-                      data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20am%20interested%20in%20the%20Radiology%20Certification%20course.%20Could%20you%20please%20provide%20details%20about%20the%20course%20content%20and%20certification%20process?"
+                      data-url="https://www.flyczech.eu/vflonline/"
                       style="cursor: pointer;">
                       <h2 class="services-title" data-translate="radio-title"></h2>
                       <p class="services-description" data-translate="radio-description">
@@ -236,30 +237,32 @@
                       <p class="services-detail"><strong data-translate="price-label"></strong> <span
                           data-translate="radio-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
-                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
-                          title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
-                            data-translate="contact-cta"></span>
+                        <a class="contact-button contact-button-more-info" href="https://www.flyczech.eu/vflonline/" target="_blank" rel="noopener">
+                          <i class="fa fa-external-link"></i> <span data-translate="more-details"></span>
+                        </a>
+                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp" target="_blank">
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
 
                     <!-- ICAO English Section -->
                     <div class="services-category"
-                      data-url="https://wa.me/+420773626601?text=Hi%20FlyCzech!%20I%20would%20like%20to%20learn%20more%20about%20the%20ICAO%20English%20Training%20course.%20Could%20you%20please%20share%20information%20about%20the%20course%20levels%20and%20assessment%20process?"
+                      data-url="https://www.flyczech.eu/letecka-skola/aviation-english/zkouska-anglictiny-icao/"
                       style="cursor: pointer;">
                       <h2 class="services-title" data-translate="icao-title"></h2>
                       <p class="services-description" data-translate="icao-description">
                       </p>
                       <p class="services-detail"><strong data-translate="duration-label"></strong> <span
-                          data-translate="icao-duration">>/span></p>
+                          data-translate="icao-duration"></span></p>
                       <p class="services-detail"><strong data-translate="price-label"></strong> <span
                           data-translate="icao-price"></span></p>
                       <div class="service-button contact-button-wrapper contact-button-wrapper-slide-3">
-                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601"
-                          title="Chat with us on WhatsApp" target="_blank">
-                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span
-                            data-translate="contact-cta"></span>
+                        <a class="contact-button contact-button-more-info" href="https://www.flyczech.eu/letecka-skola/aviation-english/zkouska-anglictiny-icao/" target="_blank" rel="noopener">
+                          <i class="fa fa-external-link"></i> <span data-translate="more-details"></span>
+                        </a>
+                        <a class="contact-button contact-button-whatsapp" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp" target="_blank">
+                          <i class="fa fa-whatsapp" style="font-size:1.25rem"></i> <span data-translate="contact-cta"></span>
                         </a>
                       </div>
                     </div>
@@ -404,6 +407,10 @@
             <p><strong data-translate="avionics-label"></strong> <span id="avionics-type"></span></p>
             <p><strong data-translate="base-airport-label"></strong> <span id="base-airport">LKLT</span>
             </p>
+            <a id="aircraft-more-info" class="contact-button contact-button-more-info" href="#" target="_blank" rel="noopener">
+              <i class="fa fa-external-link"></i>
+              <span data-translate="more-info"></span>
+            </a>
           </div>
 
           <!-- Discount note at the very bottom of the text area -->
@@ -429,25 +436,25 @@
 
             <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKMIL.jpg" data-description=""
               data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
-              data-speed="" data-translate="cessna 172">
+              data-speed="" data-url="https://www.flyczech.eu/flotila/cessna-c172sp-ok-mil" data-translate="cessna 172">
 
             </h1>
 
 
             <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKISR.jpg" data-description=""
               data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
-              data-speed="" data-translate="cessna">
+              data-speed="" data-url="https://www.flyczech.eu/ok-isr/" data-translate="cessna">
 
             </h1>
 
             <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIT.jpg" data-description=""
               data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
-              data-speed="" data-translate="bristel">
+              data-speed="" data-url="https://www.flyczech.eu/flotila/bristell-br23-ok-bit/" data-translate="bristel">
 
             </h1>
             <h1 class="hoverable fleet-header" data-image="assets/images/fleet/OKBIK.jpg" data-description=""
               data-title="" data-aircraft-reg="" data-price="" data-range="" data-night-rated="" data-avionics=""
-              data-speed="" data-translate="tecnam">
+              data-speed="" data-url="https://www.flyczech.eu/flotila/tecnam-p2008jc/" data-translate="tecnam">
             </h1>
           </div>
         </section>
@@ -494,6 +501,7 @@
                       data-translate="cessna 172_avionics"></span>
                   </p>
                   <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
+                  <p><a href="https://www.flyczech.eu/flotila/cessna-c172sp-ok-mil" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> <span data-translate="more-info"></span></a></p>
                 </div>
               </div>
             </div>
@@ -514,6 +522,7 @@
                   <p><strong data-translate="avionics-label"></strong> <span data-translate="cessna_avionics"></span>
                   </p>
                   <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
+                  <p><a href="https://www.flyczech.eu/ok-isr/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> <span data-translate="more-info"></span></a></p>
                 </div>
               </div>
             </div>
@@ -534,6 +543,7 @@
                   <p><strong data-translate="avionics-label"></strong> <span data-translate="bristel_avionics"></span>
                   </p>
                   <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
+                  <p><a href="https://www.flyczech.eu/flotila/bristell-br23-ok-bit/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> <span data-translate="more-info"></span></a></p>
                 </div>
               </div>
             </div>
@@ -554,6 +564,7 @@
                   <p><strong data-translate="avionics-label"></strong> <span data-translate="tecnam_avionics"></span>
                   </p>
                   <p><strong data-translate="base-airport-label"></strong> <span>LKLT</span></p>
+                  <p><a href="https://www.flyczech.eu/flotila/tecnam-p2008jc/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> <span data-translate="more-info"></span></a></p>
                 </div>
               </div>
             </div>
@@ -750,17 +761,20 @@
   </div>
   <!-- Main page wrapper end -->
 
-  <!-- All Javascript Files -->
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js//lottie-player.js"></script>
-  <script src="assets/js/scripts.js?ver=1.0"></script>
-  <script src="assets/js/our-team.js"></script>
-  <script src="assets/js/fleet.js"></script>
-  <script src="assets/js/scroll.js"></script>
-  <script src="assets/js/video.js"></script>
-  <script src="assets/js/services.js"></script>
+  <!-- Vendor JS -->
+  <script src="vendor/js/jquery-3.6.0.min.js"></script>
+  <script src="vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/js/swiper-bundle.min.js"></script>
+  <script src="vendor/js/lottie-player.js"></script>
+
+  <!-- App JS -->
+  <script src="src/js/config.js"></script>
+  <script src="src/js/scripts.js"></script>
+  <script src="src/js/our-team.js"></script>
+  <script src="src/js/fleet.js"></script>
+  <script src="src/js/scroll.js"></script>
+  <script src="src/js/video.js"></script>
+  <script src="src/js/services.js"></script>
 
 </body>
 

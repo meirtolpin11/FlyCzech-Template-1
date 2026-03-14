@@ -5,9 +5,7 @@ var autoplay = true
 
 // Add event listener for each bullet's animation end to trigger next slide
 paginationBullets.forEach(bullet => {
-    console.log(bullet)
     bullet.addEventListener('animationend', () => {
-        console.log("Animation ended");
         if (autoplay) {
             // swiper.slideNext();  // Move to next slide when animation ends
         } else {
@@ -82,19 +80,18 @@ function handleServiceCategoryClick(element) {
     if (isPhone) {
         const isActive = element.classList.contains('active');
 
-        // Remove "active" class from all elements
-        element.classList.remove('active');
-
-        // Add "active" class if it was not already set
-        if (!isActive) {
+        if (isActive) {
+            // Second tap: collapse the card
+            element.classList.remove('active');
+        } else {
+            // First tap: expand the card
+            document.querySelectorAll('.services-category').forEach(el => el.classList.remove('active'));
             element.classList.add('active');
         }
     } else {
         // Non-phone: Open the URL in a new tab
         if (url) {
             window.open(url, '_blank');
-        } else {
-            console.error('No URL found for this service category');
         }
     }
 }

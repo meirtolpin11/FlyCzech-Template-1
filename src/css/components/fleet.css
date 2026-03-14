@@ -258,6 +258,8 @@
         position: fixed;
         bottom: 80px;
         color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
         padding-left: 10%;
         padding-right: 10%;
         z-index: 999;
@@ -287,7 +289,8 @@
     .paragraph-section-mobile h1,
     .paragraph-section-mobile h4,
     .paragraph-section-mobile h6,
-    .paragraph-section-mobile p {
+    .paragraph-section-mobile p,
+    .paragraph-section-mobile a {
         position: relative;
         z-index: 1001;
         color: white;
@@ -296,6 +299,10 @@
 
     .paragraph-section-mobile p {
         font-size: 1.25rem;
+    }
+
+    .paragraph-section-mobile .aircraft-info a {
+        color: white;
     }
 
 

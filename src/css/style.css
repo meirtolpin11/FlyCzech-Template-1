@@ -3174,4 +3174,55 @@ Airplane Button
 .swiper-button-next {
   /* Optional: Adjust the size or style of the icon as needed */
   font-size: 24px;
+}@media (max-height: 750px) {
+    p.contact-us-description {
+        display: none;
+    }
+
+    .section-title-wrap {
+        padding: 0;
+    }
+
+    .pt-120 {
+        padding-top: 80px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .section-title-text {
+        font-size: min(2.5rem, 8vw);
+    }
+
+    .contact-us-description {
+        display: none !important;
+    }
+
+    .google-maps {
+        display: none !important;
+    }
+
+
+    .contact-circle.social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Skip-to-content link — visible only on keyboard focus */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 4px 4px;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
 }
