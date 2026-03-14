@@ -48,6 +48,30 @@
     /* Spacing between icon and text */
 }
 
+/* More Info Button */
+.contact-button-more-info {
+    background-color: #fff;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    margin-top: 16px;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    transition: background-color 0.2s ease, color 0.2s ease,
+                box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.contact-button-more-info:hover {
+    background-color: #1a1a1a;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    transform: translateY(-2px);
+}
+
+.contact-button-more-info:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
 .button-map {
     background-color: #4285F4;
     /* Google Maps blue color */
