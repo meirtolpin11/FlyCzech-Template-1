@@ -16,6 +16,7 @@ const speedElement         = document.getElementById('speed');
 const nightRatedElement    = document.getElementById('night-rated');
 const avionicsTypeElement  = document.getElementById('avionics-type');
 const aircraftInfo         = document.getElementById('aircraft-info');
+const aircraftMoreInfo     = document.getElementById('aircraft-more-info');
 
 // ---------------------------------------------------------------------------
 // State machine — 'DEFAULT' | 'HOVER' | 'CLICKED'
@@ -64,6 +65,12 @@ function showAircraftInfo(data) {
     nightRatedElement.textContent    = data.nightRated;
     avionicsTypeElement.textContent  = data.avionics;
     aircraftInfo.style.display       = 'block';
+    if (data.url) {
+        aircraftMoreInfo.href = data.url;
+        aircraftMoreInfo.style.display = 'inline-block';
+    } else {
+        aircraftMoreInfo.style.display = 'none';
+    }
 }
 
 function readHeaderData(header) {
@@ -77,6 +84,7 @@ function readHeaderData(header) {
         speed:       header.getAttribute('data-speed'),
         nightRated:  header.getAttribute('data-night-rated'),
         avionics:    header.getAttribute('data-avionics'),
+        url:         header.getAttribute('data-url'),
     };
 }
 
@@ -102,6 +110,7 @@ function setState(newState, data) {
         nightRatedElement.textContent   = '';
         avionicsTypeElement.textContent = '';
         aircraftInfo.style.display      = 'none';
+        aircraftMoreInfo.style.display  = 'none';
         resetMessage.style.display      = 'none';
 
         fleetVideo.style.display = 'block';
@@ -192,7 +201,12 @@ fleetHeaders.forEach(header => {
     header.addEventListener('click', function (e) {
         if (e.target.id === 'reset-message') return;
         const data = readHeaderData(this);
-        data.imageUrl = fleetElement.style.backgroundImage;
+        // If hover already set a rotation image, freeze it; otherwise start from -1
+        if (state === FLEET_STATE.HOVER) {
+            data.imageUrl = fleetElement.style.backgroundImage;
+        } else {
+            data.imageUrl = `url(${data.imageUrl.replace('.jpg', '')}-1.jpg)`;
+        }
         setState(FLEET_STATE.CLICKED, data);
     });
 });
