@@ -58,6 +58,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
     transition: background-color 0.2s ease, color 0.2s ease,
                 box-shadow 0.2s ease, transform 0.15s ease;
+    /* Align with the detail rows above it */
+    display: block;
+    width: fit-content;
+    margin-left: 0;
 }
 
 .contact-button-more-info:hover {

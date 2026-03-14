@@ -67,7 +67,7 @@ function showAircraftInfo(data) {
     aircraftInfo.style.display       = 'block';
     if (data.url) {
         aircraftMoreInfo.href = data.url;
-        aircraftMoreInfo.style.display = 'inline-block';
+        aircraftMoreInfo.style.display = 'block';
     } else {
         aircraftMoreInfo.style.display = 'none';
     }
