@@ -40,6 +40,8 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    touchStartPreventDefault: false,  // Allow tap events on links inside slides
+    preventClicks: false,             // Don't block click events
   });
 
   new Swiper('.process-swiper', {

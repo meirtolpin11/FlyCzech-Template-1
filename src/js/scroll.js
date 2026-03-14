@@ -115,6 +115,9 @@ function handleTouchEnd(e) {
         if (element.classList && element.classList.contains('allow-scroll')) {
             return;
         }
+        if (element.classList && (element.classList.contains('swiper') || element.classList.contains('swiper-container'))) {
+            return;
+        }
         element = element.parentElement;
     }
 
@@ -184,8 +187,8 @@ function handleNavLinkClick(link, index) {
 
 // Event listeners
 window.addEventListener("wheel", handleWheelScroll, { passive: false });
-window.addEventListener('touchstart', handleTouchStart, { passive: false });
-window.addEventListener('touchend', handleTouchEnd, { passive: false });
+window.addEventListener('touchstart', handleTouchStart, { passive: true });
+window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
 document.getElementById("next-page-button").addEventListener("click", () => handleNavButtonClick('next'));
 document.getElementById("prev-page-button").addEventListener("click", () => handleNavButtonClick('prev'));

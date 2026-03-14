@@ -79,6 +79,16 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
+/* Inside service card popup: transparent with white outline */
+.services-category.active .contact-button-more-info {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    box-shadow: none;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
 .button-map {
     background-color: #4285F4;
     /* Google Maps blue color */

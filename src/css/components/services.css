@@ -105,6 +105,21 @@
         z-index: 1005;
     }
 
+    .services-category.active .service-button {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        padding: 8px 0;
+    }
+
+    .services-category.active .service-button .contact-button {
+        margin: 0;
+        width: 80%;
+        justify-content: center;
+    }
+
+
     @keyframes popupFadeIn {
         from {
             opacity: 0;

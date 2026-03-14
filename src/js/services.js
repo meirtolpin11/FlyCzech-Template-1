@@ -80,11 +80,12 @@ function handleServiceCategoryClick(element) {
     if (isPhone) {
         const isActive = element.classList.contains('active');
 
-        // Remove "active" class from all elements
-        element.classList.remove('active');
-
-        // Add "active" class if it was not already set
-        if (!isActive) {
+        if (isActive) {
+            // Second tap: collapse the card
+            element.classList.remove('active');
+        } else {
+            // First tap: expand the card
+            document.querySelectorAll('.services-category').forEach(el => el.classList.remove('active'));
             element.classList.add('active');
         }
     } else {
