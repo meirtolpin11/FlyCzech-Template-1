@@ -58,7 +58,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
     transition: background-color 0.2s ease, color 0.2s ease,
                 box-shadow 0.2s ease, transform 0.15s ease;
-    /* Align with the detail rows above it */
+}
+
+/* In the fleet detail panel: left-align with the spec rows above */
+#aircraft-info .contact-button-more-info {
     display: block;
     width: fit-content;
     margin-left: 0;
