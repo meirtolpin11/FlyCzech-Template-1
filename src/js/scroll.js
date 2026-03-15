@@ -100,7 +100,7 @@ function handleTouchEnd(e) {
     let element = e.target;
     while (element) {
         if (element.classList && element.classList.contains('allow-scroll')) return;
-        if (element.classList && (element.classList.contains('swiper') || element.classList.contains('swiper-container'))) return;
+        if (element.classList && element.classList.contains('swiper-container')) return;
         element = element.parentElement;
     }
 
