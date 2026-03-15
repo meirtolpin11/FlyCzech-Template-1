@@ -97,13 +97,6 @@ function handleTouchStart(e) {
 function handleTouchEnd(e) {
     if (isNavigating) return;
 
-    let element = e.target;
-    while (element) {
-        if (element.classList && element.classList.contains('allow-scroll')) return;
-        if (element.classList && element.classList.contains('swiper-container')) return;
-        element = element.parentElement;
-    }
-
     const touchEndY = e.changedTouches[0].clientY;
     const touchEndX = e.changedTouches[0].clientX;
     const deltaY = touchStartY - touchEndY;
@@ -113,8 +106,17 @@ function handleTouchEnd(e) {
     // Reject horizontal-dominant swipes
     if (deltaX > Math.abs(deltaY)) return;
 
+    // Allow-scroll ancestor: always skip
+    // swiper-container ancestor: only skip for horizontal swipes (already rejected above),
+    // vertical swipes should still navigate sections
+    let element = e.target;
+    while (element) {
+        if (element.classList && element.classList.contains('allow-scroll')) return;
+        element = element.parentElement;
+    }
+
     const velocity = Math.abs(deltaY) / elapsed;   // px/ms
-    const isFlick  = velocity > 0.3;               // fast flick (industry standard ~0.3 px/ms)
+    const isFlick  = velocity > 0.3;               // fast flick
     const isDrag   = Math.abs(deltaY) > 50;        // deliberate slow drag
 
     if (!isFlick && !isDrag) return;
