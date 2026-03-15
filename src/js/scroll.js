@@ -9,23 +9,20 @@ const sections = {
     5: "#contact"
 };
 let currentIndex = 0;
-let latestScrollTime = null;
-let lastDirection = null;
-const timeBetweenScrolls = 100;
+let isNavigating = false;       // lock during scroll animation
 let touchStartY = 0;
 let touchStartX = 0;
+let touchStartTime = 0;
 
 // Navigation functions
 function jumpToSection(index) {
     if (index in sections) {
+        isNavigating = true;
         const section = document.querySelector(sections[index]);
         const top = section.offsetTop;
-        window.scrollTo({
-            top,
-            behavior: 'smooth',
-            duration: 700 // Shorter duration for smoother feel
-        });
+        window.scrollTo({ top, behavior: 'smooth' });
         updateActiveNav(index);
+        setTimeout(() => { isNavigating = false; }, 700);
     }
 }
 
@@ -80,56 +77,49 @@ function handleNavigation(direction) {
     }
 }
 
-function throttleEvent(direction) {
-    if (direction !== lastDirection) {
-        latestScrollTime = null;
-        lastDirection = direction;
-    }
-
-    if (latestScrollTime == null) {
-        latestScrollTime = Date.now();
-    } else if (Date.now() - latestScrollTime < timeBetweenScrolls) {
-        latestScrollTime = Date.now();
-        return false;
-    }
-    latestScrollTime = Date.now();
-    return true;
-}
-
 // Event handlers
+let wheelTimeout = null;
 function handleWheelScroll(e) {
     e.preventDefault();
+    if (isNavigating) return;
+    if (wheelTimeout) return;          // ignore rapid wheel ticks (trackpad inertia)
     const direction = e.deltaY > 0 ? 'down' : 'up';
-    if (!throttleEvent(direction)) return;
     handleNavigation(direction);
+    wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 600);
 }
 
 function handleTouchStart(e) {
     touchStartY = e.touches[0].clientY;
     touchStartX = e.touches[0].clientX;
+    touchStartTime = Date.now();
 }
 
 function handleTouchEnd(e) {
+    if (isNavigating) return;
+
     let element = e.target;
     while (element) {
-        if (element.classList && element.classList.contains('allow-scroll')) {
-            return;
-        }
-        if (element.classList && (element.classList.contains('swiper') || element.classList.contains('swiper-container'))) {
-            return;
-        }
+        if (element.classList && element.classList.contains('allow-scroll')) return;
+        if (element.classList && (element.classList.contains('swiper') || element.classList.contains('swiper-container'))) return;
         element = element.parentElement;
     }
 
     const touchEndY = e.changedTouches[0].clientY;
+    const touchEndX = e.changedTouches[0].clientX;
     const deltaY = touchStartY - touchEndY;
-    const deltaX = Math.abs(e.changedTouches[0].clientX - touchStartX);
-    const threshold = 50;
+    const deltaX = Math.abs(touchEndX - touchStartX);
+    const elapsed = Date.now() - touchStartTime;
 
-    if (deltaX > 50 || Math.abs(deltaY) < threshold) return;
+    // Reject horizontal-dominant swipes
+    if (deltaX > Math.abs(deltaY)) return;
+
+    const velocity = Math.abs(deltaY) / elapsed;   // px/ms
+    const isFlick  = velocity > 0.3;               // fast flick (industry standard ~0.3 px/ms)
+    const isDrag   = Math.abs(deltaY) > 50;        // deliberate slow drag
+
+    if (!isFlick && !isDrag) return;
 
     const direction = deltaY > 0 ? 'down' : 'up';
-    if (!throttleEvent(direction)) return;
     handleNavigation(direction);
 }
 
