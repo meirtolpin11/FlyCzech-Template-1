@@ -14,6 +14,15 @@ let touchStartY = 0;
 let touchStartX = 0;
 let touchStartTime = 0;
 
+function closeNavIfOpen() {
+    const navbar = document.getElementById("navbar");
+    if (navbar && navbar.classList.contains("show")) {
+        new bootstrap.Collapse(navbar, { toggle: false }).hide();
+        return true;
+    }
+    return false;
+}
+
 // Navigation functions
 function jumpToSection(index) {
     if (index in sections) {
@@ -96,6 +105,9 @@ function handleTouchStart(e) {
 
 function handleTouchEnd(e) {
     if (isNavigating) return;
+
+    // If nav menu is open, any swipe closes it instead of navigating
+    if (closeNavIfOpen()) return;
 
     const touchEndY = e.changedTouches[0].clientY;
     const touchEndX = e.changedTouches[0].clientX;
