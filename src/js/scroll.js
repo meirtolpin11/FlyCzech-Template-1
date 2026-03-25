@@ -106,9 +106,6 @@ function handleTouchStart(e) {
 function handleTouchEnd(e) {
     if (isNavigating) return;
 
-    // If nav menu is open, any swipe closes it instead of navigating
-    if (closeNavIfOpen()) return;
-
     const touchEndY = e.changedTouches[0].clientY;
     const touchEndX = e.changedTouches[0].clientX;
     const deltaY = touchStartY - touchEndY;
@@ -119,8 +116,6 @@ function handleTouchEnd(e) {
     if (deltaX > Math.abs(deltaY)) return;
 
     // Allow-scroll ancestor: always skip
-    // swiper-container ancestor: only skip for horizontal swipes (already rejected above),
-    // vertical swipes should still navigate sections
     let element = e.target;
     while (element) {
         if (element.classList && element.classList.contains('allow-scroll')) return;
@@ -132,6 +127,9 @@ function handleTouchEnd(e) {
     const isDrag   = Math.abs(deltaY) > 50;        // deliberate slow drag
 
     if (!isFlick && !isDrag) return;
+
+    // If nav menu is open, swipe closes it instead of navigating
+    if (closeNavIfOpen()) return;
 
     const direction = deltaY > 0 ? 'down' : 'up';
     handleNavigation(direction);
