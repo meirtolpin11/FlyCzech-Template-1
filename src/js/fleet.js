@@ -19,11 +19,11 @@ const aircraftInfo         = document.getElementById('aircraft-info');
 const aircraftMoreInfo     = document.getElementById('aircraft-more-info');
 
 // ---------------------------------------------------------------------------
-// State machine — 'DEFAULT' | 'HOVER' | 'CLICKED'
+// State machine — 'DEFAULT' | 'CLICKED'
 // ---------------------------------------------------------------------------
-const FLEET_STATE = { DEFAULT: 'DEFAULT', HOVER: 'HOVER', CLICKED: 'CLICKED' };
+const FLEET_STATE = { DEFAULT: 'DEFAULT', CLICKED: 'CLICKED' };
 let state = FLEET_STATE.DEFAULT;
-let clickedHeaderData = null;
+let activeHeader = null;
 
 // Consolidated timers — always clear via clearAllTimers()
 const timers = { fadeIn: null, fadeOut: null, bgRemove: null };
@@ -33,22 +33,8 @@ function clearAllTimers() {
     clearTimeout(timers.bgRemove);
 }
 
-// Image objects reused across interactions
-const currentImg         = new Image();
-const currentImgInterval = new Image();
-let imageRotationInterval = null;
-
-// Pause image rotation when the fleet section scrolls out of view
-const fleetObserver = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) stopImageRotation();
-}, { threshold: 0.1 });
-fleetObserver.observe(fleetElement);
-
-function stopImageRotation() {
-    clearInterval(imageRotationInterval);
-    imageRotationInterval = null;
-    currentImgInterval.onload = null;
-}
+// Image object reused across interactions
+const currentImg = new Image();
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -95,9 +81,7 @@ function setState(newState, data) {
     state = newState;
 
     if (newState === FLEET_STATE.DEFAULT) {
-        clickedHeaderData = null;
         clearAllTimers();
-        stopImageRotation();
 
         fleetDescriptionText.textContent = fleetDescriptionText.getAttribute('data-default');
         fleetTitle.textContent           = fleetTitle.getAttribute('data-default');
@@ -111,7 +95,7 @@ function setState(newState, data) {
         avionicsTypeElement.textContent = '';
         aircraftInfo.style.display      = 'none';
         aircraftMoreInfo.style.display  = 'none';
-        resetMessage.style.display      = 'none';
+        if (resetMessage) resetMessage.style.display = 'none';
 
         fleetVideo.style.display = 'block';
         fleetVideo.style.opacity = '0';
@@ -124,56 +108,24 @@ function setState(newState, data) {
             }, 300);
         }, 10);
 
-    } else if (newState === FLEET_STATE.HOVER) {
-        if (!data.imageUrl) return;
-        clearAllTimers();
-        stopImageRotation();
-
-        let imageIndex = 1;
-        const baseUrl  = data.imageUrl.replace('.jpg', '');
-        const firstUrl = `${baseUrl}-${imageIndex}.jpg`;
-
-        // Assign onload BEFORE setting src to avoid cached-image race condition
-        currentImg.onload = null;
-        currentImg.onload = () => {
-            fleetElement.style.backgroundImage = `url(${firstUrl})`;
-            resetMessage.style.display = 'block';
-
-            fleetVideo.style.opacity    = '0';
-            fleetVideo.style.transition = 'opacity 0.5s ease';
-            timers.fadeOut = setTimeout(() => {
-                fleetVideo.style.display = 'none';
-            }, 300);
-
-            imageIndex = (imageIndex % 3) + 1;
-            imageRotationInterval = setInterval(() => {
-                const rotatedUrl = `${baseUrl}-${imageIndex}.jpg`;
-                currentImgInterval.onload = null;
-                currentImgInterval.onload = () => {
-                    fleetElement.style.backgroundImage = `url(${rotatedUrl})`;
-                };
-                currentImgInterval.src = rotatedUrl;
-                imageIndex = (imageIndex % 3) + 1;
-            }, 5000);
-        };
-        currentImg.src = firstUrl;
-
-        showAircraftInfo(data);
-
     } else if (newState === FLEET_STATE.CLICKED) {
-        clickedHeaderData = data;
-        stopImageRotation();
+        clearAllTimers();
 
-        const imageUrl = data.imageUrl.replace(/^url\(['"]?|['"]?\)$/g, '').trim();
-        currentImg.onload = null;
+        const imageUrl = (data.imageUrl || '').replace(/^url\(['"]?|['"]?\)$/g, '').trim();
         currentImg.onload = () => {
-            fleetElement.style.backgroundImage = `url(${imageUrl})`;
+            fleetElement.style.backgroundImage = `url("${imageUrl}")`;
             fleetVideo.style.display = 'none';
         };
-        currentImg.src = imageUrl;
+        if (imageUrl) {
+            currentImg.src = imageUrl;
+            if (currentImg.complete && currentImg.naturalWidth !== 0) {
+                fleetElement.style.backgroundImage = `url("${imageUrl}")`;
+                fleetVideo.style.display = 'none';
+            }
+        }
 
         showAircraftInfo(data);
-        resetMessage.style.display = 'block';
+        if (resetMessage) resetMessage.style.display = 'block';
     }
 }
 
@@ -181,38 +133,44 @@ function setState(newState, data) {
 // Event listeners
 // ---------------------------------------------------------------------------
 fleetHeaders.forEach(header => {
-    header.addEventListener('mouseenter', function () {
-        if (state === FLEET_STATE.CLICKED) return;
-        setState(FLEET_STATE.HOVER, readHeaderData(this));
-    });
+    function toggleHeader(e) {
+        e.stopPropagation();
 
-    header.addEventListener('mouseleave', function () {
-        stopImageRotation();
-        currentImg.onload = null;
-
-        if (state === FLEET_STATE.CLICKED && clickedHeaderData) {
-            fleetElement.style.backgroundImage = clickedHeaderData.imageUrl;
-            showAircraftInfo(clickedHeaderData);
-        } else {
+        // Toggle off if clicking the currently active aircraft
+        if (activeHeader === header) {
             setState(FLEET_STATE.DEFAULT);
+            header.classList.remove('active');
+            activeHeader = null;
+            return;
         }
-    });
 
-    header.addEventListener('click', function (e) {
-        if (e.target.id === 'reset-message') return;
-        const data = readHeaderData(this);
-        // If hover already set a rotation image, freeze it; otherwise start from -1
-        if (state === FLEET_STATE.HOVER) {
-            data.imageUrl = fleetElement.style.backgroundImage;
-        } else {
-            data.imageUrl = `url(${data.imageUrl.replace('.jpg', '')}-1.jpg)`;
+        // Deactivate previous header
+        if (activeHeader) {
+            activeHeader.classList.remove('active');
         }
+
+        // Activate clicked header
+        header.classList.add('active');
+        activeHeader = header;
+
+        const data = readHeaderData(header);
         setState(FLEET_STATE.CLICKED, data);
+    }
+
+    header.addEventListener('click', toggleHeader);
+    header.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleHeader(e);
+        }
     });
 });
 
-fleetElement.addEventListener('click', function (event) {
-    if (!event.target.closest('.fleet-header')) {
+// Reset to default overview when clicking outside aircraft titles
+document.addEventListener('click', function (e) {
+    if (!e.target.closest('.fleet-header') && !e.target.closest('#aircraft-info') && activeHeader) {
         setState(FLEET_STATE.DEFAULT);
+        if (activeHeader) activeHeader.classList.remove('active');
+        activeHeader = null;
     }
 });
