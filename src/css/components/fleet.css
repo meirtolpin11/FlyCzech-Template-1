@@ -43,6 +43,18 @@
     position: relative;
     z-index: 1010 !important;
     margin: 2px !important;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fleet-header.active {
+    opacity: 1 !important;
+    color: #e5a93c !important; /* Brand accent highlight */
+}
+
+#reset-message {
+    cursor: pointer;
+    user-select: none;
 }
 
 .fleet-div {
