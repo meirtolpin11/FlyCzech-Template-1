@@ -62,7 +62,7 @@
 
 /* In the fleet detail panel: left-align with the spec rows above */
 #aircraft-info .contact-button-more-info {
-    display: block;
+    display: inline-flex;
     width: fit-content;
     margin-left: 0;
 }

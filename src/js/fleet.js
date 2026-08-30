@@ -61,7 +61,7 @@
         if (aircraftMoreInfo) {
             if (data.url) {
                 aircraftMoreInfo.href = data.url;
-                aircraftMoreInfo.style.display = 'block';
+                aircraftMoreInfo.style.display = 'inline-flex';
             } else {
                 aircraftMoreInfo.style.display = 'none';
             }
