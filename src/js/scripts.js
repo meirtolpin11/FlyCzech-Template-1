@@ -114,4 +114,41 @@
     });
   }
 
+  // Airport base card switcher in contact section
+  function initContactBaseSwitcher() {
+    const baseCards = document.querySelectorAll('.contact-base-card');
+    const lkltIframe = document.getElementById('map-iframe-lklt');
+    const lkprIframe = document.getElementById('map-iframe-lkpr');
+
+    baseCards.forEach(card => {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.base-maps-link')) return; // Allow direct maps link navigation
+        const base = this.getAttribute('data-base');
+        baseCards.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+
+        if (base === 'lklt') {
+          if (lkltIframe) lkltIframe.style.display = 'block';
+          if (lkprIframe) lkprIframe.style.display = 'none';
+        } else if (base === 'lkpr') {
+          if (lkltIframe) lkltIframe.style.display = 'none';
+          if (lkprIframe) lkprIframe.style.display = 'block';
+        }
+      });
+
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactBaseSwitcher);
+  } else {
+    initContactBaseSwitcher();
+  }
+
 })(jQuery);
