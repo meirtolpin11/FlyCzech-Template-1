@@ -1829,8 +1829,13 @@ p {
 .contact-wrap {
   position: relative;
   background: url(../images/bg/contact-block.jpg) center center no-repeat fixed;
-  background-size: auto;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 60px 0;
 }
 
 .contact-wrap::before {
@@ -1850,11 +1855,23 @@ p {
   z-index: 1;
 }
 
-#contact .section-title-wrap p {
-  z-index: 2;
-  /* Bring the paragraph to the foreground */
-  position: relative;
-  /* Ensure z-index is applied */
+#contact .section-title-wrap {
+  padding: 0 0 15px 0;
+  margin-bottom: 5px;
+}
+
+#contact .section-title-wrap .section-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0 0 15px 0;
+}
+
+#contact .contact-us-description {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  display: block;
 }
 
 .contact-wrap .section-title-wrap .section-title-text,
