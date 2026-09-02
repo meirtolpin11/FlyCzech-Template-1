@@ -3331,18 +3331,19 @@ Airplane Button
   /* Optional: Adjust the size or style of the icon as needed */
   font-size: 24px;
 }@media (max-height: 750px) {
-    p.contact-us-description {
-        display: none;
-    }
-
     .section-title-wrap {
         padding: 0;
+    }
+
+    .contact-us-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0 auto 10px auto;
     }
 
     .pt-120 {
         padding-top: 80px;
     }
-
 }
 
 @media (max-width: 992px) {
@@ -3351,7 +3352,12 @@ Airplane Button
     }
 
     .contact-us-description {
-        display: none !important;
+        display: block;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        margin: 0 auto 15px auto;
+        padding: 0 10px;
+        color: rgba(255, 255, 255, 0.85);
     }
 
     .google-maps {
