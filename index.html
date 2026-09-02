@@ -658,8 +658,9 @@
             <p class="contact-us-description" data-translate="contact-description">
             </p>
           </div>
-          <div class="row align-items-center">
-            <div class="col-lg-6 text-center">
+          <div class="row align-items-center justify-content-center contact-content-row">
+            <!-- Left Column: Communication channels -->
+            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
               <div class="contact-circle-wrapper">
 
                 <div class="contact-circle">
@@ -673,10 +674,10 @@
 
                 <div class="contact-circle">
                   <a class="contact-icon" href="https://wa.me/+420773626601" title="Chat with us on WhatsApp"
-                    target="_blank">
+                    target="_blank" rel="noopener">
                     <i class="fa fa-whatsapp"></i>
                   </a>
-                  <a href="https://wa.me/+420773626601" target="_blank" style="text-decoration: none; color: inherit;">
+                  <a href="https://wa.me/+420773626601" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
                     <span class="contact-info" data-translate="contact-whatsapp"></span>
                   </a>
                 </div>
@@ -690,62 +691,13 @@
                   </a>
                 </div>
 
-                <!-- Dual Airport Base Cards -->
-                <div class="contact-base-cards">
-                  <!-- Base 1: LKLT (Letňany) -->
-                  <div class="contact-base-card active" id="base-card-lklt" data-base="lklt" tabindex="0" role="button">
-                    <div class="base-card-header">
-                      <div class="base-card-title-group">
-                        <i class="fa fa-plane base-icon"></i>
-                        <div>
-                          <h6 class="base-card-title" data-translate="contact-base-lklt-title">Base Prague Letňany</h6>
-                          <span class="base-card-subtitle" data-translate="contact-base-lklt-role">Primary Flight Training & VFR Base</span>
-                        </div>
-                      </div>
-                      <span class="base-icao-badge">LKLT</span>
-                    </div>
-                    <div class="base-card-body">
-                      <p class="base-address">
-                        <i class="fa fa-map-marker"></i>
-                        <span data-translate="contact-base-lklt-address">Fly Czech s.r.o., Hůlkova 1075/35, 197 00 Praha 19</span>
-                      </p>
-                      <a class="base-maps-link" href="https://maps.app.goo.gl/2z5RKhMu3m4Roq21A" target="_blank" rel="noopener">
-                        <span data-translate="open-in-maps">Open in Google Maps</span> <i class="fa fa-external-link"></i>
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Base 2: LKPR (Václav Havel Airport Prague) -->
-                  <div class="contact-base-card" id="base-card-lkpr" data-base="lkpr" tabindex="0" role="button">
-                    <div class="base-card-header">
-                      <div class="base-card-title-group">
-                        <i class="fa fa-plane base-icon"></i>
-                        <div>
-                          <h6 class="base-card-title" data-translate="contact-base-lkpr-title">Base Prague Václav Havel</h6>
-                          <span class="base-card-subtitle" data-translate="contact-base-lkpr-role">Commercial IFR & Advanced Training</span>
-                        </div>
-                      </div>
-                      <span class="base-icao-badge">LKPR</span>
-                    </div>
-                    <div class="base-card-body">
-                      <p class="base-address">
-                        <i class="fa fa-map-marker"></i>
-                        <span data-translate="contact-base-lkpr-address">Fly Czech s.r.o., Letiště Václava Havla, Aviatická 1092/8, 161 00 Praha 6</span>
-                      </p>
-                      <a class="base-maps-link" href="https://www.google.com/maps/search/?api=1&query=Aviatick%C3%A1+1092%2F8%2C+161+00+Praha+6" target="_blank" rel="noopener">
-                        <span data-translate="open-in-maps">Open in Google Maps</span> <i class="fa fa-external-link"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
                 <div class="contact-circle social-icons">
                   <a class="contact-icon" href="https://www.facebook.com/flyczech" title="Follow us on Facebook"
-                    target="_blank" style="margin-right: 10px;">
+                    target="_blank" rel="noopener" style="margin-right: 12px;">
                     <i class="fa fa-facebook"></i>
                   </a>
                   <a class="contact-icon" href="https://www.instagram.com/flyczech" title="Follow us on Instagram"
-                    target="_blank">
+                    target="_blank" rel="noopener">
                     <i class="fa fa-instagram"></i>
                   </a>
                 </div>
@@ -753,16 +705,54 @@
               </div>
             </div>
 
-            <div class="col-lg-6 text-center google-maps">
-              <div class="maps-container">
-                <iframe id="map-iframe-lklt"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2211.427444748304!2d14.5243626!3d50.1275467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bed50ab240e5b%3A0x810017243311ce41!2sFlyCzech%20s.r.o.!5e1!3m2!1sen!2scz!4v1731859860377!5m2!1sen!2scz"
-                  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-                <iframe id="map-iframe-lkpr"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.043818617871!2d14.2882353!3d50.1062086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95333f2bb9ab%3A0x1d322c335fa3240e!2sAviatick%C3%A1%201092%2F8%2C%20161%2000%20Praha%206!5e0!3m2!1sen!2scz!4v1731859900000!5m2!1sen!2scz"
-                  width="100%" height="100%" style="border:0; display: none;" allowfullscreen="" loading="lazy">
-                </iframe>
+            <!-- Right Column: Dual Airport Base Cards -->
+            <div class="col-lg-7 col-md-6">
+              <div class="contact-base-cards">
+                <!-- Base 1: LKLT (Letňany) -->
+                <div class="contact-base-card" id="base-card-lklt">
+                  <div class="base-card-header">
+                    <div class="base-card-title-group">
+                      <i class="fa fa-plane base-icon"></i>
+                      <div>
+                        <h6 class="base-card-title" data-translate="contact-base-lklt-title">Base Prague Letňany</h6>
+                        <span class="base-card-subtitle" data-translate="contact-base-lklt-role">Primary Flight Training & VFR Base</span>
+                      </div>
+                    </div>
+                    <span class="base-icao-badge">LKLT</span>
+                  </div>
+                  <div class="base-card-body">
+                    <p class="base-address">
+                      <i class="fa fa-map-marker"></i>
+                      <span data-translate="contact-base-lklt-address">Fly Czech s.r.o., Hůlkova 1075/35, 197 00 Praha 19</span>
+                    </p>
+                    <a class="base-maps-button" href="https://maps.app.goo.gl/2z5RKhMu3m4Roq21A" target="_blank" rel="noopener">
+                      <i class="fa fa-map-marker"></i> <span data-translate="open-in-maps">Open in Google Maps</span> <i class="fa fa-external-link"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Base 2: LKPR (Václav Havel Airport Prague) -->
+                <div class="contact-base-card" id="base-card-lkpr">
+                  <div class="base-card-header">
+                    <div class="base-card-title-group">
+                      <i class="fa fa-plane base-icon"></i>
+                      <div>
+                        <h6 class="base-card-title" data-translate="contact-base-lkpr-title">Base Prague Václav Havel</h6>
+                        <span class="base-card-subtitle" data-translate="contact-base-lkpr-role">Commercial IFR & Advanced Training</span>
+                      </div>
+                    </div>
+                    <span class="base-icao-badge">LKPR</span>
+                  </div>
+                  <div class="base-card-body">
+                    <p class="base-address">
+                      <i class="fa fa-map-marker"></i>
+                      <span data-translate="contact-base-lkpr-address">Fly Czech s.r.o., Letiště Václava Havla, Aviatická 1092/8, 161 00 Praha 6</span>
+                    </p>
+                    <a class="base-maps-button" href="https://www.google.com/maps/search/?api=1&query=Aviatick%C3%A1+1092%2F8%2C+161+00+Praha+6" target="_blank" rel="noopener">
+                      <i class="fa fa-map-marker"></i> <span data-translate="open-in-maps">Open in Google Maps</span> <i class="fa fa-external-link"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

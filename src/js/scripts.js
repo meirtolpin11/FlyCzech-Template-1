@@ -119,10 +119,11 @@
     const baseCards = document.querySelectorAll('.contact-base-card');
     const lkltIframe = document.getElementById('map-iframe-lklt');
     const lkprIframe = document.getElementById('map-iframe-lkpr');
+    if (!lkltIframe && !lkprIframe) return;
 
     baseCards.forEach(card => {
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.base-maps-link')) return; // Allow direct maps link navigation
+        if (e.target.closest('.base-maps-button') || e.target.closest('.base-maps-link')) return;
         const base = this.getAttribute('data-base');
         baseCards.forEach(c => c.classList.remove('active'));
         this.classList.add('active');
@@ -133,13 +134,6 @@
         } else if (base === 'lkpr') {
           if (lkltIframe) lkltIframe.style.display = 'none';
           if (lkprIframe) lkprIframe.style.display = 'block';
-        }
-      });
-
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          this.click();
         }
       });
     });
