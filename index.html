@@ -707,7 +707,18 @@
 
             <!-- Right Column: Dual Airport Base Cards -->
             <div class="col-lg-7 col-md-6">
-              <div class="contact-base-cards">
+              <!-- Mobile Tabs Switcher -->
+              <div class="contact-base-tabs-mobile">
+                <button type="button" class="base-tab-btn active" data-target-base="0">
+                  <i class="fa fa-plane"></i> <span data-translate="base-letnany-tab">Letňany</span> <span class="badge-icao">LKLT</span>
+                </button>
+                <button type="button" class="base-tab-btn" data-target-base="1">
+                  <i class="fa fa-plane"></i> <span data-translate="base-vaclav-havel-tab">Václav Havel</span> <span class="badge-icao">LKPR</span>
+                </button>
+              </div>
+
+              <!-- Base Cards Carousel -->
+              <div class="contact-base-cards" id="contact-base-cards-container">
                 <!-- Base 1: LKLT (Letňany) -->
                 <div class="contact-base-card" id="base-card-lklt">
                   <div class="base-card-header">
@@ -753,6 +764,15 @@
                     </a>
                   </div>
                 </div>
+              </div>
+
+              <!-- Mobile Dots & Hint -->
+              <div class="contact-base-dots-mobile">
+                <span class="base-dot active" data-target-base="0" title="Letňany (LKLT)"></span>
+                <span class="base-dot" data-target-base="1" title="Václav Havel (LKPR)"></span>
+              </div>
+              <div class="contact-swipe-hint-mobile">
+                <i class="fa fa-arrows-h"></i> <span data-translate="swipe-base-hint">Swipe to switch airport base</span>
               </div>
             </div>
           </div>

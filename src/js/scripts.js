@@ -114,35 +114,61 @@
     });
   }
 
-  // Airport base card switcher in contact section
-  function initContactBaseSwitcher() {
-    const baseCards = document.querySelectorAll('.contact-base-card');
-    const lkltIframe = document.getElementById('map-iframe-lklt');
-    const lkprIframe = document.getElementById('map-iframe-lkpr');
-    if (!lkltIframe && !lkprIframe) return;
+  // Airport base card mobile swipe and tab switcher
+  function initContactBaseMobileSwipe() {
+    const container = document.getElementById('contact-base-cards-container');
+    const tabs = document.querySelectorAll('.base-tab-btn');
+    const dots = document.querySelectorAll('.base-dot');
+    const cards = document.querySelectorAll('.contact-base-card');
+    if (!container || !cards.length) return;
 
-    baseCards.forEach(card => {
-      card.addEventListener('click', function (e) {
-        if (e.target.closest('.base-maps-button') || e.target.closest('.base-maps-link')) return;
-        const base = this.getAttribute('data-base');
-        baseCards.forEach(c => c.classList.remove('active'));
-        this.classList.add('active');
+    function setActiveIndex(index) {
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
 
-        if (base === 'lklt') {
-          if (lkltIframe) lkltIframe.style.display = 'block';
-          if (lkprIframe) lkprIframe.style.display = 'none';
-        } else if (base === 'lkpr') {
-          if (lkltIframe) lkltIframe.style.display = 'none';
-          if (lkprIframe) lkprIframe.style.display = 'block';
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        const idx = parseInt(this.getAttribute('data-target-base'), 10);
+        if (cards[idx]) {
+          container.scrollTo({
+            left: cards[idx].offsetLeft - container.offsetLeft,
+            behavior: 'smooth'
+          });
+          setActiveIndex(idx);
         }
       });
     });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', function () {
+        const idx = parseInt(this.getAttribute('data-target-base'), 10);
+        if (cards[idx]) {
+          container.scrollTo({
+            left: cards[idx].offsetLeft - container.offsetLeft,
+            behavior: 'smooth'
+          });
+          setActiveIndex(idx);
+        }
+      });
+    });
+
+    let scrollTimeout;
+    container.addEventListener('scroll', function () {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollLeft = container.scrollLeft;
+        const width = container.offsetWidth;
+        const activeIdx = Math.round(scrollLeft / (width || 1));
+        setActiveIndex(Math.min(Math.max(activeIdx, 0), cards.length - 1));
+      }, 50);
+    }, { passive: true });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactBaseSwitcher);
+    document.addEventListener('DOMContentLoaded', initContactBaseMobileSwipe);
   } else {
-    initContactBaseSwitcher();
+    initContactBaseMobileSwipe();
   }
 
 })(jQuery);
