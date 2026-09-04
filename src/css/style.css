@@ -3340,49 +3340,215 @@ Airplane Button
     }
 }
 
-@media (max-width: 992px) {
-    .section-title-text {
-        font-size: min(2.5rem, 8vw);
-    }
+/* Mobile Base Tabs & Carousel Controls */
+.contact-base-tabs-mobile,
+.contact-base-dots-mobile,
+.contact-swipe-hint-mobile {
+  display: none;
+}
 
-    #contact .contact-us-description,
-    .contact-us-description {
-        display: block !important;
-        font-size: 0.95rem !important;
-        line-height: 1.45 !important;
-        margin: 0 auto 15px auto !important;
-        padding: 0 10px;
-        color: rgba(255, 255, 255, 0.95) !important;
-    }
+@media (max-width: 991px) {
+  .contact-wrap {
+    padding: 50px 0;
+    min-height: 100dvh;
+  }
 
-    .contact-circle-wrapper {
-        gap: 12px !important;
-        margin-bottom: 20px;
-    }
+  .section-title-text {
+    font-size: min(2.2rem, 7.5vw);
+  }
 
-    .contact-circle {
-        padding: 4px 8px !important;
-    }
+  #contact .section-title-wrap {
+    margin-bottom: 12px;
+  }
 
-    .contact-circle .contact-info {
-        font-size: 1.05rem;
-    }
+  #contact .contact-us-description,
+  .contact-us-description {
+    display: block !important;
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+    margin: 0 auto 14px auto !important;
+    padding: 0 8px;
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
 
-    .contact-base-card {
-        padding: 14px 16px;
-        margin-bottom: 8px;
-    }
+  /* Compact 2-column grid for contact channels on mobile */
+  .contact-circle-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px !important;
+    margin-bottom: 16px;
+  }
 
-    .contact-base-cards {
-        gap: 12px;
-    }
+  .contact-circle {
+    padding: 6px 10px !important;
+    gap: 10px !important;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    height: auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
 
-    .contact-circle.social-icons {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-top: 5px;
-    }
+  .contact-circle .contact-info {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact-icon {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    font-size: 16px !important;
+  }
+
+  .contact-circle.social-icons {
+    grid-column: span 2;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 2px;
+    gap: 12px !important;
+  }
+
+  .contact-circle.social-icons .contact-icon {
+    margin: 0 !important;
+  }
+
+  /* Mobile Tabs Switcher */
+  .contact-base-tabs-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .base-tab-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    outline: none;
+  }
+
+  .base-tab-btn .badge-icao {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.68rem;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-weight: 800;
+  }
+
+  .base-tab-btn.active {
+    background: #ffd700;
+    border-color: #ffd700;
+    color: #1a1a1a;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.35);
+  }
+
+  .base-tab-btn.active .badge-icao {
+    background: #1a1a1a;
+    color: #ffd700;
+  }
+
+  /* Horizontal swipeable base cards */
+  .contact-base-cards {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 12px !important;
+    padding: 2px 4px 6px 4px !important;
+    scrollbar-width: none !important;
+  }
+
+  .contact-base-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .contact-base-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+    padding: 14px 16px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .contact-base-card .base-card-title {
+    font-size: 1.05rem;
+  }
+
+  .contact-base-card .base-card-subtitle {
+    font-size: 0.78rem;
+  }
+
+  .contact-base-card .base-address {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .contact-base-card .base-maps-button {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* Dots & Swipe Hint */
+  .contact-base-dots-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .base-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .base-dot.active {
+    width: 22px;
+    border-radius: 4px;
+    background: #ffd700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  }
+
+  .contact-swipe-hint-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .contact-swipe-hint-mobile i {
+    animation: swipeHintAnim 2s infinite ease-in-out;
+  }
+
+  @keyframes swipeHintAnim {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
 }
 
 /* Skip-to-content link — visible only on keyboard focus */
